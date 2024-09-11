@@ -7,7 +7,7 @@ In this repo, I'll try to talk about OS
 In brief, an operating system acts as an intermediary between the user of a computer and the computer hardware. The purpose of an operating system is to provide an environment in which a user can execute programs in a convenient and efficient manner. 
 Every important aspects of an Operating System will be taught in this course so as to get a proper understanding about Operating Systems and their design and working.
 
-- You will find lectures on the following topics:
+- You will find them on the following topics:
 1. Introduction to OS.
 
 2. Operating System Structures.
