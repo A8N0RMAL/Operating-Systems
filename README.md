@@ -4,7 +4,7 @@ In this repo, I'll try to talk about OS
 ![image](https://github.com/user-attachments/assets/0abb0ce4-5ba6-4dd0-b9b5-465e96979e8f)
 
 - Operating systems are an essential part of any computer system. Similarly, a course on operating systems is an essential part of any Computer Science as well as Electronics course. This field is undergoing rapid change, as computers are now prevalent in virtually every application. Yet the fundamental concepts remain fairly clear and that is what will be taught in this course.
-In brief, an operating system acts as an intermediary between the user of a computer and the computer hardware. The purpose of an operating system is to provide an environment in which a user can execute programs in a convenient and efficient manner. 
+- In brief, an operating system acts as an intermediary between the user of a computer and the computer hardware. The purpose of an operating system is to provide an environment in which a user can execute programs in a convenient and efficient manner. 
 Every important aspects of an Operating System will be taught in this course so as to get a proper understanding about Operating Systems and their design and working.
 
 - You will find them on the following topics:
@@ -43,7 +43,7 @@ Every important aspects of an Operating System will be taught in this course so 
 ###  Introduction to OS
 - An Operating System (OS) is a program that manages the computer hardware.
 - It also provides a basis for Application Programs and acts as an intermediary between computer User and compter Hardware.
-- Examples of widely used OS include Windows, Linux, Ubuntu, macOS, iOS, and Android. This lecture aims to provide an overview of what an OS is, its functions, and its various types.
+- Examples of widely used OS include Windows, Linux, Ubuntu, macOS, iOS, and Android. Let's take an overview of what an OS is, its functions, and its various types.
 ![image](https://github.com/user-attachments/assets/97fb27a2-382b-4819-9653-17b3593c84a7)
 ---
 
