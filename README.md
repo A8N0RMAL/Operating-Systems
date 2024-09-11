@@ -32,8 +32,8 @@ Every important aspects of an Operating System will be taught in this course so 
 6. Protection and Security
 
 7. Distributed Systems
-  7.1. Distributed System Structures
-  7.2. Distributed File Systems
-  7.3. Distributed Coordination 
+   7.1 Distributed System Structures  
+   7.2 Distributed File Systems  
+   7.3 Distributed Coordination 
 
 8. Special Purpose Systems
