@@ -66,3 +66,51 @@ Every important aspects of an Operating System will be taught in this course so 
 - Efficiency in operating systems involves the effective management of computer resources, ensuring that all users receive appropriate amounts of resources without manual intervention. An OS handles the allocation of resources and management of memory, which is crucial for maintaining optimal performance and avoiding wastage. By automating these tasks, the OS enhances system efficiency, balancing the needs of multiple users and processes effectively. This goal complements the OS's role in providing convenience and is central to its overall design and functionality.
 ![image](https://github.com/user-attachments/assets/75db71ad-a7a2-479c-95e5-a8a89bb40001)
 ---
+
+#### Basics of OS (Computer System Operation)
+##### Some basic knowledge of the structure of Computer System is required to understand how Operating Systems work.
+- A modern general-purpose computer system consists of one or more CPUs and a number of device controllers connected through a common bus that provides access to shared memory.
+![image](https://github.com/user-attachments/assets/6ae4eb11-5743-4dec-b600-f3d45b7f6cec)
+---
+
+##### Undertanding the role of CPUs in modern computer systems
+- A modern computer system typically includes one or more central processing units (CPUs), which are crucial for performing all computational tasks.
+- The CPU, often confused with the entire computer case, is actually a small chip embedded in the motherboard responsible for calculations and processing.
+- The system may also contain various device controllers connected through a common bus to manage hardware components like disks, keyboards, and printers, all of which interact with the CPU to perform their functions.
+
+##### How Device Controllers Manage Hardware and Memory Access
+- Device controllers, such as USB controllers for peripherals and video adapters for displays, manage specific hardware components by regulating their operation.
+- These controllers, along with the CPU, are connected through a common bus to shared memory.
+- This shared memory, often RAM, is finite and must be managed carefully as both the CPU and device controllers can compete for access to it.
+- Each controller is responsible for ensuring the proper functioning of its respective device while interfacing with the shared memory through the common bus.
+
+##### The Role of Memory Controllers in Concurrent Device Operations
+- To handle multiple device operations simultaneously without lag, a memory controller is used to synchronize access to the main memory.
+- When devices such as disk controllers and input peripherals operate concurrently, they all need to access the shared memory for execution.
+- The memory controller ensures that each device and the CPU get their required share of memory, managing access efficiently to prevent conflicts and maintain smooth operation across all devices.
+![image](https://github.com/user-attachments/assets/406b8ad4-31d6-40c4-9b1c-cde2b235444d)
+---
+
+##### The Role and Function of the Bootstrap Program in System Startup
+- The bootstrap program, also known as the bootloader, is the first program executed when a computer is powered on or rebooted. Stored in ROM (Read Only Memory).
+- It initializes the system by loading the operating system from secondary memory into the main memory.
+- This program is essential for starting the operating system and facilitating the interaction between the user and the computer's hardware, ensuring that the system boots up properly and is ready for use.
+
+##### The Bootstrap Program's Role in Loading the OS Kernel
+- The bootstrap program is responsible for initiating the computer system by locating and loading the operating system's kernel into the main memory.
+- The kernel, which is the core component of the operating system, must be loaded for the OS to become operational.
+- This process occurs immediately when the computer is powered on, ensuring that the system is prepared for further operations and management by the operating system.
+
+##### Understanding the Role of Interrupts in CPU Operations
+- Interrupts are signals sent by hardware or software to the CPU, requesting it to halt its current task and address a more urgent one.
+- This mechanism allows the CPU to manage multiple tasks efficiently by pausing ongoing processes to handle higher-priority operations.
+- Interrupts ensure that critical tasks are addressed promptly, maintaining the system's responsiveness and functionality.
+![image](https://github.com/user-attachments/assets/edca9f00-bf38-4a00-9f34-75ad4b119e79)
+---
+
+##### Understanding System Calls and Their Function
+- System calls, also known as monitor calls, are special operations triggered by software that cause an interrupt in the CPU. Unlike hardware interrupts, which come from external devices, system calls originate from within the software. When a system call is made, it interrupts the CPU's current task and transfers execution to a predefined location where the service routine for the call is executed, allowing the system to handle specific requests or operations.
+![image](https://github.com/user-attachments/assets/9124766b-8870-4f87-a303-766302c3e1f8)
+---
+
+
