@@ -150,7 +150,7 @@ Every important aspects of an Operating System will be taught in this course so 
 ##### The Role of Battery Backup in Nonvolatile Memory Types
 - Nonvolatile RAM, such as NVRAM, utilizes a battery backup to maintain data even when the main power is turned off. This feature distinguishes it from standard volatile memory types like registers, cache, and main memory, which lose their contents without power. Understanding these special cases enhances the knowledge of memory management in computing.
 
-- In thisa pic, The cost per bit and access time decrease down the hierarchy.
+- In this pic, The cost per bit and access time decrease down the hierarchy not increase as it mentioned.
 ![image](https://github.com/user-attachments/assets/f1ed2f54-ab2a-4ebe-94ad-d4e4943293ac)
 
 ---
