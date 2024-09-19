@@ -155,4 +155,27 @@ Every important aspects of an Operating System will be taught in this course so 
 
 ---
 
+#### Basics of OS (I/O Structure)
+- Let's make the obscure concepts clear.
+- An I/O device is connected to the machine by I/O port. And the devices have their dedicated device controller.
+- Device controller is nothing but intermediate hardware between the machine, I/O device and OS. The OS sends instructions to the CPU to manipulate I/O devices.Then CPU sends signals to these devices via device controller (of course, not only CPU,  device controllers have registers inside too). 
+- But how does OS know what device is connected and what instructions should it send to get device working? 
+- When a manufacturer makes a device, they will distribute its driver program along with it. This is because the OS will never have idea about the device. The only way to interact with the device is by talking to its driver program.
+- Lots of beginners think the OS will have full understanding of a device once the driver is installed, which is NOT true. Driver will never become a part of OS.
+- It is the driver program sends instructions and receives data from the device and pass it to OS for use. The OS and Driver can talk to each other simply because they are both loaded on the memory.
+- You can think a driver as a daemon program, which long time resides on the memory space until system shuts down.
+- Above all, is why I/O device (those shinny RGB keyboards) stops working as soon as driver program crashes.
+
+![image](https://github.com/user-attachments/assets/f71e9a7e-7711-4416-88d2-3dc134dc4294)
+
+##### Working of an I/O operation:
+1. Loading Registers: The device driver tells the device controller what to do by loading values into its registers.
+2. Controller Action: The device controller reads these values from its registers and knows what operation to perform.
+3. Data Transfer: The device controller moves data between its local buffer and the CPU's memory as instructed.
+4. Interrupt: When done, the device controller sends an interrupt to the CPU to let it know that the operation is complete.
+5. CPU Response: The CPU stops its current task, handles the interrupt, and processes the data transferred by the device controller.
+![image](https://github.com/user-attachments/assets/bb15e09f-29fe-4077-bf9a-6e017e4624c2)
+![image](https://github.com/user-attachments/assets/486657f2-5fe6-40bc-b366-22a580a74706)
+
+---
 
