@@ -182,7 +182,6 @@ Every important aspects of an Operating System will be taught in this course so 
 #### Computer System Architecture
 ##### Understanding the Categories of Computer System Architectures
 - Computer systems can be categorized based on the number of general-purpose processors they utilize.
-![image](https://github.com/user-attachments/assets/7f393706-73f9-4e32-bc14-4164512dcee7)
 - The main types include single processor systems, which rely on one CPU to execute tasks, and multiprocessor systems, which incorporate two or more CPUs to enhance performance. Additionally, clustered systems link multiple systems to work collaboratively on tasks, thus improving efficiency and processing power.
 - Each architecture has its own advantages and specific use cases, highlighting the diverse capabilities of computer systems.
 ![image](https://github.com/user-attachments/assets/1a543b17-fc15-48a9-8fc7-873246921956)
