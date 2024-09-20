@@ -179,3 +179,59 @@ Every important aspects of an Operating System will be taught in this course so 
 
 ---
 
+#### Computer System Architecture
+##### Understanding the Categories of Computer System Architectures
+- Computer systems can be categorized based on the number of general-purpose processors they utilize.
+![image](https://github.com/user-attachments/assets/7f393706-73f9-4e32-bc14-4164512dcee7)
+- The main types include single processor systems, which rely on one CPU to execute tasks, and multiprocessor systems, which incorporate two or more CPUs to enhance performance. Additionally, clustered systems link multiple systems to work collaboratively on tasks, thus improving efficiency and processing power.
+- Each architecture has its own advantages and specific use cases, highlighting the diverse capabilities of computer systems.
+![image](https://github.com/user-attachments/assets/1a543b17-fc15-48a9-8fc7-873246921956)
+
+---
+
+##### Single Processor Systems
+- A system is categorized as a single processor system based on the number of general-purpose processors it contains.
+- In addition to general-purpose processors, computer systems also contain special purpose processors designed for specific tasks related to individual devices.
+- For instance, a keyboard includes a microprocessor dedicated to converting keystrokes into a binary code that the computer can understand. These special purpose processors do not perform general computing tasks but focus solely on their designated functions, enhancing the overall efficiency of device operation. Despite their presence,
+![image](https://github.com/user-attachments/assets/f99ddb4e-4979-453c-bc78-6b3830c0dfaf)
+
+---
+
+##### Multi Processor Systems
+- Multiprocessor systems consist of two or more processors that operate in close communication, sharing resources like the computer bus, clock, memory, and peripheral devices.
+- This architecture, often referred to as a parallel system or tightly coupled system, enables the processors to work collaboratively on single or multiple tasks, enhancing efficiency and performance.
+- One of the key advantages of multiprocessor systems is increased throughput, which measures the system's performance by quantifying the amount of data that can be processed or transferred at a given time, ultimately leading to improved computational capabilities.
+- Throughput is something that we can use to measure the performance of our system that's because we have more than one processor which parallelly do our work and it will make it faster and more efficient. so sometimes it is also known as the amount of data that can be transferred from one location to another.
+
+###### Key Advantages of Using Multiprocessor Systems
+- Multiprocessor systems provide several key advantages over single processor systems, primarily through increased throughput, economy of scale, and enhanced reliability.
+- With multiple processors working in parallel, tasks can be completed more quickly and efficiently, leading to higher performance. Economically, these systems share resources among processors, reducing the need for multiple single processor setups that would require separate resources. Additionally, if one processor fails, the remaining processors can continue functioning, ensuring greater reliability and minimizing downtime, making multiprocessor systems a more robust choice for computing needs.
+- Even if a single processor fails, we still have processors which will back us up and keep us running, so your system will still work even though the performance may reduces a bit. not like in single processor systems, if single processor fails, that means it is a total failure and your whole system breaks down.
+![image](https://github.com/user-attachments/assets/67b24a94-8eb7-4416-a606-58730eeb6a0e)
+
+###### Types of Multi Processor Systems
+1. Symmetric Multiprocessing (SMP):
+- Multiple CPUs (CPU 1, CPU 2, CPU 3) are connected to a shared memory or resource pool.
+- Each CPU has equal access to all tasks (P1, P2, P3) and works independently to process them.
+- There is no hierarchy among the processors; all CPUs can run tasks independently and work on any process.
+
+2. Asymmetric Multiprocessing (AMP):
+- A master-slave configuration is used, where the master processor coordinates the work of the slave processors.
+- The master processor assigns specific tasks (P1, P2, P3) to the slave processors (Slave 1, Slave 2, Slave 3).
+- The master controls the system, and the slaves depend on it for task allocation.
+![image](https://github.com/user-attachments/assets/f52b3527-1c57-486a-84ab-daaeb0e35f51)
+---
+
+##### Clustered Systems
+- Clustered systems are designed by coupling two or more individual computer systems to work together on computational tasks, providing distinct advantages over traditional multiprocessor systems. Unlike multiprocessor systems, which consist solely of multiple processors within a single machine, clustered systems integrate entire systems, allowing for greater fault tolerance.
+- This design enhances high availability, as the failure of one system does not result in complete operational failure; the remaining systems can continue to handle the workload.
+- Additionally, clustered systems can be organized in either symmetric or asymmetric configurations, offering flexibility in architecture and resource management.
+
+###### Comparison of Symmetric and Asymmetric Clustered Systems
+- Clustered systems can be structured in two main ways: symmetric and asymmetric.
+1. Asymmetric clustered systems, one machine operates in a hot-standby mode, monitoring the others that are actively running applications. If any of these active systems fail, the standby machine takes over, ensuring continuity.
+2. Symmetric clustered systems involve multiple hosts that not only run applications but also monitor each other, allowing for better resource sharing and efficiency. Symmetric configurations are generally preferred due to their collaborative nature, which optimizes resource usage and enhances system reliability.
+![image](https://github.com/user-attachments/assets/23d9d312-e157-43f2-b652-e618dda31a3e)
+
+---
+### Operating System Structure
