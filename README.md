@@ -231,6 +231,46 @@ Every important aspects of an Operating System will be taught in this course so 
 1. Asymmetric clustered systems, one machine operates in a hot-standby mode, monitoring the others that are actively running applications. If any of these active systems fail, the standby machine takes over, ensuring continuity.
 2. Symmetric clustered systems involve multiple hosts that not only run applications but also monitor each other, allowing for better resource sharing and efficiency. Symmetric configurations are generally preferred due to their collaborative nature, which optimizes resource usage and enhances system reliability.
 ![image](https://github.com/user-attachments/assets/23d9d312-e157-43f2-b652-e618dda31a3e)
-
 ---
+
 ### Operating System Structure
+#### Multiprogramming & Multitasking
+##### Understanding the Structure of Operating Systems in Detail
+- This lecture focuses on the internal structure of operating systems, emphasizing the differences and commonalities among various types such as Windows and Ubuntu.
+- It introduces key concepts of multiprogramming and multitasking, explaining that all operating systems must support these functionalities.
+- Multiprogramming allows multiple programs to be executed simultaneously by the CPU, which is essential for efficient resource utilization.
+![image](https://github.com/user-attachments/assets/3ce2dd9e-9f8d-4347-b53d-515a9a9d3f21)
+---
+
+#### Multiprogramming
+##### The Importance of Multiprogramming for CPU Utilization
+- Multiprogramming enhances CPU utilization by allowing multiple programs to be loaded and executed concurrently, preventing idle time for the CPU and I/O devices.
+- When a single user operates without multiprogramming, they can monopolize these resources, leading to inefficiencies. By organizing jobs—comprising code and data—into a job pool, multiprogramming ensures that the CPU always has tasks to execute.
+- This system improves overall resource management and responsiveness, enabling better performance and productivity in computing environments.
+##### Managing Limited Memory with Multiprogramming Techniques
+- Multiprogramming is crucial in systems with limited main memory, such as a 512 MB RAM environment, where not all jobs can be loaded simultaneously.
+- In this setup, only a subset of jobs can reside in memory at any time. Without multiprogramming, when a job like 'Job 1' requires I/O resources, the CPU becomes idle until the job completes, leading to inefficiencies. However, with multiprogramming, when 'Job 1' waits for I/O, the CPU can be reassigned to another job, ensuring that CPU resources are utilized effectively, thereby optimizing overall system performance.
+##### Efficiency of Multiprogramming in Resource Utilization
+- Multiprogramming significantly enhances CPU efficiency by allowing multiple jobs to utilize CPU resources without idleness.
+- When a job, like 'Job 1', requires I/O operations, the CPU can be assigned to another job, such as 'Job 2', ensuring continuous resource use. This dynamic reassignment prevents the CPU from remaining idle, optimizing overall system performance.
+- The analogy of a lawyer managing multiple clients illustrates this concept, demonstrating how resources can be effectively utilized in various scenarios. For an operating system to function efficiently, it must support multiprogramming to manage CPU, memory, and other resources effectively.
+![image](https://github.com/user-attachments/assets/c7332ec7-ed8e-4b4d-a9cc-2cb2e1bd03d3)
+---
+
+#### Multitasking (Time-shared OS)
+##### Key Differences Between Multiprogramming and Time Sharing Systems
+- Time sharing, or multitasking, differs from multiprogramming by enabling user interaction with multiple jobs concurrently. While both systems execute multiple jobs, time sharing allows the CPU to switch rapidly among them, providing a seamless experience where users can engage with programs while they are running. This quick context switching facilitates direct communication between the user and the computer system, enhancing interactivity. In contrast, multiprogramming primarily focuses on resource utilization without offering real-time user engagement, making time sharing essential for interactive computing environments.
+##### Understanding Time Sharing Systems and User Interaction
+- Time sharing systems enable multiple users to share computer resources simultaneously, creating an environment where each user perceives the system as dedicated to them.
+- This is achieved through rapid job switching, which occurs so quickly that users are often unaware they are sharing the system. For example, in a scenario with four users, each feels as if they have exclusive access to the system while they are actually sharing it.
+- The efficiency of the CPU allows for swift execution of jobs, enhancing the user experience and interaction with the system. This approach fosters direct communication between users and the system, making time sharing essential for modern computing.
+##### The Interaction Dynamics in Time Sharing Systems Explained
+- In time sharing systems, the execution of jobs occurs at CPU speed, while user interaction happens at a much slower human pace. After a job is executed, users receive output and provide new input, creating a significant time gap due to the disparity between the fast CPU and slower human input. During this gap, the CPU can process tasks for other users, allowing for efficient resource utilization. This rapid switching and scheduling make users feel as though they have exclusive access to the system, even though they are sharing it with others. The combination of CPU scheduling and multiprogramming is essential for maintaining this seamless user experience.
+##### Understanding Processes and Their Role in Time Sharing Systems
+- In time sharing systems, each user perceives the entire computer system as dedicated to them, despite sharing it with others.
+- The distribution of system time among users is managed by CPU scheduling algorithms, which determine how resources are allocated.
+- Each user has at least one program waiting in memory, which is referred to as a process when it is loaded and executing.
+![image](https://github.com/user-attachments/assets/078573ca-0aec-4b8e-90e3-6a55620df5a9)
+![image](https://github.com/user-attachments/assets/4b6b69b7-b990-4cd8-aad0-97234e8457b9)
+---
+
