@@ -254,7 +254,7 @@ Every important aspects of an Operating System will be taught in this course so 
 - Multiprogramming significantly enhances CPU efficiency by allowing multiple jobs to utilize CPU resources without idleness.
 - When a job, like 'Job 1', requires I/O operations, the CPU can be assigned to another job, such as 'Job 2', ensuring continuous resource use. This dynamic reassignment prevents the CPU from remaining idle, optimizing overall system performance.
 - The analogy of a lawyer managing multiple clients illustrates this concept, demonstrating how resources can be effectively utilized in various scenarios. For an operating system to function efficiently, it must support multiprogramming to manage CPU, memory, and other resources effectively.
-![image](https://github.com/user-attachments/assets/c7332ec7-ed8e-4b4d-a9cc-2cb2e1bd03d3)
+![image](https://github.com/user-attachments/assets/8d72a93f-6c49-46a1-9342-ef6ad25f037f)
 ---
 
 #### Multitasking (Time-shared OS)
