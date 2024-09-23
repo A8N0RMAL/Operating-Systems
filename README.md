@@ -274,3 +274,28 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/4b6b69b7-b990-4cd8-aad0-97234e8457b9)
 ---
 
+#### Operating System Services
+- An OS provides an environment for the execution of programs.
+- It provides certain services to programs and to users of those programs.
+![image](https://github.com/user-attachments/assets/964daf86-e177-4b7d-af20-3332fac731fa)
+---
+
+- User Interface: Facilitates interaction between the user and the operating system, typically through graphical user interfaces (GUIs) or command-line interfaces (CLIs).
+![image](https://github.com/user-attachments/assets/0e6f46ad-7d60-4d27-931e-5cd00d0fe3d4)
+---
+
+- Program Execution: Manages the execution of programs by loading them into memory, running, and terminating them.
+![image](https://github.com/user-attachments/assets/bcc440f7-7b37-4b76-a2a0-7442a39cce8f)
+---
+
+- I/O Operations: Handles input and output operations, enabling interaction between the system and external devices like keyboards, printers, and storage drives.
+![image](https://github.com/user-attachments/assets/cde5615a-ff59-4959-bf88-2ff0e62fb887)
+---
+
+- File System Manipulation: Manages file operations such as creating, deleting, reading, and writing files on storage devices.
+![image](https://github.com/user-attachments/assets/3cccccbe-7d6d-42d6-b667-43970df02e6e)
+---
+
+- 
+![image](https://github.com/user-attachments/assets/f9383b32-256b-49b3-8800-4eba62124920)
+
