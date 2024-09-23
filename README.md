@@ -296,6 +296,22 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/3cccccbe-7d6d-42d6-b667-43970df02e6e)
 ---
 
-- 
+- Communications: Facilitates data exchange between processes running on the same or different systems, using shared memory or message-passing mechanisms.
 ![image](https://github.com/user-attachments/assets/f9383b32-256b-49b3-8800-4eba62124920)
+---
 
+- Error Detection: Continuously monitors the system for potential errors, including hardware failures and software issues, and responds appropriately.
+![image](https://github.com/user-attachments/assets/4f05172c-74fe-4c8f-b4ac-42d706e98192)
+---
+
+- Resource Allocation: Allocates and manages resources like CPU time, memory, and I/O devices among multiple processes.
+![image](https://github.com/user-attachments/assets/7a26b42e-1fa2-4a10-b1e8-64aa3541d6b7)
+---
+
+- Accounting: Tracks system usage by users and applications, helping in auditing and optimizing resource usage.
+![image](https://github.com/user-attachments/assets/6e0ff195-490e-473e-86b5-7b332a3b85c3)
+---
+
+- Protection and Security: Ensures controlled access to system resources, protecting data and system integrity from unauthorized access or breaches.
+![image](https://github.com/user-attachments/assets/fe037494-719d-4cf2-aae1-e749a2439d00)
+---
