@@ -328,3 +328,33 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/ed3bbf46-fc45-48d9-9cf2-5435b422d4b6)
 ![image](https://github.com/user-attachments/assets/234b634b-3093-4005-86b1-1f7bb3cef973)
 ---
+
+#### System Calls
+##### Understanding the Role of System Calls in Operating Systems
+- System calls are essential interfaces that connect user applications to the services provided by the operating system.
+- They enable programs to request services such as file operations, process management, and communication.
+- Programs operate in two distinct modes: user mode and kernel mode.
+- User mode restricts access to critical system resources, ensuring stability and security. In contrast, kernel mode allows programs direct access to hardware and memory, granting them elevated privileges. However, executing in kernel mode poses risks, as a crash can lead to system-wide failures, highlighting the importance of carefully managing system calls.
+- Switching from kernel to user and vice versa is known as mode shifting not context switch. Context switch is the one which happens between 2 processes.
+##### There are 2 modes of execution for a program:
+1. User mode: 
+- Do not have access to resources like memory or hardwares.
+- When a program crashes, the entire system will not break down.
+
+2. Kernel mode:
+- Privilidged mode.
+- Have access to resources.
+- When a program crashes, the entire system breaks down.
+
+- Because user mode is safer, most programs run in user mode. But some programs might need access to resources, so they will make a call to the OS to request for these. This call is system call. 
+- When the OS receives the system call, it will change the mode of the program to kernel mode. This is called mode shifting.
+![image](https://github.com/user-attachments/assets/a3d00d93-add8-4e83-a1b5-60fb7ab64a8b)
+![image](https://github.com/user-attachments/assets/da1ca864-9950-42b4-bc0b-1b3f601037ce)
+---
+
+- Example of a System Call sequence for writing a simple program to read data from one file and copy them to another file.
+![image](https://github.com/user-attachments/assets/f1a654a8-0d63-4351-ab66-d5391cce483c)
+---
+
+#### Types of System Calls
+
