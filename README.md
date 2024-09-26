@@ -357,4 +357,28 @@ Every important aspects of an Operating System will be taught in this course so 
 ---
 
 #### Types of System Calls
+![image](https://github.com/user-attachments/assets/1a7b60fa-6f88-4597-ac6e-cf9f03e240c4)
 
+---
+
+- Process Control: These system calls are used to create, modify, and manage processes and threads, including functions such as fork(), exec(), wait(), and exit().
+![image](https://github.com/user-attachments/assets/d9561106-1cdd-4bff-9ece-866294b4bd0b)
+---
+
+- File Management: These system calls are used to create, modify, and manage files and directories, including functions such as open(), read(), write(), and close().
+![image](https://github.com/user-attachments/assets/82a1a901-13b8-4899-93b9-edd9ad2a89e9)
+---
+
+- Device Management: These system calls are used to access and manage hardware devices such as printers, disks, and network interfaces, including functions such as ioctl() and read().
+![image](https://github.com/user-attachments/assets/a2a3019a-ba31-4bfd-b104-44f031a5fa44)
+---
+
+- Information Maintenance: These system calls are used to retrieve and update information about the system and its resources, including functions such as getpid(), getuid(), and getgid().
+![image](https://github.com/user-attachments/assets/85142dc8-0fbf-462c-962d-a17f00f0baf9)
+---
+
+- Communication: These system calls are used to facilitate interprocess communication and synchronization, including functions such as pipe(), socket(), and sendmsg().
+![image](https://github.com/user-attachments/assets/0d65d6a8-8860-4fbb-8adf-49570c396be6)
+
+- Memory Management: These system calls are used to allocate and manage memory resources, including functions such as mmap(), malloc(), and brk().
+---
