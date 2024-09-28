@@ -382,3 +382,36 @@ Every important aspects of an Operating System will be taught in this course so 
 
 - Memory Management: These system calls are used to allocate and manage memory resources, including functions such as mmap(), malloc(), and brk().
 ---
+
+#### System Programs
+##### Understanding the Role and Importance of System Programs in Computing
+- System programs serve as a critical layer in the computing hierarchy, positioned directly above the operating system and below application programs.
+- They facilitate interaction between the user and the hardware, providing essential functionalities like file management, process control, and hardware access. Examples include command interpreters and system utilities, which enhance system efficiency and usability. By comprehending the structure and purpose of system programs, one can better appreciate their significance in modern computing environments.
+![image](https://github.com/user-attachments/assets/28946a7c-8a55-42cf-89a7-44e2eedfaefc)
+---
+
+##### System programs can be divided into the following categories
+
+![image](https://github.com/user-attachments/assets/da59b435-5f35-4656-ad1a-419eb3569384)
+
+---
+![image](https://github.com/user-attachments/assets/578740b2-ee5b-42d5-bc31-e0c717508765)
+
+---
+![image](https://github.com/user-attachments/assets/9b81e95b-bbd4-493a-b369-c2e914ce463f)
+
+---
+![image](https://github.com/user-attachments/assets/f12db648-7ffd-4ddc-a93a-8f83bf18c282)
+
+---
+![image](https://github.com/user-attachments/assets/5d99cb4a-da4e-4744-b3ec-ec8772c0a249)
+
+---
+![image](https://github.com/user-attachments/assets/df28d586-a86d-4023-9c24-01c69f703603)
+
+---
+- In addition to systems programs, most operating systems are supplied with programs that are useful in solving common problems or performing common operations.
+- Keep in mind the these are not system programs but these are application programs which are provided along with the OS fot the users to perform certian tasks.
+![image](https://github.com/user-attachments/assets/db8e0f6a-f358-49d4-87b5-a54bebaaaf17)
+---
+
