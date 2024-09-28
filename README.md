@@ -387,7 +387,9 @@ Every important aspects of an Operating System will be taught in this course so 
 ##### Understanding the Role and Importance of System Programs in Computing
 - System programs serve as a critical layer in the computing hierarchy, positioned directly above the operating system and below application programs.
 - They facilitate interaction between the user and the hardware, providing essential functionalities like file management, process control, and hardware access. Examples include command interpreters and system utilities, which enhance system efficiency and usability. By comprehending the structure and purpose of system programs, one can better appreciate their significance in modern computing environments.
+
 ![image](https://github.com/user-attachments/assets/28946a7c-8a55-42cf-89a7-44e2eedfaefc)
+
 ---
 
 ##### System programs can be divided into the following categories
