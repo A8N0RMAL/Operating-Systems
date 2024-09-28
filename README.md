@@ -413,7 +413,7 @@ Every important aspects of an Operating System will be taught in this course so 
 
 ---
 - In addition to systems programs, most operating systems are supplied with programs that are useful in solving common problems or performing common operations.
-- Keep in mind the these are not system programs but these are application programs which are provided along with the OS fot the users to perform certian tasks.
+- Keep in mind that these are not system programs but these are application programs which are provided along with the OS for the users to perform certian tasks.
 ![image](https://github.com/user-attachments/assets/db8e0f6a-f358-49d4-87b5-a54bebaaaf17)
 ---
 
