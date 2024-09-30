@@ -435,7 +435,8 @@ Every important aspects of an Operating System will be taught in this course so 
 ##### The Role of Mechanisms and Policies in System Design
 - In operating system design, there are no definitive rules for creating a system that is easy to learn and use. However, principles from software engineering provide frameworks that can address some of the design requirements.
 ##### Two critical concepts in this context are mechanisms and policies:
-- Mechanisms refer to the methods or processes used to achieve a goal, while policies determine the goals themselves. Understanding these concepts helps in establishing effective strategies for system design, even in the absence of a one-size-fits-all solution.
+- Mechanisms refer to the methods or processes used to achieve a goal, while policies determine the goals themselves.
+- Understanding these concepts helps in establishing effective strategies for system design, even in the absence of a one-size-fits-all solution.
 ![image](https://github.com/user-attachments/assets/16224f52-24a4-440b-b1f4-326b7534f9c3)
 ---
 
