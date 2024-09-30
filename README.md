@@ -417,3 +417,40 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/db8e0f6a-f358-49d4-87b5-a54bebaaaf17)
 ---
 
+#### Operating System Design & Implementation
+##### Challenges in Defining Goals for Operating System Design
+- Designing an operating system involves overcoming the challenge of defining clear goals and specifications.
+- This complexity arises from the varied user needs and system requirements, which may not align with a single set of goals. Consequently, it becomes difficult to satisfy all requirements simultaneously.
+- Two primary factors influencing these goals include the choice of hardware and the types of systems to be implemented, such as multiprocessing or real-time systems, which further complicates the design process.
+![image](https://github.com/user-attachments/assets/91ed0925-c7dd-4e40-8ec3-67876a6f1783)
+---
+
+##### Balancing User and System Goals in Design Challenges
+- In operating system design, a key challenge lies in balancing user goals and system goals.
+- User goals focus on convenience, ease of use, reliability, safety, and speed, reflecting the expectations of the end-users. Conversely, system goals emphasize the needs of designers and developers, prioritizing ease of design, implementation, maintenance, flexibility, reliability, and efficiency.
+- These differing priorities can create complexities, as the vague nature of these requirements often lacks a clear formula for fulfillment, making it difficult to achieve a comprehensive solution.
+![image](https://github.com/user-attachments/assets/8b1e9131-bd22-4d73-b882-36d3ecef8ffe)
+---
+
+##### The Role of Mechanisms and Policies in System Design
+- In operating system design, there are no definitive rules for creating a system that is easy to learn and use. However, principles from software engineering provide frameworks that can address some of the design requirements.
+##### Two critical concepts in this context are mechanisms and policies:
+- Mechanisms refer to the methods or processes used to achieve a goal, while policies determine the goals themselves. Understanding these concepts helps in establishing effective strategies for system design, even in the absence of a one-size-fits-all solution.
+![image](https://github.com/user-attachments/assets/16224f52-24a4-440b-b1f4-326b7534f9c3)
+---
+
+##### Implementation:
+- Once an operating system is designed, it must be implemented.
+- Traditionally, operating systems have been written in assembly language. 
+- Now, however, they are most commonly written in higher-level languages such as C or C++
+
+##### Advantages of writing in high level languages:
+1. The code can be written faster
+2. It is more compact
+3. It is easier to understand and debug
+4. It is easier to port
+
+- E.g. MS-DOS was written in Intel 8088 assembly language. Consequently, it is available on only the Intel family of CPUs.
+- The Linux operating system, in contrast, is written mostly in C and is available on a number of different CPUs, including Intel 80X86, Motorola 680X0, SPARC, and MIPS RXO00.
+---
+
