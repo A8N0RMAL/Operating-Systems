@@ -460,7 +460,7 @@ Every important aspects of an Operating System will be taught in this course so 
 
 ##### 1. Simple structure
 - The simple structure refers to the foundational design used in early operating systems, exemplified by MS-DOS.
-- - Every layers can access to the hardware.
+- Every layers can access to the hardware.
 ##### Exploring the Vulnerabilities of Direct Hardware Access in MS-DOS
 - In MS-DOS, application programs have direct access to base hardware, which resembles a layered structure but lacks true separation.
 - Weak security.
@@ -483,11 +483,11 @@ Every important aspects of an Operating System will be taught in this course so 
 
 ##### Disadvantages of Layered Structure:
 - U have to be very careful and specific in designing and deciding which will be the layers on top of a particular layer or which will be the layers below the particular layer, because a layer can only use those layers which are below that layer, only the services below it can be used by a particular layer.
-- In order to make this clear let's take an example:
+###### In order to make this clear let's take an example:
 - let's say that we're having a layer which deals with the backing storage, so we have to make sure that it has to be below the layer that deals with memory management, because the memory management routines needs to use the services provided by the backing storage.
 
 - Let's take another problem, when one layer wants to use the services provided by the layers below it, the request has to go down below each layer one by one and by the time the service actually provided it may be late and not very fast.
-- In order to make this clear let's take an example:
+###### In order to make this clear let's take an example:
 - Let's say that a user program from this Layer N wants to execute an I/O operations, so in order to execute I/O operations it has to get the service from the Layer 0(Hardware) because I/O devices are falling under this Hardware, so what it will do? it will issue a system call in order to use the hardware and the system call has to go through this layers one by one until it reaches the Layer 0, so as the system call passes through these layers the parameters of the system call may be modified and it will take time in reaching there and then once the system call is granted then it will be able to use the I/O devices.
 ![image](https://github.com/user-attachments/assets/55f75570-2b8d-4137-bada-948fd50d4a40)
 ---
