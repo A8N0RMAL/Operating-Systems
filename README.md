@@ -455,3 +455,58 @@ Every important aspects of an Operating System will be taught in this course so 
 - The Linux operating system, in contrast, is written mostly in C and is available on a number of different CPUs, including Intel 80X86, Motorola 680X0, SPARC, and MIPS RXO00.
 ---
 
+#### Structures of Operating System
+- There are 5 types of structures for operating system:
+
+##### 1. Simple structure
+- The simple structure refers to the foundational design used in early operating systems, exemplified by MS-DOS.
+- - Every layers can access to the hardware.
+##### Exploring the Vulnerabilities of Direct Hardware Access in MS-DOS
+- In MS-DOS, application programs have direct access to base hardware, which resembles a layered structure but lacks true separation.
+- Weak security.
+![image](https://github.com/user-attachments/assets/cdac2af5-1fa3-4cec-add1-9c27aaff8886)
+---
+
+##### 2. Monolithic structure
+- The monolithic structure of early Unix systems places all functionalities within a single kernel level.
+- Hard to maintain, debug.
+![image](https://github.com/user-attachments/assets/9b4d2309-1b4d-4240-a811-51dd294eeace)
+---
+
+##### 3. Layered structure
+- The layered operating system design organizes functionalities into distinct layers, enhancing clarity and separation of concerns.
+- Each functionality is one layer.
+- One layer can only communicate directly with the layers above and below it.
+
+##### Advantages of Layered Structure:
+- The hardware is protected from the layers above, unlike the simple structure the user interface cannot directly access the system hardware.
+
+##### Disadvantages of Layered Structure:
+- U have to be very careful and specific in designing and deciding which will be the layers on top of a particular layer or which will be the layers below the particular layer, because a layer can only use those layers which are below that layer, only the services below it can be used by a particular layer.
+- In order to make this clear let's take an example:
+- let's say that we're having a layer which deals with the backing storage, so we have to make sure that it has to be below the layer that deals with memory management, because the memory management routines needs to use the services provided by the backing storage.
+
+- Let's take another problem, when one layer wants to use the services provided by the layers below it, the request has to go down below each layer one by one and by the time the service actually provided it may be late and not very fast.
+- In order to make this clear let's take an example:
+- Let's say that a user program from this Layer N wants to execute an I/O operations, so in order to execute I/O operations it has to get the service from the Layer 0(Hardware) because I/O devices are falling under this Hardware, so what it will do? it will issue a system call in order to use the hardware and the system call has to go through this layers one by one until it reaches the Layer 0, so as the system call passes through these layers the parameters of the system call may be modified and it will take time in reaching there and then once the system call is granted then it will be able to use the I/O devices.
+![image](https://github.com/user-attachments/assets/55f75570-2b8d-4137-bada-948fd50d4a40)
+---
+
+##### 4. Microkernels
+- Instead of having so many functionalities like in monolithic kernel, what happens is that in this micro kernel approach we remove all the nonessential components from the kernel and we implement them as system and user level programs.
+- The main function of this microkernel is to provide communication between the client program and these services, In contrast in the monolithic when the client program requesting for some kind of services it will have to ask a service from the kernel because everything is there in the kernel, and in the microkernel approach, the microkernel will provide a communication between the client programs and it will just help them to communicate with these services which are implemented as system programs and this communication between client programs and system programs is made through with something known as message passing.
+- Microkernel can suffer from performance decrease due to the increased system function overhead.
+- Only core functionalities are included in the kernel level.
+- All other functinalities moved to the system programs.
+- Communication between programs use passing message.
+![image](https://github.com/user-attachments/assets/9fc6d927-7959-4e24-b8d6-160128ed38b4)
+---
+
+##### 5. Module
+- One core kernel in the middle have the core kernel functionalities and other functionalities provided as system programs(as in Microkernel).
+- Communication between modules through the core kernel(as message passing in Microkernel), so there is no system overhead because the communication done dynamically and directly into the core kernel as and when needed.
+- Other functinalities connected to the core kernel.
+- Communication between modules through the core kernel.
+![image](https://github.com/user-attachments/assets/659568cc-c44c-46ce-8086-3e643f2d0bcd)
+---
+
