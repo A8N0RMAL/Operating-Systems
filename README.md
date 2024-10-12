@@ -550,3 +550,32 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/4866bf93-fcd8-4658-a74a-0413ea7fbfd3)
 ---
 
+#### Operating System Generation & System Boot
+##### Operating System Generation
+##### Two Approaches to Designing Operating Systems for Machines
+- There are two main approaches to designing operating systems:
+- The first approach involves creating an operating system tailored for a specific machine at a particular site. This method focuses on the unique requirements of that machine but may not be efficient for broader applications.
+- The second approach aims to develop operating systems that can operate across a variety of machines and configurations. This flexibility allows the operating system to function effectively on different hardware, making it a more scalable solution.
+##### The Importance of System Generation in Operating Systems
+- System generation, often referred to as SYSGEN, is a crucial process that enables an operating system to be tailored for different hardware configurations.
+- For instance, an operating system like Linux Mint can be installed on various machines, regardless of their specific hardware differences. This adaptability is achieved through SYSGEN, which configures the operating system to ensure compatibility with the particular machine it is being installed on.
+- This method enhances the efficiency and versatility of operating systems, allowing them to function effectively across diverse systems.
+##### Key Information Required for System Generation in SYSGEN
+- System generation, or SYSGEN, is a process that requires specific information to effectively tailor an operating system for a particular machine.
+- The SYSGEN program must identify the CPU type to be used, assess the available memory, determine the connected devices, and understand the desired operating system options.
+- This information is crucial as it guides the configuration of the operating system, ensuring it operates efficiently and harmoniously with the machine's hardware and meets user requirements.
+![image](https://github.com/user-attachments/assets/8f88a255-1a59-4671-9296-b326b263b60f)
+---
+
+##### System Boot
+- System bootstrap is the first program to be executed when the computer starts.
+- It will locate the OS kernel and load it into the memory to be executed.
+- This program is located in the ROM because ROM needs no initialization and safe to computer virus (read-only).
+- The OS is located on the disk.
+##### Now there is another term that I want to discuss that is called Firmware:
+- Firmware is a kind of read-only memory, and in small devices like in your mobile devices, the bootstrap loader or the bootstrap program and the OS both of them reside in the ROM or the firmware. But, the disadvantage of this is that if you want to change something in the ROM then you have to change the entire ROM chip because as we know nothing can be modified.
+- But, this problem also has been solved by something known as EPROM which stands for Erasable Programmable Read Only Memory, so this is also a kind of read-only memory in which the contents can only be read. But, by giving an explicit command you can make it writable, so with your consent, it can be made writable.
+- So, the kind of firmware, where the bootstrap loader and the operating system both reside in the ROM are used for small devices like mobile devices and all. But, for most of the big computers like desktop computers and laptops, the bootstrap program or the bootstrap loader resides in the ROM, and your main OS resides in the disk.
+![image](https://github.com/user-attachments/assets/39e123d3-25d4-4816-9035-e6a75cf9c614)
+---
+
