@@ -606,6 +606,6 @@ Every important aspects of an Operating System will be taught in this course so 
 ---
 
 - If you want to see the threads that are also there in your system, u can use a program known as Process Explorer, you can sownload it and it will show you the threads that are running for each program and for each processes.
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/90e638ce-fc95-4598-9855-955088fcb728)
 ---
 
