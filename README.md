@@ -579,3 +579,33 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/39e123d3-25d4-4816-9035-e6a75cf9c614)
 ---
 
+### Process Management 
+#### Processes and Threads
+##### Understanding the Differences Between Processes and Threads in Operating Systems
+- Processes are independent programs in execution that have their own memory space, while threads are smaller units of execution within a process that share the same memory space.
+- This distinction is crucial for managing how applications execute and utilize system resources, affecting performance and efficiency in operating systems.
+##### The Role of Compilers and Operating Systems in Program Execution
+- Compilers are essential tools that convert high-level programming languages into machine code, which consists of binary instructions that computers can understand. However, converting code alone is insufficient for execution; the program must also be loaded into memory. The operating system plays a crucial role in this process, managing the allocation of system resources necessary for the program to run effectively.
+##### Understanding the Transition from Program to Process in Computing
+- A program is a static entity that exists as code, while a process is defined as the active execution of that program. When a program is loaded into memory and begins execution, it transforms into a process, which can utilize system resources.
+- Modern computers support multiple processes running simultaneously, and a single program may have several processes associated with it, highlighting the dynamic nature of program execution in contemporary computing.
+##### Defining Threads as the Basic Units of Process Execution
+- Threads are the fundamental units of execution within a process, allowing multiple tasks to run concurrently.
+- A single process can consist of one or more threads, which execute independently while sharing the same resources. This multi-threading capability enhances performance and efficiency, as it enables better utilization of system resources compared to earlier systems where processes typically contained only a single thread.
+![image](https://github.com/user-attachments/assets/9cb39944-f73b-4b43-bdb0-1fe2bb9d2b48)
+---
+
+##### Using Task Manager to Monitor Active Processes and Threads
+- Task Manager in Windows provides a graphical interface for users to view and manage the processes currently running on their system. By accessing the 'Processes' tab, users can see a list of active programs and their associated threads, enabling them to monitor system performance and resource allocation.
+- This tool is essential for identifying resource-intensive applications and managing system workload effectively.
+##### Observing Multiple Processes for a Single Application in Task Manager
+- In Windows Task Manager, it is common to observe multiple processes associated with a single application, such as the Chrome browser.
+- Each instance of chrome.exe represents a separate process, highlighting the application's architecture that utilizes multiple processes for improved performance and stability.
+- This capability allows better resource management and isolation between different tasks within the same program, although threads, which run within these processes, may require additional tools like Process Explorer to view.
+![image](https://github.com/user-attachments/assets/3c22dd70-a3b6-4006-9cdd-73ee85702304)
+---
+
+- If you want to see the threads that are also there in your system, u can use a program known as Process Explorer, you can sownload it and it will show you the threads that are running for each program and for each processes.
+![Uploading image.png…]()
+---
+
