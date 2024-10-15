@@ -609,3 +609,38 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/7d1c2db8-0149-4e1e-a606-d60cfbadc783)
 ---
 
+#### Process State
+##### Key States of Process Lifecycle in Operating Systems
+- When a process executes, it transitions through various states based on its current activity. The key process states are as follows:
+1. New: The process is in the phase of being created.
+2. Running: The process's instructions are currently being executed by the processor.
+3. Waiting: The process is waiting for an event (e.g., I/O completion, signal reception) to continue execution.
+4. Ready: The process is waiting to be assigned to a processor for execution.
+5. Terminated: The process has completed its execution and is now finished.
+- These states are essential in understanding the lifecycle of a process in an operating system.
+![image](https://github.com/user-attachments/assets/46ed0545-6980-4f88-ad5c-c2d57f247129)
+---
+##### The diagram depicts the lifecycle of a process as it moves through different states:
+
+1. New: The process is being created.
+- After being created, the process is admitted to the system and moves to the Ready state.
+2. Ready: The process is ready to be executed and is waiting to be assigned to a processor.
+- The scheduler dispatches the process from the Ready state to the Running state.
+3. Running: Instructions of the process are being executed.
+- If the process needs to wait for an event or I/O, it moves to the Waiting state.
+- If it gets interrupted, it goes back to the Ready state.
+- If the process finishes, it moves to the Terminated state.
+4. Waiting: The process is waiting for an event (like I/O) to complete.
+- After the event is completed, the process moves back to the Ready state.
+5. Terminated: The process has finished execution and exits the system.
+
+##### Key Transitions:
+- Admitted: Moves a new process to the Ready state.
+- Scheduler Dispatch: Assigns the process to a CPU for execution.
+- Interrupt: Causes the process to move back to Ready state from Running.
+- I/O or Event Wait: Moves the process from Running to Waiting.
+- I/O or Event Completion: Moves the process from Waiting to Ready.
+- Exit: Terminates the process after execution is finished.
+![image](https://github.com/user-attachments/assets/27e86e0b-201f-48bd-b085-e67045c5b8e6)
+---
+
