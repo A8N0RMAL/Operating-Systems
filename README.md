@@ -644,3 +644,29 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/27e86e0b-201f-48bd-b085-e67045c5b8e6)
 ---
 
+#### Process Control Block
+##### Understanding the Essential Components of a Process Control Block
+- Process Control Block(PCB) is used to represent a process in the OS, also called a task control block.
+- Each process is represented in the OS by PCB.
+- A process control block (PCB) is a critical data structure used by the operating system to manage information about a specific process.
+- It contains essential details such as the process state, process number, program counter, registers, and memory limits. These components collectively enable the operating system to track and control the execution of processes efficiently, ensuring that system resources are allocated and managed properly.
+
+##### This block has many parts to control the process
+- Process ID (PID) or process number: Unique id of the process, this unique number allows the system to differentiate between processes, ensuring proper management and allocation of resources. By maintaining distinct PIDs, the operating system can track process states, handle scheduling, and facilitate inter-process communication, thus enhancing overall system functionality and efficiency.
+
+- Program Counter (PC): indicates the address of the next instruction to be executed in a running process. As a program executes, the program counter updates to reflect the next line of code, allowing the operating system to track the sequence of execution. This mechanism ensures that instructions are processed in the correct order, facilitating effective program execution and maintaining the overall flow of operations within the system.
+
+- Process State: indicates the current status of a process at any given moment. Processes can exist in various states, including 'New', 'Running', 'Waiting', and 'Terminated', among others. By monitoring the process state, the operating system can effectively manage resource allocation, scheduling, and overall process execution, allowing for efficient multitasking and system performance. The process state serves as a key indicator of a process's activity and facilitates necessary transitions between different operational phases.
+
+- CPU registers: CPU registers are critical components within a process control block (PCB) that store essential information related to the execution of a process. Different types of registers, including index registers, stack pointers, and general-purpose registers, facilitate efficient data handling and instruction execution. By keeping track of these registers, the operating system can effectively manage the state of a process, ensuring that the necessary data is readily available for computations and operations. This management plays a significant role in enhancing overall system performance and responsiveness.
+
+- CPU scheduling info: CPU scheduling is an essential function of operating systems that determines the order in which processes are executed. It prioritizes processes based on their urgency and resource requirements, ensuring that higher-priority tasks are executed first. Additionally, scheduling algorithms manage the allocation of CPU time to processes waiting in a queue, optimizing overall system performance. By storing CPU scheduling information in the process control block (PCB), the operating system can make informed decisions about process management, significantly impacting the efficiency of multitasking and responsiveness in a computing environment.
+
+- Memory management: Memory management information is a vital component of a process control block (PCB) that details the memory resources utilized by a specific process. This information encompasses various aspects of memory allocation, such as the amount of memory in use, memory limits, and any memory addresses assigned to the process. By tracking memory management details, the operating system can efficiently allocate resources, prevent memory leaks, and ensure that each process operates within its designated memory space. This functionality is crucial for maintaining overall system stability and performance.
+
+- Accounting information: Accounting information in the Process Control Block (PCB) refers to data that is used to keep track of resource usage for a process. This can include the amount of CPU time consumed, the total execution time, and memory usage. Accounting information is important for tasks such as billing in commercial systems and for system administrators to monitor and control resources efficiently.
+
+- I/O Status information: I/O Status information includes data about the input/output operations related to the process. This may involve information on open files, devices being used by the process, and the status of I/O requests. It ensures that the process can communicate with hardware devices and handle files or streams correctly. This information helps the system manage device assignments and track the completion or pending status of I/O operations.
+![image](https://github.com/user-attachments/assets/b88a8d82-e8f7-4003-ad21-72c8099c9eff)
+---
+
