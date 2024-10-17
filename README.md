@@ -670,3 +670,29 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/b88a8d82-e8f7-4003-ad21-72c8099c9eff)
 ---
 
+#### Process Scheduling
+- Objective of multiprogramming: To have multiple processes running simultaneously to maximize CPU utilization. This is important to ensure the CPU is always doing useful work.
+- Objective of time-sharing: Time-sharing systems switch the CPU between processes frequently, allowing users to interact with multiple programs efficiently while each is running.
+- How process scheduling works: The process scheduler selects an available process for execution from several available processes.
+- For single-processor systems, only one process runs at a time.
+- For multiple processes, the CPU schedules processes and switches between them. If the CPU is occupied, the remaining processes wait until it becomes available again.
+![image](https://github.com/user-attachments/assets/6e744417-1883-4a85-ad33-68c1f0a0c7d2)
+---
+
+##### There are 2 types of scheduling queues:
+1. Job Queue: This queue holds all processes that are in the system. These processes might be in different stages, waiting to be executed or completed.
+2. Ready Queue: This contains processes that are currently in main memory, ready, and waiting to be executed by the CPU. These processes are waiting for CPU time.
+
+##### In the visual representation:
+- Processes from the ready queue enter the CPU to get processed.
+- After execution, processes may need to perform I/O operations and are sent to the I/O waiting queue.
+![image](https://github.com/user-attachments/assets/b65fc316-c694-43ce-85f6-dd1e2704c938)
+---
+
+#### What happens to a process when it goes from the ready queue into the running state(when it gets the CPU)
+- Swapping: If the process is partially executed and is swapped out of memory (e.g., due to lack of space, process with higher priority comes), it can be swapped back in later to continue its execution.
+- I/O Waiting Queue: Processes that are waiting for input or output operations go into the I/O waiting queue. Once the I/O operation is complete, they can be sent back to the ready queue for further CPU execution.
+- The diagram shows a process flow: Processes swap in and out of the CPU based on their status. If they're waiting for I/O or need more CPU time, they are placed in the respective queues.
+![image](https://github.com/user-attachments/assets/3f1b1a8a-de62-432d-b3c0-1dea2646d030)
+---
+
