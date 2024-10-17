@@ -696,3 +696,21 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/3f1b1a8a-de62-432d-b3c0-1dea2646d030)
 ---
 
+#### Context Switch
+- Definition: Context switching occurs when an interrupt causes the operating system (OS) to stop the CPU's current task and switch to running a kernel routine. This is common in general-purpose systems.
+- When one process is suspended and another process is executed due to an interrupt, at that time the context is switched.
+##### Process:
+1. When an interrupt happens, the OS saves the context (state) of the currently running process.
+2. This saved state allows the system to resume the process later from where it was stopped after the interrupt's routine is completed.
+3. The context is stored in the Process Control Block (PCB) of the process.
+![image](https://github.com/user-attachments/assets/9419f42e-1b59-4c21-a89e-d4969289f9f4)
+---
+##### Steps Involved:
+1. State Save: The system saves the current state (context) of the process running on the CPU.
+2. State Restore: After the interrupt routine, the system restores the state of the previously running or new process.
+
+- Overhead: Context-switching time is considered overhead because no useful work is done while the system is switching between processes.
+- Performance Factors: The time taken for context switches depends on several factors, such as memory speed, the number of registers, and special instructions for loading or storing registers. Typically, this process takes only a few milliseconds.
+![image](https://github.com/user-attachments/assets/e2f3fa72-cef1-45ea-9770-f7b8deaccaa2)
+---
+
