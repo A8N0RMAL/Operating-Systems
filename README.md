@@ -714,3 +714,43 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/e2f3fa72-cef1-45ea-9770-f7b8deaccaa2)
 ---
 
+#### Operation on Processes – Process Creation
+##### Process Creation:
+- What is a process? A process is an instance of a program in execution. It can create other processes during its execution using a system call like fork() in Unix/Linux systems.
+##### Parent and Child Process:
+- The parent process is the one that creates new processes.
+- The child process is the new process created by the parent.
+- Example: In a Linux system, when you open a terminal and run a command like ls, the terminal (shell) is the parent process. When you type ls, a new process (child process) is created to execute the ls command.
+![image](https://github.com/user-attachments/assets/675dcb3d-42b9-451f-9832-271da305bc2b)
+---
+
+##### Process Tree:
+- The parent process can create multiple children, and these children can also create new processes, forming a tree.
+- Example: Consider a system process called init, which starts when the system boots up. It creates processes for handling login (login), network connections (inetd), and more. These in turn create more processes, forming a hierarchical structure, as shown in the process tree.
+##### Process Tree on Solaris System:
+- The diagram represents a tree of processes in a Solaris operating system. At the root, we have the sched process (PID 0), followed by system processes like init (PID 1).
+- Example: The inetd process (which manages network services) creates telnetdaemon, and telnetdaemon creates other processes for specific tasks (e.g., Csh, the C shell). Each of these processes may continue spawning other processes, forming a process hierarchy.
+![image](https://github.com/user-attachments/assets/cb4d28b1-7cda-420f-82d2-fc199b032879)
+
+---
+
+##### Process Execution Scenarios:
+###### Concurrency between Parent and Child:
+- The parent process can continue executing while the child process runs concurrently.
+- Example: If you run a background job in Unix/Linux (by appending &), the parent shell will continue to run while the child process (background job) executes.
+###### Parent waits for Child Termination:
+- The parent process can also wait until its child processes have finished before it continues.
+- Example: When you run a command in the foreground, the shell waits for the child process (like cat or grep) to finish before it allows you to input another command.
+
+##### Address Space:
+- Two types of child processes in terms of address space:
+1. Duplicate of the Parent Process:
+- The child process inherits the program and data from the parent process.
+- Example: Using fork() in C programming creates a new process with the same code as the parent, but they run independently.
+
+2. New Program Loaded into the Child Process:
+- The child process starts executing a new program using a system call like exec().
+- Example: After fork(), if the child process calls exec(), it replaces its memory with the new program. A shell might fork() to create a new process, then use exec() to run a new program (e.g., running the ls command).
+![image](https://github.com/user-attachments/assets/a5884b83-2e0f-4b93-a070-0cf1414cd08e)
+---
+
