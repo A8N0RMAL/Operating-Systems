@@ -770,9 +770,9 @@ Every important aspects of an Operating System will be taught in this course so 
 
 ##### Parent-Child Process Termination:
 - A parent process may terminate its child process for several reasons:
-- The child has exceeded its allocated resources.
-- The task assigned to the child is no longer necessary.
-- The parent process is exiting, and in such a case, the operating system doesn't allow the child to continue running.
+1. The child has exceeded its allocated resources.
+2. The task assigned to the child is no longer necessary.
+3. The parent process is exiting, and in such a case, the operating system doesn't allow the child to continue running.
 ![image](https://github.com/user-attachments/assets/1acd5744-00d2-49c6-9e1c-79cdb443572c)
 ---
 
