@@ -754,3 +754,25 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/a5884b83-2e0f-4b93-a070-0cf1414cd08e)
 ---
 
+#### Operation on Processes – Process Termination
+##### Process Termination
+- A process ends after executing its final statement and invokes the exit() system call. This signals the operating system to terminate the process.
+- Upon termination, the process may return a status value to its parent process using the wait() system call.
+- All resources allocated to the process, such as memory, open files, and I/O buffers, are deallocated by the operating system.
+![image](https://github.com/user-attachments/assets/ccf7b86c-9813-4775-8066-024b723ecf8a)
+---
+
+##### Other Circumstances for Termination:
+- One process can terminate another process using an appropriate system call.
+- Typically, a parent process can terminate its child process. If this wasn't restricted, users could arbitrarily end each other’s processes.
+![image](https://github.com/user-attachments/assets/6c8804ad-43f0-49a3-9123-e51174e6e82c)
+---
+
+##### Parent-Child Process Termination:
+- A parent process may terminate its child process for several reasons:
+- The child has exceeded its allocated resources.
+- The task assigned to the child is no longer necessary.
+- The parent process is exiting, and in such a case, the operating system doesn't allow the child to continue running.
+![image](https://github.com/user-attachments/assets/1acd5744-00d2-49c6-9e1c-79cdb443572c)
+---
+
