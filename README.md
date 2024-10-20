@@ -776,3 +776,35 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/1acd5744-00d2-49c6-9e1c-79cdb443572c)
 ---
 
+#### Interprocess Communication
+##### Independent vs. Cooperating Processes:
+- Independent processes: These processes operate without affecting or being affected by other processes in the system. Each runs in isolation, meaning they don't share data with or depend on other processes.
+- Cooperating processes: These processes can be influenced by or can influence other processes. They work together by sharing data and resources, allowing for coordinated execution.
+- Example: Web servers and databases are cooperating processes. The web server (Process A) sends a request to the database (Process B) and waits for a response. They cooperate by exchanging data to provide functionality to users.
+![image](https://github.com/user-attachments/assets/2433ebc9-3489-4a26-bcca-e69202a0ec95)
+---
+
+##### Interprocess Communication which provides an environment, allows process communication. And the reason why we need IPC:
+- Information sharing: when several users wants an access to an information it's essential to provide an environment which they can access at the same time. 
+- Computation speedup: instead of taking one task at a time, it's better to divide the task to several subtasks which they all work for single task concurrently. In order to achieve this, the subtasks need to communicate each other.
+- Modularity: when designing a system, one person will not be designing whole system alone. Therefore, we divide the system to different modules and they'll be put together later on. Also these modules need to cooperate with each other.
+- Convenience: from user perspective, if they are utilizing multiple task at a same time meaning different processes are running concurrently. So it'd be convenient if those processes can communicate each other and avoid clashing to one another. 
+![image](https://github.com/user-attachments/assets/33b992e4-ce51-4056-892c-2e65f3c2bb0f)
+---
+
+##### Models of Inter-process Communication (IPC):
+- There are two primary IPC mechanisms:
+1. Shared Memory: A region of memory that multiple processes can access and modify. This model allows fast communication since data is directly available for read/write access in memory.
+- Example: Processes A and B can both access a common memory space to read or update shared variables.
+2. Message Passing: Communication happens through sending and receiving messages between processes. This method is more structured and safer as it doesn’t involve direct memory access.
+- Example: Process A sends a message to Process B through a communication channel (like a queue), and Process B receives and processes the message.
+![image](https://github.com/user-attachments/assets/4ed57227-df98-440c-843e-1597df180af4)
+---
+
+##### Communication Models:
+- Shared Memory (Diagram a): Both Process A and Process B use a common memory space labeled as "Shared." They access this shared memory for exchanging information without involving the kernel.
+- Message Passing (Diagram b): Process A and Process B communicate by sending messages (indicated by M) through the kernel. The kernel handles message passing, ensuring the two processes can exchange data in a controlled way.
+- These concepts are essential for designing systems that involve multiple processes working together or independently, such as multi-threaded applications or distributed systems.
+![image](https://github.com/user-attachments/assets/1028aae6-91b7-41ac-abc3-f95c340b487c)
+---
+
