@@ -815,7 +815,39 @@ Every important aspects of an Operating System will be taught in this course so 
 - One process creates a shared memory segment.
 - Other processes must attach this shared memory to their own address space in order to communicate.
 - Normally, the OS isolates the memory of different processes to prevent unauthorized access, but shared memory allows multiple processes to bypass this restriction.
-- Example: Imagine two processes, Process A and Process B, that need to exchange data. They both attach to the same shared memory space. Process A writes data to the memory, and Process B can read it. For synchronization (to avoid race conditions), mechanisms like mutexes or semaphores are used. 
+- Example: Imagine two processes, Process A and Process B, that need to exchange data. They both attach to the same shared memory space. Process A writes data to the memory, and Process B can read it. For synchronization (to avoid race conditions), mechanisms like mutexes or semaphores are used.
+- Mutexes (Mutual Exclusion) and Semaphores are synchronization primitives used in concurrent programming to control access to shared resources, like shared memory, ensuring that processes or threads do not interfere with each other’s operations.
+
+##### Difference between Mutex and Semaphore:
+- Mutex: Ensures that only one process/thread can access a resource at a time (one at a time access).
+- Semaphore: Can allow multiple processes/threads to access a resource up to a certain limit (can be one or more).
+
+##### Mutex (Mutual Exclusion Object):
+- A mutex is a locking mechanism that ensures that only one thread or process can access a shared resource at a time. It is commonly used to prevent race conditions where multiple processes or threads might attempt to access and modify the same data simultaneously.
+
+##### How Mutexes Work:
+- A mutex has two states: locked or unlocked.
+- A process must lock the mutex before accessing the shared resource.
+- If another process tries to lock the mutex while it is already locked, it is forced to wait until the mutex is unlocked (i.e., the other process releases the lock).
+- Once the process finishes using the resource, it unlocks the mutex, allowing other waiting processes to proceed.
+- Example: Imagine a shared counter in memory that two processes, A and B, want to increment. Without a mutex, both processes might try to increment it at the same time, leading to inconsistent results (race condition). Using a mutex, Process A will lock the counter, increment it, and unlock it, ensuring Process B waits until A finishes.
+
+##### Semaphore:
+- A semaphore is a more general synchronization mechanism that can allow access to a shared resource by multiple processes or threads. Semaphores use counters to manage the number of available "permits" to access a resource.
+
+##### There are two types of semaphores:
+1. Binary Semaphore: It works like a mutex and has only two values: 0 (locked) and 1 (unlocked).
+2. Counting Semaphore: This type of semaphore can have a value greater than 1, allowing multiple processes to access the shared resource simultaneously up to a certain limit.
+
+##### How Semaphores Work:
+- A semaphore maintains a count of available resources (or slots).
+- A process that wants to access the resource must wait if the count is 0 (indicating all resources are in use). Otherwise, it decreases the count and proceeds.
+- When the process is done, it increments the count, signaling that a resource is available for others.
+- Example: Imagine a print queue with three printers. If three processes are printing at the same time, the semaphore count will reduce to 0, meaning no more processes can print. If a fourth process attempts to print, it will wait until one printer finishes and the semaphore count increases, indicating an available printer.
+
+##### Example in Context of Shared Memory:
+- Mutex Example: Two processes (Producer and Consumer) want to update a shared memory buffer. A mutex can be used to lock the buffer when the Producer writes data to it. The Consumer waits until the Producer unlocks the buffer to read data from it.
+- Semaphore Example: In a bounded buffer (e.g., a queue of 5 slots), a counting semaphore can be used to track how many slots are free. If the buffer is full, the Producer waits until the Consumer consumes an item, freeing up a slot. Conversely, another semaphore can track how many items are in the buffer, ensuring the Consumer waits if the buffer is empty.
 ![image](https://github.com/user-attachments/assets/da9f3bc8-309a-4c19-8c35-159153ff2bba)
 ---
 
