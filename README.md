@@ -808,3 +808,40 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/1028aae6-91b7-41ac-abc3-f95c340b487c)
 ---
 
+#### Shared Memory Systems
+- Definition: Interprocess communication (IPC) using shared memory requires that processes establish a common memory region. This region resides in the address space of the process that creates it.
+
+##### How it works:
+- One process creates a shared memory segment.
+- Other processes must attach this shared memory to their own address space in order to communicate.
+- Normally, the OS isolates the memory of different processes to prevent unauthorized access, but shared memory allows multiple processes to bypass this restriction.
+- Example: Imagine two processes, Process A and Process B, that need to exchange data. They both attach to the same shared memory space. Process A writes data to the memory, and Process B can read it. For synchronization (to avoid race conditions), mechanisms like mutexes or semaphores are used. 
+![image](https://github.com/user-attachments/assets/da9f3bc8-309a-4c19-8c35-159153ff2bba)
+---
+
+##### Producer-Consumer Problem:
+- Definition: A producer process generates data that is consumed by a consumer process. A common problem in concurrent programming is ensuring that the producer does not produce too much data for the consumer to handle and vice versa.
+
+##### Shared Memory Solution: Shared memory allows the producer and consumer to access a common buffer, where:
+- The producer adds items to the buffer.
+- The consumer removes items from the buffer.
+
+##### Key Concepts:
+- The buffer must be synchronized so that the producer doesn’t overwrite data before it’s consumed, and the consumer doesn’t consume the same item twice.
+- Example: Imagine a compiler (producer) that produces assembly code, and an assembler (consumer) that consumes this code to produce object modules. Shared memory acts as the buffer between these processes to facilitate the communication.
+![image](https://github.com/user-attachments/assets/f2f6255e-f37b-4067-9ee0-d5ab1ac6884e)
+---
+
+##### Types of Buffers in Producer-Consumer Problem:
+1. Unbounded Buffer:
+- The size of the buffer is theoretically unlimited.
+- The consumer may need to wait if no items are available, but the producer can always produce more items without limitation.
+
+2. Bounded Buffer:
+- The buffer has a fixed size.
+- If the buffer is full, the producer must wait for the consumer to consume items.
+- This scenario requires careful synchronization to prevent overfilling and data loss.
+- Example: In a bounded buffer, if a producer creates a video stream for a consumer (e.g., a video player), the buffer must manage how much video data is stored at once. If the buffer is full, the producer needs to wait until some of the data is played.
+![image](https://github.com/user-attachments/assets/bc01ef36-b8f5-406f-8d8f-e7cbccf45337)
+---
+
