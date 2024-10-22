@@ -877,3 +877,37 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/bc01ef36-b8f5-406f-8d8f-e7cbccf45337)
 ---
 
+#### Message Passing 
+- Message passing allows processes to communicate and synchronize their actions without sharing the same memory or address space. This is especially useful in distributed systems, where processes can be on different computers connected via a network.
+
+- Example:
+- Process A and Process B can exchange messages to coordinate without needing to access each other’s memory. These processes rely on a kernel that facilitates the message exchange between them.
+- In a distributed setup, processes could reside on different machines, communicating through a network without direct memory access.
+![image](https://github.com/user-attachments/assets/d294cda2-6ffa-4b70-bde5-8a285221676f)
+---
+
+##### Operations in Message Passing
+- Message-passing facilities generally provide two primary operations:
+1. Send(message): Allows one process to send a message to another.
+2. Receive(message): Allows a process to receive a message from another.
+
+- Messages can be:
+- Fixed Size: Easier to implement but harder for programmers to work with.
+- Variable Size: More complex at the system level but simplifies the programming task.
+
+- Example: A client process sending a "request" message to a server process (of fixed or variable size), which the server can then receive and respond to.
+![image](https://github.com/user-attachments/assets/65cd16b0-0b90-4d98-bf11-85e49d6528fa)
+---
+
+##### Communication Link Between Processes
+- For two processes (e.g., Process P and Process Q) to communicate:
+- A communication link must be established between them.
+
+- The system provides various ways to implement this link, supporting different styles of communication:
+1. Direct or indirect communication
+2. Synchronous or asynchronous communication
+3. Buffering (automatic or explicit)
+
+- Example: Process P can send a message to Process Q either directly (via specific identifiers) or indirectly (via a mailbox or channel). They can use either a synchronous method, where both wait for the message transfer, or asynchronous, where they can continue working without waiting for the message to arrive.
+![image](https://github.com/user-attachments/assets/59daebfb-3cff-4361-ad0f-1bd6aee5b61e)
+---
