@@ -880,8 +880,7 @@ Every important aspects of an Operating System will be taught in this course so 
 #### Message Passing 
 - Message passing allows processes to communicate and synchronize their actions without sharing the same memory or address space. This is especially useful in distributed systems, where processes can be on different computers connected via a network.
 
-- Example:
-- Process A and Process B can exchange messages to coordinate without needing to access each other’s memory. These processes rely on a kernel that facilitates the message exchange between them.
+- Example: Process A and Process B can exchange messages to coordinate without needing to access each other’s memory. These processes rely on a kernel that facilitates the message exchange between them.
 - In a distributed setup, processes could reside on different machines, communicating through a network without direct memory access.
 ![image](https://github.com/user-attachments/assets/d294cda2-6ffa-4b70-bde5-8a285221676f)
 ---
@@ -891,7 +890,7 @@ Every important aspects of an Operating System will be taught in this course so 
 1. Send(message): Allows one process to send a message to another.
 2. Receive(message): Allows a process to receive a message from another.
 
-- Messages can be:
+##### Messages can be:
 - Fixed Size: Easier to implement but harder for programmers to work with.
 - Variable Size: More complex at the system level but simplifies the programming task.
 
@@ -903,7 +902,7 @@ Every important aspects of an Operating System will be taught in this course so 
 - For two processes (e.g., Process P and Process Q) to communicate:
 - A communication link must be established between them.
 
-- The system provides various ways to implement this link, supporting different styles of communication:
+##### The system provides various ways to implement this link, supporting different styles of communication:
 1. Direct or indirect communication
 2. Synchronous or asynchronous communication
 3. Buffering (automatic or explicit)
