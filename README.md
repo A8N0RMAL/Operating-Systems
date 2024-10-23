@@ -910,3 +910,82 @@ Every important aspects of an Operating System will be taught in this course so 
 - Example: Process P can send a message to Process Q either directly (via specific identifiers) or indirectly (via a mailbox or channel). They can use either a synchronous method, where both wait for the message transfer, or asynchronous, where they can continue working without waiting for the message to arrive.
 ![image](https://github.com/user-attachments/assets/59daebfb-3cff-4361-ad0f-1bd6aee5b61e)
 ---
+ 
+##### Let's discuss the direct and indirect communication and the issue related to them (Naming):
+![image](https://github.com/user-attachments/assets/6389698e-0350-4397-8d55-45ec40a996a9)
+
+---
+
+##### Direct Communication
+- In a direct communication system, processes explicitly name the sender or recipient.
+
+##### Example:
+- send(P, message) sends a message to process P.
+- receive(Q, message) receives a message from process Q.
+
+##### Properties:
+- A communication link is automatically established between pairs of processes.
+- Only two processes can communicate over a link.
+- There is symmetry in addressing, meaning both processes must know and name each other to communicate.
+![image](https://github.com/user-attachments/assets/3c1850b2-8a33-442a-a1a3-ac5914d0e45a)
+---
+
+##### Variant of Direct Communication
+- In this variation, only the sender names the recipient. The recipient doesn't need to name the sender.
+
+##### Example:
+- send(P, message) sends a message to process P.
+- receive(id, message) receives a message from any process, with id indicating the sender's name.
+
+##### Asymmetric Addressing:
+- The sender knows the recipient, but the recipient only identifies the sender after receiving the message.
+- The disadvantage is limited modularity, meaning if a process's identifier changes, it may require updates to the entire system.
+![image](https://github.com/user-attachments/assets/2498d8e6-5bba-41f4-8521-edeffe1c7da2)
+---
+
+##### Indirect Communication (Using Mailboxes or Ports)
+- In indirect communication, messages are sent and received through shared mailboxes or ports, not between named processes directly.
+
+##### Example:
+- send(A, message) sends a message to mailbox A.
+- receive(A, message) retrieves a message from mailbox A.
+
+##### Properties:
+- Mailboxes are abstract objects that store messages, and processes communicate only if they share a mailbox.
+- Each mailbox has a unique ID that processes use to send and receive messages.
+
+##### Conclusion:
+- Direct communication requires explicit naming of processes, which may limit flexibility and modularity.
+- Indirect communication through mailboxes offers more flexibility, as processes don’t need to know each other but share a common mailbox identifier for communication.
+![image](https://github.com/user-attachments/assets/10f10e97-7f76-48f3-8e52-2ce33321c488)
+---
+
+##### Message Passing in Operating Systems: Communication Links and Mailboxes
+1.  Properties of Communication Links:
+- A link is established between two processes only if they both share a mailbox.
+- A link can be shared by more than two processes.
+- Multiple links can exist between each pair of communicating processes, where each link corresponds to a different mailbox.
+![image](https://github.com/user-attachments/assets/cc097062-8f38-4141-9e35-ac7a2e9f113f)
+---
+
+2. Message Passing Example (Mailbox A):
+- Scenario: Suppose three processes (P1, P2, and P3) share mailbox A. If P1 sends a message to A, both P2 and P3 may attempt to receive the message.
+
+##### Question: Which process (P2 or P3) will receive the message sent by P1?
+3. Possible Solutions: The system's behavior will depend on certain factors:
+- Restrict Links: If the system restricts the link to be associated with two processes at most, only one receiver (either P2 or P3) will receive the message.
+- Single Receive Operation: If only one process can execute a receive() at a time, that process will receive the message.
+- Arbitrary Selection: The system can arbitrarily decide which process (P2 or P3) gets the message, possibly using an algorithm like round-robin, where the
+processes take turns receiving messages.
+- The system might also notify the sender (P1) of which receiver got the message.
+
+4. Ownership of Mailboxes:
+- A mailbox can either be owned by a process or managed by the operating system. If the mailbox is owned by a process, it controls how messages are sent and received. If owned by the OS, the system arbitrates message handling.
+##### Example:
+- Process P1 sends a message to mailbox A: If P2 and P3 both attempt to receive the message, the system decides which process gets it based on one of the factors (e.g., round-robin selection).
+- This mechanism ensures flexible and controlled inter-process communication in operating systems using message-passing techniques.
+![image](https://github.com/user-attachments/assets/cf9092bc-6bf2-4331-b7b1-9c7dc10b3231)
+![image](https://github.com/user-attachments/assets/d0d72bd8-dbba-4400-97e3-fd41eab66145)
+---
+
+
