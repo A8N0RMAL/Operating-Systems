@@ -988,4 +988,48 @@ processes take turns receiving messages.
 ![image](https://github.com/user-attachments/assets/d0d72bd8-dbba-4400-97e3-fd41eab66145)
 ---
 
+#### Synchronous or asynchronous communication and synchronization issue related to them:
+#### Buffering (automatic or explicit) and buffering issue related to them:
+![image](https://github.com/user-attachments/assets/91967325-df08-493c-80cb-a7b061271161)
+
+---
+#### Synchronous or asynchronous communication and synchronization issue related to them:
+##### Synchronization in Message Passing: 
+- Message passing allows processes to communicate by sending and receiving messages. This communication can be either blocking or nonblocking, which are also referred to as synchronous and asynchronous operations.
+
+##### Blocking Send:
+-The sending process is halted until the receiving process or the mailbox has received the message.
+- Example: If Process A sends a message to Process B, Process A will stop its execution until Process B acknowledges that it has received the message.
+
+##### Nonblocking Send:
+- The sender resumes its operation immediately after sending the message, without waiting for it to be received.
+- Example: Process A sends a message to Process B and continues with its work, even if Process B hasn’t yet received or processed the message.
+
+##### Blocking Receive:
+- The receiving process is suspended until a message becomes available.
+- Example: Process B waits and does nothing until it receives a message from Process A.
+
+##### Nonblocking Receive:
+- The receiver fetches a message if available, or receives a null if no message is present, allowing it to continue with other tasks.
+- Example: Process B checks for messages and continues its work, even if no messages are available.
+![image](https://github.com/user-attachments/assets/a543f1e5-d1be-4402-a7be-45364a9f61a0)
+---
+
+#### Buffering (automatic or explicit) and buffering issue related to them:
+##### Buffering in Message Passing:
+- Messages exchanged between processes are stored in temporary queues, which can be implemented in three ways depending on their capacity:
+
+##### Zero Capacity:
+- The queue has no space to store messages, meaning the sender must wait until the receiver is ready to receive the message (blocking).
+- Example: Process A cannot send a message until Process B is ready to receive it.
+
+##### Bounded Capacity:
+- The queue has a limited size, and at most n messages can be stored. If the queue is full, the sender must wait for space to become available.
+- Example: Process A sends messages to a queue, but if the queue is full (e.g., 10 messages), Process A must wait until Process B retrieves some messages from the queue.
+
+##### Unbounded Capacity:
+- The queue can store an infinite number of messages, so the sender never has to block and can always send messages without waiting.
+- Example: Process A keeps sending messages, and the queue dynamically expands to hold all of them without forcing Process A to wait.
+![image](https://github.com/user-attachments/assets/20ba02b0-a069-4518-99af-1cd3f81a6eb3)
+---
 
