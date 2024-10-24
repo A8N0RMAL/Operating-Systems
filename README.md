@@ -998,7 +998,7 @@ processes take turns receiving messages.
 - Message passing allows processes to communicate by sending and receiving messages. This communication can be either blocking or nonblocking, which are also referred to as synchronous and asynchronous operations.
 
 ##### Blocking Send:
--The sending process is halted until the receiving process or the mailbox has received the message.
+- The sending process is halted until the receiving process or the mailbox has received the message.
 - Example: If Process A sends a message to Process B, Process A will stop its execution until Process B acknowledges that it has received the message.
 
 ##### Nonblocking Send:
