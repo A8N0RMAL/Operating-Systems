@@ -1033,3 +1033,35 @@ processes take turns receiving messages.
 ![image](https://github.com/user-attachments/assets/20ba02b0-a069-4518-99af-1cd3f81a6eb3)
 ---
 
+#### Sockets in Operating System
+- Sockets are crucial for communication in Client-Server Systems and serve as endpoints for data exchange between processes over a network. Here’s a breakdown of how sockets function:
+
+##### Definition and Identification:
+- A socket acts as an endpoint in a network communication link.
+- Each socket is identified by a unique combination of an IP address and a port number. This enables communication between a pair of processes, where each process has its own socket.
+
+##### How Socket Communication Works:
+- The server process listens on a specified port for incoming client requests.
+- Once a client requests a connection, the server accepts it, creating a connection between the client’s socket and the server’s socket.
+- Example: A web server might listen on port 80 for HTTP requests. When a client (browser) requests a web page, it connects to the server’s socket at IP address 161.25.19.8 on port 80.
+
+##### Well-Known Ports:
+- Specific ports are designated for well-known services:
+1. Telnet: Port 23
+2. FTP: Port 21
+3. HTTP: Port 80
+- Example: A telnet server waiting for a connection on port 23 allows clients to connect for remote command-line access.
+![image](https://github.com/user-attachments/assets/150476a4-e6cf-4423-ac78-36e4f21c793c)
+---
+
+##### Port Numbers and Connection Process:
+- Client Process: When a client initiates a connection, it is assigned a random port number (typically above 1024) by the host. This port number, along with the client’s IP address, forms the client’s socket.
+- Example: A client with IP 146.86.5.20 initiates a request using port 1625 to connect to a web server socket on IP 161.25.19.8 and port 80.
+- Packet Delivery: Data packets sent between the client and server are directed to the correct sockets using IP addresses and port numbers, ensuring they reach the appropriate processes.
+
+##### Common Port Ranges:
+- Ports below 1024 are considered well-known and reserved for standard services.
+- Ports above 1024 are available for general or custom application use.
+![image](https://github.com/user-attachments/assets/7250eff0-6734-4fb0-a51a-da17655593b8)
+---
+
