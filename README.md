@@ -1065,3 +1065,57 @@ processes take turns receiving messages.
 ![image](https://github.com/user-attachments/assets/7250eff0-6734-4fb0-a51a-da17655593b8)
 ---
 
+#### Remote Procedure Calls (RPC)
+##### What is Remote Procedure Call (RPC)?
+- Remote Procedure Call (RPC) is a protocol that allows one program to request a service from a program located on another computer within a network. RPC enables this without the programs needing to understand the details of the network, making it similar in concept to inter-process communication (IPC).
+
+##### Key Concepts and Steps in RPC
+
+1. **Message-Based Communication**:
+   - Since the processes run on separate systems, RPC uses a **message-based communication scheme** for requesting and providing remote services. Each communication is structured as a message, rather than simple data packets.
+
+2. **RPC Daemon**:
+   - Each message is directed to an **RPC daemon** on the remote system, which listens to a specific port. The message includes:
+     - An identifier for the function to be executed.
+     - Any parameters needed for the function.
+
+3. **Execution and Response**:
+   - Once the request is received, the function is executed as requested, and the output is sent back to the requester through another message.
+![image](https://github.com/user-attachments/assets/15a17854-ea97-4d5d-83a8-1a714f08c4e7)
+---
+
+##### Semantic Details in RPC
+- RPC allows a client to invoke a procedure on a remote server as if it were a local call. Here’s how it works:
+
+1. **Client-Side Stub**:
+   - RPC hides the details of the network communication by using a **stub** on the client side. This stub acts as a placeholder for each remote procedure.
+
+2. **Remote Procedure Invocation**:
+   - When a client calls a remote procedure, the RPC system invokes the appropriate stub, passing the provided parameters. 
+   - The stub finds the server’s port and prepares (marshals) the parameters for network transmission.
+
+3. **Parameter Marshalling**:
+   - Parameters are **marshalled** by converting them into a format suitable for network transmission. This ensures they can be understood by the server, regardless of network differences.
+
+4. **Message Passing**:
+   - The client stub then sends a message to the server using message passing. On the server side, a corresponding stub receives this message and executes the procedure on the server.
+
+5. **Returning Values**:
+   - If necessary, the server’s output (return value) is packaged and sent back to the client in the same way.
+
+#### Example Scenario
+- Imagine a file storage system where a client application wants to retrieve a file from a remote server.
+1. The client application calls a function like `getFile("example.txt")`.
+2. The RPC stub on the client marshals the `getFile` function and `"example.txt"` parameter, then sends this as a message to the server.
+3. The server’s stub receives this message, unpacks it, and calls `getFile("example.txt")` on the server.
+4. The server executes the request, retrieves the file data, and sends it back to the client through a response message.
+5. The client’s stub receives the response, unmarshals the data, and presents it as if it were a local call.
+
+#### Advantages of RPC
+- **Transparency**: RPC hides network details, making remote functions appear local.
+- **Efficiency**: It uses message-passing for streamlined communication between distributed systems.
+- **Structure**: Communication is well-defined and organized, making it suitable for structured network applications. 
+
+- This setup simplifies network-based program interactions, enabling efficient, scalable services across distributed systems.
+![image](https://github.com/user-attachments/assets/57d2d5a7-7778-4b28-9587-9dc64838456a)
+---
