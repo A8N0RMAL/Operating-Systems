@@ -1121,7 +1121,11 @@ processes take turns receiving messages.
 ---
 
 #### Issues in RPC & How They're Resolved
+1) Difference in representation of data in different systems. Can be solved by using a machine-independent representation of data. Practical example is XDR(eXternal Data Representation)
+2) Network issues can make redundant calls or cause a failure of the procedure execution. Can be solved by ensuring that the OS executes the procedure exactly once not at most once.
+3) RPCs requires that the client knows the server's port address where the RPC daemon is running on. This can be solved by agreeing on a fixed port numbers for communication, or dynamically finding out the port address using the rendezvous mechanism.
 
+#### Let's dig in deep with more details:
 #### 1. Data Representation Differences
 - **Issue**: Different systems (client and server) may represent data differently, such as big-endian and little-endian formats for storing 32-bit integers. Big-endian systems store the most significant byte at the highest memory address, while little-endian systems do the opposite.
 - **Solution**: RPC systems use a machine-independent representation called External Data Representation (XDR). When data is sent, it’s converted to XDR format on the client side, ensuring a standardized format across different machines. On the server side, the data is unmarshalled and converted back to the server’s native format.
