@@ -1119,3 +1119,35 @@ processes take turns receiving messages.
 - This setup simplifies network-based program interactions, enabling efficient, scalable services across distributed systems.
 ![image](https://github.com/user-attachments/assets/57d2d5a7-7778-4b28-9587-9dc64838456a)
 ---
+
+#### Issues in RPC & How They're Resolved
+
+#### 1. Data Representation Differences
+- **Issue**: Different systems (client and server) may represent data differently, such as big-endian and little-endian formats for storing 32-bit integers. Big-endian systems store the most significant byte at the highest memory address, while little-endian systems do the opposite.
+- **Solution**: RPC systems use a machine-independent representation called External Data Representation (XDR). When data is sent, it’s converted to XDR format on the client side, ensuring a standardized format across different machines. On the server side, the data is unmarshalled and converted back to the server’s native format.
+
+#### 2. Failure and Duplication in RPCs
+- **Issue**: Unlike local procedure calls, RPCs can fail or duplicate calls due to network errors, causing them to be executed multiple times unintentionally.
+- **Solution**: The operating system ensures that messages are processed exactly once, though achieving this is more challenging than the "at most once" approach that some systems employ. This ensures RPC reliability by preventing duplicated executions.
+![image](https://github.com/user-attachments/assets/210bc505-9f14-4639-be12-f81eb2f429fb)
+---
+
+#### 3. Binding of Client and Server Ports
+- **Issue**: In standard procedure calls, binding occurs during link, load, or execution time. However, RPC requires binding the client to the server's port, which is complicated as neither system has full information about the other’s resources.
+- **Solution**:
+  - **Fixed Port Addresses**: A predetermined port is assigned to the RPC during compile time, allowing the client to know the server's port address.
+  - **Rendezvous Mechanism**: An operating system daemon, known as a matchmaker, dynamically provides the port information to the client when requested. This daemon assigns the correct port for the RPC call, maintaining flexibility for the server.
+![image-fotor-20241030171835](https://github.com/user-attachments/assets/11870fb0-e24e-450d-a90d-69b596799a02)
+---
+
+#### 4. Execution of RPC (Process Flow)
+- **Process**:
+  - The client requests a procedure call.
+  - The operating system looks up the port via a matchmaker and returns the correct port.
+  - The client then sends the request to the specified port.
+  - The server daemon processes the request and sends back the output.
+
+- This structured flow ensures that RPC calls are directed to the right endpoints and managed effectively to maintain the procedure's integrity. This process minimizes the typical network-related issues by establishing reliable communication paths. 
+![image](https://github.com/user-attachments/assets/201d3e01-1969-4c43-b114-0a5387988d72)
+---
+
