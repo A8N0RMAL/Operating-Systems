@@ -1154,4 +1154,51 @@ processes take turns receiving messages.
 - This structured flow ensures that RPC calls are directed to the right endpoints and managed effectively to maintain the procedure's integrity. This process minimizes the typical network-related issues by establishing reliable communication paths. 
 ![image](https://github.com/user-attachments/assets/201d3e01-1969-4c43-b114-0a5387988d72)
 ---
+Here's a summary of the images on threads in operating systems, suitable for your GitHub repository.
+
+---
+
+### Threads in Operating Systems
+
+### What is a Thread?
+- A **thread** is the smallest unit of CPU execution.
+- Each thread contains:
+  - **Thread ID**: Unique identifier for the thread.
+  - **Program Counter**: Tracks the current instruction.
+  - **Register Set**: Holds the state of the processor.
+  - **Stack**: Stores the thread’s local variables and method calls.
+
+#### Threads within the same process share:
+- **Code section**, **data section**, and **open files**.
+- **Operating system resources** such as memory.
+
+### Single-Threaded vs. Multi-Threaded Processes
+- **Single-threaded process**: Contains only one thread of control.
+- **Multi-threaded process**: Contains multiple threads, allowing multiple tasks to execute concurrently.
+
+**Example**: 
+  - In a text editor, one thread might handle user input while another handles spell-checking in the background. This improves responsiveness and allows tasks to run concurrently.
+![image](https://github.com/user-attachments/assets/0e033347-55de-48ff-8ecf-0ce91ff2b3c6)
+---
+
+### Benefits of Multithreading
+- Multithreading brings multiple advantages that fall into four main categories:
+
+1. **Responsiveness**:
+   - Keeps an application running even if one thread is blocked or performing a long operation.
+   - **Example**: In a web browser, one thread can handle user inputs while another loads content in the background.
+
+2. **Resource Sharing**:
+   - Threads share memory and resources within the same address space.
+   - **Example**: Multiple threads in a photo editing app can access the same image data without needing separate memory allocations, saving resources.
+
+3. **Economy**:
+   - Creating and managing threads is cheaper than creating new processes because threads share resources of the parent process.
+   - **Example**: In a server application, multiple threads can handle client requests without needing the overhead of creating a new process for each request.
+
+4. **Utilization of Multiprocessor Architectures**:
+   - Threads can run in parallel on multiple processors, increasing efficiency.
+   - **Example**: A video rendering program can split tasks among multiple CPU cores to speed up the process.
+![image](https://github.com/user-attachments/assets/ae9c56a8-ecbc-466a-81a0-b3e3ed06482d)
+---
 
