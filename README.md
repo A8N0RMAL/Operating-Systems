@@ -1199,6 +1199,8 @@ Here's a summary of the images on threads in operating systems, suitable for you
 4. **Utilization of Multiprocessor Architectures**:
    - Threads can run in parallel on multiple processors, increasing efficiency.
    - **Example**: A video rendering program can split tasks among multiple CPU cores to speed up the process.
+
 ![image](https://github.com/user-attachments/assets/ae9c56a8-ecbc-466a-81a0-b3e3ed06482d)
+
 ---
 
