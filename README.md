@@ -1154,9 +1154,6 @@ processes take turns receiving messages.
 - This structured flow ensures that RPC calls are directed to the right endpoints and managed effectively to maintain the procedure's integrity. This process minimizes the typical network-related issues by establishing reliable communication paths. 
 ![image](https://github.com/user-attachments/assets/201d3e01-1969-4c43-b114-0a5387988d72)
 ---
-Here's a summary of the images on threads in operating systems, suitable for your GitHub repository.
-
----
 
 ### Threads in Operating Systems
 
