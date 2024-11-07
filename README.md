@@ -1236,7 +1236,7 @@ Here's a summary of the images on threads in operating systems, suitable for you
    - **Benefits**: Provides flexibility in thread creation, as the OS can schedule user threads more effectively based on system resources.
    - **Drawbacks**: Complex implementation due to the need for synchronization between user and kernel threads.
    - **Example**: Windows’ fiber system allows multiple fibers (user threads) to be executed across available kernel threads, making it an example of a many-to-many model.
-![image](https://github.com/user-attachments/assets/8f2f78f2-78da-48ab-8d13-28406e8da7b4)
+![image](https://github.com/user-attachments/assets/1f3e9cdf-30d0-4063-8104-856e01ccf346)
 ---
 
 ### Hyperthreading (Simultaneous Multithreading or SMT)
@@ -1244,6 +1244,6 @@ Here's a summary of the images on threads in operating systems, suitable for you
    - **Example**: Intel's Hyper-Threading Technology (HTT) enables a core to handle two threads simultaneously. In the example command output provided (`wmic CPU Get NumberOfCores, NumberOfLogicalProcessors`), a CPU with six cores and twelve logical processors demonstrates hyperthreading, where each core has two logical processors.
 
 - These concepts optimize the way an OS handles concurrent processes, leading to more efficient use of CPU resources in multitasking environments. Hyperthreading, for instance, can be beneficial in workloads with high CPU usage, such as video rendering or large-scale data analysis.
-![image](https://github.com/user-attachments/assets/1f3e9cdf-30d0-4063-8104-856e01ccf346)
+![image](https://github.com/user-attachments/assets/8f2f78f2-78da-48ab-8d13-28406e8da7b4)
 ![image](https://github.com/user-attachments/assets/6f509bdd-2947-4623-87fa-5e50de8880e2)
 ---
