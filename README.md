@@ -1267,3 +1267,53 @@ processes take turns receiving messages.
 ![image](https://github.com/user-attachments/assets/21f5a5e8-e99f-4b0c-94a2-14b107a4b5c8)
 ---
 
+### Threading Issues with `fork()` and `exec()` Calls in Multithreaded Programs
+- In a multithreaded environment, the behavior of the `fork()` and `exec()` system calls can introduce challenges, especially around duplicating threads and managing process execution. 
+![image](https://github.com/user-attachments/assets/966e91ec-a062-4932-8613-d5a7177e153f)
+![image](https://github.com/user-attachments/assets/d7636c7b-57d1-4d68-b742-7f1d463a5ae1)
+---
+
+#### The `fork()` System Call in Multithreaded Programs
+
+- **Issue**:
+  When a thread within a multithreaded program calls `fork()`, there’s ambiguity about whether the new process should duplicate all threads in the original process or only the thread that called `fork()`.
+
+- **Solution**:
+  Some UNIX systems offer two versions of `fork()`:
+    - One version duplicates **all threads** from the original process.
+    - Another version duplicates **only the thread** that invoked `fork()`, creating a new process with a single thread.
+
+- **Choosing Which Version**:
+  Deciding which version of `fork()` to use depends on the behavior needed in the program after `fork()` is called.
+
+---
+
+#### The `exec()` System Call in Multithreaded Programs
+
+- If a thread calls `exec()` after `fork()`, the `exec()` system call will replace the entire process image (including all threads) with a new program as specified. This makes it unnecessary to duplicate all threads when `exec()` will immediately follow `fork()`.
+
+---
+
+### Guidelines for Using `fork()` and `exec()` Together
+
+- The choice of `fork()` behavior depends on whether `exec()` is invoked immediately after `fork()` or not:
+
+1. **If `exec()` is called immediately after `fork()`**:
+   - **Duplicate only the calling thread**: Duplicating all threads would be wasteful because `exec()` replaces the process image, so any additional threads created would immediately be discarded.
+   - Example:
+![image](https://github.com/user-attachments/assets/c317a3f0-2b05-423c-a725-d12cb2ff0f29)
+
+
+2. **If `exec()` is NOT called after `fork()`**:
+   - **Duplicate all threads**: If the separate process created by `fork()` is expected to continue execution without calling `exec()`, then it should duplicate all threads to maintain the same multithreaded context as the parent process.
+
+---
+
+### Summary
+
+- **When to duplicate only the calling thread**: Use this version if `exec()` will follow `fork()` immediately, as it avoids creating extra threads that will be discarded.
+- **When to duplicate all threads**: Use this if the new process created by `fork()` will not call `exec()` and is expected to maintain the same multithreaded environment as the parent.
+
+- These considerations are essential for optimizing resource usage and ensuring correct behavior when using `fork()` and `exec()` in multithreaded programs.
+
+---
