@@ -1244,3 +1244,26 @@ processes take turns receiving messages.
 ![image](https://github.com/user-attachments/assets/8f2f78f2-78da-48ab-8d13-28406e8da7b4)
 ![image](https://github.com/user-attachments/assets/6f509bdd-2947-4623-87fa-5e50de8880e2)
 ---
+
+### `fork()` and `exec()` System Calls in Linux
+
+1. **`fork()`**:
+   - The `fork()` system call is used to create a new process by duplicating the calling process. 
+   - When `fork()` is called, it creates a **separate, duplicate process** that is identical to the parent, including its code, data, and open files.
+   - The new process created by `fork()` is known as the "child" process, and it runs independently of the "parent" process.
+   - Example:
+![image](https://github.com/user-attachments/assets/29313a72-34e9-495d-bded-39836a80897e)
+
+
+2. **`exec()`**:
+   - The `exec()` system call replaces the current process with a new program specified in its parameters.
+   - When `exec()` is invoked, the calling process's code, data, and stack are replaced with the new program, including all threads.
+   - This means the new program runs in place of the calling process, with the same process ID, but all previous memory and resources are replaced.
+   - Example:
+![image](https://github.com/user-attachments/assets/87166323-4340-4387-b745-026988b4802d)
+
+
+- In summary, `fork()` is used to create a duplicate process, while `exec()` replaces the current process with a different program. They are often used together, with `fork()` creating a new process and `exec()` running a new program within that process.
+![image](https://github.com/user-attachments/assets/21f5a5e8-e99f-4b0c-94a2-14b107a4b5c8)
+---
+
