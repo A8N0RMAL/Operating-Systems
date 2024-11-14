@@ -1317,3 +1317,43 @@ processes take turns receiving messages.
 - These considerations are essential for optimizing resource usage and ensuring correct behavior when using `fork()` and `exec()` in multithreaded programs.
 
 ---
+Here's a summarized explanation of Thread Cancellation based on the images you provided. 
+
+---
+
+### Threading Issues (Thread Cancellation)
+- Thread cancellation is the process of stopping a thread before it completes its task. It is typically done in cases where the result is already obtained by one thread, or the task has been canceled by the user. 
+
+**Examples:**
+1. **Database Search:** Multiple threads are searching a database. Once one thread finds the desired result, the remaining threads are canceled to save resources.
+2. **Web Browsing:** If a user stops a webpage from loading, all threads responsible for loading that page are canceled.
+![image](https://github.com/user-attachments/assets/4b0df3e8-82f3-48bc-b517-3405e2caf8e8)
+
+---
+
+### Types of Thread Cancellation
+- There are two primary ways to cancel a thread:
+
+1. **Asynchronous Cancellation:**  
+   - A thread is terminated immediately by another thread.
+   - **Example:** Pressing a "Stop" button in a web browser to halt all loading threads instantly.
+
+2. **Deferred Cancellation:**  
+   - The target thread periodically checks if it should terminate, allowing it to finish important tasks or free resources safely.
+   - **Example:** A thread processing data checks at intervals if it should be canceled, preventing issues like memory leaks.
+![image](https://github.com/user-attachments/assets/f98a4e15-1cc7-4eec-ba8a-7ff7cee3bf7b)
+
+---
+
+### Challenges with Thread Cancellation
+Thread cancellation can be problematic in certain situations, particularly when:
+- **Resources are allocated to the canceled thread.**
+- **The thread is actively sharing data with others.**
+
+- If a thread is canceled abruptly, not all resources may be freed, potentially causing resource leakage. The Operating System reclaims some resources, but system-wide resources may remain occupied.
+
+**Deferred Cancellation** helps manage these issues by allowing threads to reach a safe point for termination:
+- **Example:** Before canceling, a thread can check if it’s safe to terminate, ensuring that no essential resources are locked or left unused.
+![image](https://github.com/user-attachments/assets/31a7193f-09ca-4915-98af-56e08f3dde84)
+
+---
