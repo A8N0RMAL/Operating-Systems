@@ -1317,9 +1317,6 @@ processes take turns receiving messages.
 - These considerations are essential for optimizing resource usage and ensuring correct behavior when using `fork()` and `exec()` in multithreaded programs.
 
 ---
-Here's a summarized explanation of Thread Cancellation based on the images you provided. 
-
----
 
 ### Threading Issues (Thread Cancellation)
 - Thread cancellation is the process of stopping a thread before it completes its task. It is typically done in cases where the result is already obtained by one thread, or the task has been canceled by the user. 
