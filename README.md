@@ -1354,3 +1354,44 @@ Thread cancellation can be problematic in certain situations, particularly when:
 ![image](https://github.com/user-attachments/assets/31a7193f-09ca-4915-98af-56e08f3dde84)
 
 ---
+
+### Introduction to CPU Scheduling
+
+#### **What is CPU Scheduling?**
+- CPU scheduling is essential for **multiprogrammed operating systems**.
+- It helps in switching the CPU among different processes, increasing the overall productivity of the system.
+
+#### **Key Topics Covered**:
+1. Introduction to CPU scheduling.
+2. Overview of various CPU scheduling algorithms.
+![image](https://github.com/user-attachments/assets/7dac8d2e-5177-4214-a03d-04c8be957dbe)
+
+---
+
+### **Single-Processor System:**
+- **Limitation**: Only one process can run at a time; others must wait until the CPU is free.
+- **Idle Time Problem**:
+  - When a process waits for I/O (Input/Output), the CPU sits idle, leading to wasted time.
+
+#### **Objective of Multiprogramming**:
+- Keep the CPU as busy as possible by ensuring there’s always a process ready to run.
+- **Goal**: Maximize CPU utilization by:
+  1. Running a process continuously.
+  2. Switching to another process if the current one is waiting (e.g., for an I/O request).
+![image](https://github.com/user-attachments/assets/e78e1514-e614-4f50-87d1-3017cb853549)
+
+---
+
+### **Benefits of Multiprogramming:**
+- Keeps multiple processes in memory simultaneously.
+- When one process is idle (e.g., waiting for I/O), the CPU is assigned to another process.
+
+#### **Practical Example**:
+- Suppose a system has:
+  1. **Process A** performing calculations (CPU-intensive).
+  2. **Process B** waiting for a file to load (I/O).
+  
+- If the CPU runs **only Process A**, Process B must wait unnecessarily. Multiprogramming allows Process B to run while Process A is idle during its I/O wait.
+![image](https://github.com/user-attachments/assets/c7c5bdbd-6442-4359-96fc-6d08d6a6d7be)
+---
+
