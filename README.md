@@ -1395,10 +1395,6 @@ Thread cancellation can be problematic in certain situations, particularly when:
 ![image](https://github.com/user-attachments/assets/c7c5bdbd-6442-4359-96fc-6d08d6a6d7be)
 ---
 
-Here is a summarized explanation of the provided images about **CPU and I/O Burst Cycles**:
-
----
-
 ### **CPU and I/O Burst Cycles**
 
 #### **Key Concepts**:
@@ -1434,6 +1430,7 @@ Here is a summarized explanation of the provided images about **CPU and I/O Burs
    - Waiting for file operations to complete.
 5. **Further Alternations**:
    - The process continues alternating between **CPU bursts** and **I/O bursts** until the final CPU burst finishes.
+![image](https://github.com/user-attachments/assets/7b2481df-0caa-4d23-a062-43f07e27f54b)
 
 ---
 
@@ -1447,12 +1444,11 @@ Consider a process handling a large dataset:
    - Continue alternating as the CPU processes each chunk and waits for the next.
 
 - This alternating pattern optimizes resource usage by ensuring the CPU works while I/O operations are being prepared in parallel.
-![image](https://github.com/user-attachments/assets/7b2481df-0caa-4d23-a062-43f07e27f54b)
 
 ### Real-World Example
 - A program processing a dataset:
-- **CPU Burst**: Process the current chunk of data.
-- **I/O Burst**: Load the next chunk from disk.
+   - **CPU Burst**: Process the current chunk of data.
+   - **I/O Burst**: Load the next chunk from disk.
 
 ---
 
