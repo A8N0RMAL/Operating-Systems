@@ -1395,3 +1395,64 @@ Thread cancellation can be problematic in certain situations, particularly when:
 ![image](https://github.com/user-attachments/assets/c7c5bdbd-6442-4359-96fc-6d08d6a6d7be)
 ---
 
+Here is a summarized explanation of the provided images about **CPU and I/O Burst Cycles**:
+
+---
+
+### **CPU and I/O Burst Cycles**
+
+#### **Key Concepts**:
+1. **Process Execution Cycle**:
+   - A process alternates between two states during its execution:
+     - **CPU Burst**: Time spent by the process performing computations in the CPU.
+     - **I/O Burst**: Time spent waiting for Input/Output operations (e.g., reading/writing data).
+
+2. **Cycle Explanation**:
+   - Process execution starts with a **CPU burst**.
+   - This is followed by an **I/O burst**.
+   - This alternating pattern continues: **CPU burst → I/O burst → CPU burst**, and so on.
+   - Eventually, a **final CPU burst** completes the process, often ending with a system request for termination.
+
+#### **Definitions**:
+- **CPU Burst**: The phase where the CPU actively executes instructions of the process.
+  - Example: Performing arithmetic computations, updating variables in memory.
+- **I/O Burst**: The phase where the CPU waits for I/O operations to complete.
+  - Example: Waiting for data to be read from or written to a file.
+![image](https://github.com/user-attachments/assets/f7532350-2615-4e08-8994-dbce34443f99)
+
+---
+
+### **Example of Alternating Bursts**:
+#### Workflow from the Image:
+1. **First CPU Burst**:
+   - Operations: `load`, `store`, `add`, `read from file`.
+2. **I/O Burst**:
+   - Waiting for I/O to read or write data.
+3. **Second CPU Burst**:
+   - Operations: `store`, `increment`, `index`, `write to file`.
+4. **Next I/O Burst**:
+   - Waiting for file operations to complete.
+5. **Further Alternations**:
+   - The process continues alternating between **CPU bursts** and **I/O bursts** until the final CPU burst finishes.
+
+---
+
+### **Example in Practice**:
+Consider a process handling a large dataset:
+1. **CPU Burst**:
+   - Perform calculations on a portion of the data.
+2. **I/O Burst**:
+   - Wait for the next portion of the data to be loaded from the hard drive.
+3. **Repeat**:
+   - Continue alternating as the CPU processes each chunk and waits for the next.
+
+- This alternating pattern optimizes resource usage by ensuring the CPU works while I/O operations are being prepared in parallel.
+![image](https://github.com/user-attachments/assets/7b2481df-0caa-4d23-a062-43f07e27f54b)
+
+### Real-World Example
+- A program processing a dataset:
+- **CPU Burst**: Process the current chunk of data.
+- **I/O Burst**: Load the next chunk from disk.
+
+---
+
