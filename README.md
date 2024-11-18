@@ -579,26 +579,31 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/39e123d3-25d4-4816-9035-e6a75cf9c614)
 ---
 
-### Process Management 
-#### Processes and Threads
-##### Understanding the Differences Between Processes and Threads in Operating Systems
+## 3. Process Management 
+
+### Processes and Threads
+#### Understanding the Differences Between Processes and Threads in Operating Systems
 - Processes are independent programs in execution that have their own memory space, while threads are smaller units of execution within a process that share the same memory space.
 - This distinction is crucial for managing how applications execute and utilize system resources, affecting performance and efficiency in operating systems.
-##### The Role of Compilers and Operating Systems in Program Execution
+  
+#### The Role of Compilers and Operating Systems in Program Execution
 - Compilers are essential tools that convert high-level programming languages into machine code, which consists of binary instructions that computers can understand. However, converting code alone is insufficient for execution; the program must also be loaded into memory. The operating system plays a crucial role in this process, managing the allocation of system resources necessary for the program to run effectively.
-##### Understanding the Transition from Program to Process in Computing
+  
+#### Understanding the Transition from Program to Process in Computing
 - A program is a static entity that exists as code, while a process is defined as the active execution of that program. When a program is loaded into memory and begins execution, it transforms into a process, which can utilize system resources.
 - Modern computers support multiple processes running simultaneously, and a single program may have several processes associated with it, highlighting the dynamic nature of program execution in contemporary computing.
+  
 ##### Defining Threads as the Basic Units of Process Execution
 - Threads are the fundamental units of execution within a process, allowing multiple tasks to run concurrently.
 - A single process can consist of one or more threads, which execute independently while sharing the same resources. This multi-threading capability enhances performance and efficiency, as it enables better utilization of system resources compared to earlier systems where processes typically contained only a single thread.
 ![image](https://github.com/user-attachments/assets/9cb39944-f73b-4b43-bdb0-1fe2bb9d2b48)
 ---
 
-##### Using Task Manager to Monitor Active Processes and Threads
+#### Using Task Manager to Monitor Active Processes and Threads
 - Task Manager in Windows provides a graphical interface for users to view and manage the processes currently running on their system. By accessing the 'Processes' tab, users can see a list of active programs and their associated threads, enabling them to monitor system performance and resource allocation.
 - This tool is essential for identifying resource-intensive applications and managing system workload effectively.
-##### Observing Multiple Processes for a Single Application in Task Manager
+
+#### Observing Multiple Processes for a Single Application in Task Manager
 - In Windows Task Manager, it is common to observe multiple processes associated with a single application, such as the Chrome browser.
 - Each instance of chrome.exe represents a separate process, highlighting the application's architecture that utilizes multiple processes for improved performance and stability.
 - This capability allows better resource management and isolation between different tasks within the same program, although threads, which run within these processes, may require additional tools like Process Explorer to view.
@@ -993,6 +998,7 @@ processes take turns receiving messages.
 ![image](https://github.com/user-attachments/assets/91967325-df08-493c-80cb-a7b061271161)
 
 ---
+
 #### Synchronous or asynchronous communication and synchronization issue related to them:
 ##### Synchronization in Message Passing: 
 - Message passing allows processes to communicate by sending and receiving messages. This communication can be either blocking or nonblocking, which are also referred to as synchronous and asynchronous operations.
@@ -1155,7 +1161,7 @@ processes take turns receiving messages.
 ![image](https://github.com/user-attachments/assets/201d3e01-1969-4c43-b114-0a5387988d72)
 ---
 
-### Threads in Operating Systems
+## 3.2 Threads
 
 ### What is a Thread?
 - A **thread** is the smallest unit of CPU execution.
@@ -1355,7 +1361,7 @@ Thread cancellation can be problematic in certain situations, particularly when:
 
 ---
 
-### Introduction to CPU Scheduling
+## 3.3 CPU Scheduling
 
 #### **What is CPU Scheduling?**
 - CPU scheduling is essential for **multiprogrammed operating systems**.
@@ -1451,4 +1457,65 @@ Consider a process handling a large dataset:
    - **I/O Burst**: Load the next chunk from disk.
 
 ---
+
+### **Preemptive and Non-Preemptive Scheduling**
+
+#### Key Concepts:
+1. **CPU Scheduler**:
+   - Selects processes from the **ready queue** when the CPU is idle.
+   - Assigns the CPU to one of these processes using the **short-term scheduler**.
+
+2. **Dispatcher**:
+   - Hands control of the CPU to the selected process.
+   - Responsible for switching context, loading process states, etc.
+   - **Dispatch Latency**: The time it takes to stop one process and start another.
+![image](https://github.com/user-attachments/assets/c5a26e24-63c1-4477-90b5-720bb62f1ac5)
+
+---
+
+### Scheduling Scenarios:
+Scheduling decisions occur during:
+1. **Switch from Running to Waiting state**:
+   - Example: A process requires I/O operations.
+
+2. **Switch from Running to Ready state**:
+   - Example: An interrupt occurs (e.g., a higher-priority process preempts the current one).
+
+3. **Switch from Waiting to Ready state**:
+   - Example: Completion of an I/O operation signals the process is ready.
+
+4. **Process Termination**:
+   - Example: The process completes its execution and exits.
+![image](https://github.com/user-attachments/assets/019d1eaa-8b17-479d-b48d-af9c1f2708bd)
+
+---
+
+#### Preemptive Scheduling:
+- **Definition**: The CPU can be taken away from the current running process if a higher-priority process arrives.
+- **Examples**:
+  - **Round Robin (RR)**: Each process gets a fixed time slice; the CPU is preempted after the slice expires.
+  - **Priority Scheduling** (Preemptive): A higher-priority process interrupts a lower-priority one.
+- **Scenario**: Applies to cases **2** and **3** where the CPU is preempted based on priority or time quantum.
+
+---
+
+#### Non-Preemptive Scheduling:
+- **Definition**: Once the CPU is assigned to a process, it cannot be preempted until the process completes or moves to a waiting state.
+- **Examples**:
+  - **First-Come, First-Served (FCFS)**: Processes are executed in the order they arrive.
+  - **Priority Scheduling** (Non-Preemptive): Lower-priority processes continue execution until completion, regardless of new arrivals.
+- **Scenario**: Applies to cases **1** and **4**, where the CPU is only reassigned after process termination or an I/O request.
+
+---
+
+#### Example Comparisons:
+1. **Preemptive**:
+   - Process A is running; Process B (higher priority) arrives.
+   - The CPU is preempted, and Process B starts executing.
+
+2. **Non-Preemptive**:
+   - Process A is running; Process B (higher priority) arrives.
+   - Process A finishes, then Process B begins.
+---
+
 
