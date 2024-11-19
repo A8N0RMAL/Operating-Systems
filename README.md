@@ -1518,4 +1518,70 @@ Scheduling decisions occur during:
    - Process A finishes, then Process B begins.
 ---
 
+### **Scheduling Criteria**
+- Scheduling criteria in an operating system are used to evaluate the efficiency of CPU scheduling algorithms. These criteria include:
+
+---
+
+### **1. CPU Utilization**
+- **Definition**: The percentage of time the CPU is actively working (executing processes) as opposed to being idle.
+- **Range**: 
+  - Real systems typically aim for 40% (lightly loaded system) to 90% (heavily loaded system).
+- **Goal**: Keep the CPU as busy as possible.
+  
+**Example**:  
+If the CPU is idle for 2 seconds out of every 10 seconds, the CPU utilization is `80%`.
+
+---
+
+### **2. Throughput**
+- **Definition**: The number of processes completed per unit of time.
+- **Goal**: Maximize the number of processes completed.
+
+**Example**:  
+If 5 processes are completed in 1 second, the throughput is `5` processes/second.
+
+---
+
+### **3. Turnaround Time**
+- **Definition**: The total time taken from the submission of a process to its completion.
+- **Formula**:  
+  **Turnaround Time** = `Waiting Time` + `Execution Time` + `I/O Time`
+- **Goal**: Minimize turnaround time for processes.
+
+**Example**:  
+- Process A is submitted at time 0.
+- It waits for 2 seconds in the queue, executes for 3 seconds, and performs I/O for 1 second.  
+**Turnaround time** = `2 + 3 + 1 = 6` seconds.
+![Screenshot 2024-11-19 192955](https://github.com/user-attachments/assets/2680bd19-69ad-42d1-a4b8-f975fb1fe424)
+
+---
+
+### **4. Waiting Time**
+- **Definition**: The total time a process spends waiting in the ready queue before getting executed.
+- **Goal**: Reduce waiting time.
+
+**Example**:  
+If a process waits for `3` seconds before its execution starts, its waiting time is `3` seconds.
+
+---
+
+### **5. Response Time**
+- **Definition**: The time interval between the submission of a process and the generation of the first response (output).
+- **Goal**: Minimize response time, especially in interactive systems.
+  
+**Example**:  
+- A user requests data at time 0.
+- The system generates the first response at time 2.  
+Response time =  `2` seconds.
+![Screenshot 2024-11-19 193005](https://github.com/user-attachments/assets/3fec7cc9-3a39-4b9c-8112-d0a3e8fad2fe)
+
+---
+
+**Key Notes**:
+- **Turnaround time** is important for batch systems where the overall completion time matters.  
+- **Response time** is more critical in interactive systems to ensure the system feels responsive to the user.  
+- Different scheduling algorithms prioritize these criteria differently depending on system goals (e.g., Round Robin for better response time, First-Come-First-Serve for simplicity).
+
+---
 
