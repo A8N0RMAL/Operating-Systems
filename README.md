@@ -1585,3 +1585,71 @@ Response time =  `2` seconds.
 
 ---
 
+### First-Come, First-Served (FCFS) Scheduling Algorithm
+
+#### **Overview**
+- **FCFS** is the simplest CPU scheduling algorithm.
+- Processes are scheduled in the order they arrive (First-In, First-Out, FIFO).
+- Once a process enters the ready queue, its Process Control Block (PCB) is added to the end of the queue.
+- When the CPU is free, it is allocated to the process at the front of the queue, and the process runs until completion.
+
+#### **Characteristics**
+- **Non-preemptive**: Once the CPU is allocated, the process holds it until termination or I/O request.
+- Easy to implement but not ideal for systems requiring regular CPU access for all users.
+![Screenshot 2024-11-20 185920](https://github.com/user-attachments/assets/3019d1f4-11d0-48bd-b85f-deda8c9fa43b)
+
+---
+
+#### **Example**
+Consider three processes with their **burst times** as shown:
+
+| Process | Burst Time (ms) |
+|---------|-----------------|
+| P1      | 24              |
+| P2      | 3               |
+| P3      | 3               |
+
+**Case 1**: Arrival Order = P1 → P2 → P3  
+Gantt Chart:  
+```
+P1 | P2 | P3
+  0   24   27   30
+```
+
+- **Waiting Time**:  
+  - P1 = 0 ms  
+  - P2 = 24 ms  
+  - P3 = 27 ms  
+- **Average Waiting Time**:  
+  `frac(0 + 24 + 27) / 3 = 17 ms`
+
+---
+
+**Case 2**: Arrival Order = P2 → P3 → P1  
+Gantt Chart:  
+```
+P2 | P3 | P1
+  0    3    6    30
+```
+
+- **Waiting Time**:  
+  - P2 = 0 ms  
+  - P3 = 3 ms  
+  - P1 = 6 ms  
+- **Average Waiting Time**:  
+  `frac (0 + 3 + 6) / 3 = 3  ms`
+![image](https://github.com/user-attachments/assets/4e8018d8-6a32-43d6-9d10-ccde55b16caf)
+
+---
+
+#### **Observations**
+- **Order Matters**: The waiting time varies significantly based on the arrival order of processes.
+- **Drawback**: Processes with long burst times can delay others (convoy effect), leading to poor average waiting times.
+![image](https://github.com/user-attachments/assets/2953d97e-e396-4a08-a4fe-2666947f705d)
+
+---
+
+#### **Use Cases**
+- Suitable for batch processing where process arrival order doesn't change.
+- Inefficient for time-sharing systems where equal CPU time is necessary for all users.  
+---
