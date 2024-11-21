@@ -1653,3 +1653,71 @@ P2 | P3 | P1
 - Suitable for batch processing where process arrival order doesn't change.
 - Inefficient for time-sharing systems where equal CPU time is necessary for all users.  
 ---
+
+#### **What is FCFS Scheduling?**
+- **FCFS** is the simplest CPU scheduling algorithm where the process that arrives first gets executed first.
+- It's a non-preemptive algorithm, meaning once a process starts execution, it runs to completion.
+- Processes are scheduled in the order they arrive in the ready queue.
+
+---
+
+#### **Key Term: Convoy Effect**
+- **Convoy Effect** occurs when processes with a **longer burst time** are scheduled before processes with a **shorter burst time**.
+- This forces smaller processes to wait, causing inefficiency in CPU utilization.
+![image](https://github.com/user-attachments/assets/4c6b1895-0d80-441f-9a2c-9105116b4462)
+
+Example:  
+If a process with a burst time of 10 units arrives first and smaller processes with burst times of 2 and 1 units arrive later, the CPU remains occupied with the larger process while the smaller ones wait.
+
+---
+
+#### **Example Problem**
+Consider the following **5 processes** with their **arrival times** and **burst times**:
+
+| Process ID | Arrival Time | Burst Time |
+|------------|--------------|------------|
+| P1         | 4            | 5          |
+| P2         | 6            | 4          |
+| P3         | 0            | 3          |
+| P4         | 6            | 2          |
+| P5         | 5            | 4          |
+
+##### Step 1: Gantt Chart Construction
+- The Gantt Chart shows the order of process execution:
+
+- The **shaded box** represents CPU idle time (no process is available).
+
+##### Step 2: Calculating Times for Each Process
+- **Turnaround Time (TAT)** = Completion Time - Arrival Time  
+- **Waiting Time (WT)** = Turnaround Time - Burst Time
+
+| Process ID | Completion Time | Turnaround Time | Waiting Time |
+|------------|-----------------|-----------------|--------------|
+| P1         | 9               | 9 - 4 = 5       | 5 - 5 = 0    |
+| P2         | 17              | 17 - 6 = 11     | 11 - 4 = 7   |
+| P3         | 3               | 3 - 0 = 3       | 3 - 3 = 0    |
+| P4         | 19              | 19 - 6 = 13     | 13 - 2 = 11  |
+| P5         | 13              | 13 - 5 = 8      | 8 - 4 = 4    |
+
+##### Step 3: Average Turnaround and Waiting Time
+![image](https://github.com/user-attachments/assets/a5676e96-114b-48a9-b564-db9ef7cc4f13)
+
+---
+
+#### **Key Observations**
+1. **Idle Time**:
+   - CPU remains idle from time 3 to 4, as no process is available at that moment.
+2. **Convoy Effect**:
+   - The longer process P1 delays smaller processes P5 and P4 , increasing their waiting times.
+
+---
+
+#### **Advantages of FCFS**:
+- Simple and easy to implement.
+- Processes are executed in the exact order of their arrival.
+
+#### **Disadvantages of FCFS**:
+- **Convoy Effect** reduces efficiency and increases the average waiting time.
+- Not suitable for time-sharing systems or interactive processes.
+
+---
