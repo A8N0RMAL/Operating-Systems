@@ -1721,3 +1721,77 @@ Consider the following **5 processes** with their **arrival times** and **burst 
 - Not suitable for time-sharing systems or interactive processes.
 
 ---
+
+## First-Come, First-Served (FCFS) Scheduling
+
+**Problem Statement**:  
+We are given a set of processes, their arrival times, and their burst times (execution times). Using the **FCFS scheduling algorithm**:
+1. Processes are executed in the order they arrive.
+2. One unit of overhead is added while scheduling each process.
+3. The task is to calculate the **efficiency** of the algorithm.
+![Screenshot 2024-11-23 171023](https://github.com/user-attachments/assets/56237fbd-bd63-433b-9c3c-357aa878c7fa)
+
+---
+
+### Example:
+
+| Process ID | Arrival Time | Burst Time |
+|------------|--------------|------------|
+| P1         | 0            | 3          |
+| P2         | 1            | 2          |
+| P3         | 2            | 1          |
+| P4         | 3            | 4          |
+| P5         | 4            | 5          |
+| P6         | 5            | 2          |
+
+- **Overhead per process**: 1 unit.
+
+---
+
+### Gantt Chart
+
+The Gantt chart illustrates the execution order and duration of each process, including the overhead (denoted as δ):
+![Screenshot 2024-11-23 171040](https://github.com/user-attachments/assets/45949ef5-1bc9-4d54-ae65-ab7fc2b49287)
+
+---
+
+### Calculation of Wasted and Useful Time
+
+1. **Wasted Time**:  
+   Wasted time is caused by the overhead introduced while scheduling processes.  
+   - Wasted Time = Number of Processes times Overhead per process
+   `Wasted Time = 6 times 1 = 6 units`
+
+2. **Total Time**:  
+   - Total time is the duration from the start to the end of the last process.  
+   `Total Time = 23 units`
+
+3. **Useful Time**:  
+   Useful time is the total time spent executing the processes (excluding the overhead).  
+  
+   `Useful Time = Total Time - Wasted Time`
+   `Useful Time = 23 - 6 = 17 units`
+
+---
+
+### Efficiency Calculation
+
+Efficiency `eta` is the ratio of useful time to total time:  
+
+`eta = Useful Time \ Total Time`
+`eta = 17 \ 23 approx 0.7391 or 73.91%`
+![Screenshot 2024-11-23 171051](https://github.com/user-attachments/assets/ff7bb975-2bd7-4d1c-98a3-29c4b2980f6d)
+
+---
+
+### Final Notes
+
+1. **Efficiency**: The scheduling efficiency is `73.91% `. The remaining `26.09%` is wasted due to scheduling overhead.
+2. **Key Characteristics of FCFS**:
+   - Processes are scheduled in the order they arrive.
+   - Simple but non-preemptive (a process cannot be interrupted once started).
+   - Wasted time due to overhead impacts efficiency as the number of processes grows.
+
+---
+
+
