@@ -1791,7 +1791,83 @@ Efficiency `eta` is the ratio of useful time to total time:
    - Processes are scheduled in the order they arrive.
    - Simple but non-preemptive (a process cannot be interrupted once started).
    - Wasted time due to overhead impacts efficiency as the number of processes grows.
+---
+
+### **Shortest Job First (SJF) Scheduling Algorithm**
+SJF is a CPU scheduling algorithm that assigns the CPU to processes based on the shortest next CPU burst. 
+
+- **Key Features:**
+  - The process with the smallest next CPU burst is selected first.
+  - If two processes have the same burst length, **First-Come-First-Serve (FCFS)** is used to break ties.
+  - SJF can be **preemptive** or **non-preemptive**:
+    - **Non-preemptive SJF**: Once a process starts execution, it cannot be stopped until it finishes.
+    - **Preemptive SJF**: Also called **Shortest Remaining Time First (SRTF)**, where a process may be preempted if a new process with a shorter burst arrives.
+  - It is sometimes referred to as the **Shortest-Next-CPU-Burst Algorithm**, emphasizing its focus on the immediate next CPU burst length.
+![Screenshot 2024-11-24 174214](https://github.com/user-attachments/assets/c2e33bf3-b898-4bfc-931e-d8cafd8b3477)
 
 ---
+
+### **Example 1: Non-Preemptive SJF**
+**Processes:**
+
+| Process ID | Burst Time |
+|------------|------------|
+| P1         | 6          |
+| P2         | 8          |
+| P3         | 7          |
+| P4         | 3          |
+
+**Execution:**
+- The process with the shortest burst time (P4) runs first, followed by P1, P3, and finally P2.
+
+**Waiting Times:**
+-  P1 = 3 
+-  P2 = 16 
+-  P3 = 9 
+-  P4 = 0 
+
+**Average Waiting Time:**  
+`(3 + 16 + 9 + 0) / 4 = 7 ms` 
+
+*Comparison with FCFS:* In FCFS, the average waiting time would have been **10.25 ms**, highlighting SJF’s efficiency.
+
+---
+
+### **Example 2: Preemptive SJF (SRTF)**
+**Processes:**
+
+| Process ID | Arrival Time | Burst Time |
+|------------|--------------|------------|
+| P1         | 0            | 7          |
+| P2         | 1            | 4          |
+| P3         | 2            | 9          |
+| P4         | 3            | 5          |
+
+**Waiting Times:**
+-  `P1 = 9`  
+-  `P2 = 0`
+-  `P3 = 15`  
+-  `P4 = 2`
+
+**Average Waiting Time:**  
+`(9 + 0 + 15 + 2) / 4 = 6.5 ms`
+![image](https://github.com/user-attachments/assets/770d5a65-941f-4869-a663-77aa0b880c55)
+
+---
+
+### **Problems with SJF Scheduling**
+1. **Difficulty in Knowing CPU Burst Lengths:**
+   - Predicting the exact length of the next CPU burst is challenging, as the algorithm requires prior knowledge of the CPU burst times.
+
+2. **Optimality vs. Practicality:**
+   - Although SJF minimizes average waiting time, it is often not feasible to implement in real-world systems.
+
+3. **Approximations:**
+   - To overcome this limitation, past CPU burst times can be used to estimate the next burst length. Processes with shorter predicted CPU bursts are prioritized.
+![Screenshot 2024-11-24 174255](https://github.com/user-attachments/assets/9a7a07b6-649b-4b80-8de0-7a4acdbc97ed)
+
+---
+
+
 
 
