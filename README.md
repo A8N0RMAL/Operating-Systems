@@ -1830,6 +1830,7 @@ SJF is a CPU scheduling algorithm that assigns the CPU to processes based on the
 `(3 + 16 + 9 + 0) / 4 = 7 ms` 
 
 *Comparison with FCFS:* In FCFS, the average waiting time would have been **10.25 ms**, highlighting SJF’s efficiency.
+![Screenshot 2024-11-24 174225](https://github.com/user-attachments/assets/b8f28074-fd11-43ea-bb74-d30b30dd03ba)
 
 ---
 
@@ -1851,7 +1852,7 @@ SJF is a CPU scheduling algorithm that assigns the CPU to processes based on the
 
 **Average Waiting Time:**  
 `(9 + 0 + 15 + 2) / 4 = 6.5 ms`
-![image](https://github.com/user-attachments/assets/770d5a65-941f-4869-a663-77aa0b880c55)
+![Screenshot 2024-11-24 174242](https://github.com/user-attachments/assets/bd68d8b3-70c4-4091-8d62-f4cc083f1d88)
 
 ---
 
