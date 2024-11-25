@@ -1869,6 +1869,72 @@ SJF is a CPU scheduling algorithm that assigns the CPU to processes based on the
 
 ---
 
+### Shortest Job First (SJF) Scheduling Explanation and Example
 
+**Definition**:  
+Shortest Job First (SJF) is a CPU scheduling algorithm where the process with the shortest burst time is executed first. If two processes have the same burst time, they are scheduled based on their arrival time. It can operate in two modes:
+- **Non-preemptive**: Once a process starts execution, it cannot be stopped until it's completed.
+- **Preemptive** (also known as Shortest Remaining Time First, SRTF): The CPU can be taken from the currently executing process if a new process arrives with a shorter burst time.
+![Screenshot 2024-11-25 182746](https://github.com/user-attachments/assets/80358af6-0a44-48b2-b386-685c34535cee)
+
+---
+
+### Problem Summary
+
+We are solving a problem where **preemptive SJF scheduling** (Shortest Remaining Time First) is applied. The goal is to calculate the **average waiting time** for the given processes.
+
+#### Input Table
+| Process ID | Arrival Time (ms) | Burst Time (ms) |
+|------------|--------------------|-----------------|
+| P1         | 0                 | 12              |
+| P2         | 2                 | 4               |
+| P3         | 3                 | 6               |
+| P4         | 8                 | 5               |
+
+---
+
+### Steps to Solve
+
+1. **Construct a Gantt Chart**:  
+   Allocate CPU time based on the shortest remaining burst time among all arrived processes.
+
+   | Time Interval | Executing Process |
+   |---------------|-------------------|
+   | 0 - 2         | P1                |
+   | 2 - 6         | P2                |
+   | 6 - 12        | P3                |
+   | 12 - 17       | P4                |
+   | 17 - 27       | P1                |
+
+2. **Calculate Waiting Time for Each Process**:
+   - **Waiting Time Formula**:  
+     `Waiting Time = Completion Time - Arrival Time - Burst Time`
+
+   | Process | Completion Time (ms) | Arrival Time (ms) | Burst Time (ms) | Waiting Time (ms) |
+   |---------|-----------------------|-------------------|-----------------|-------------------|
+   | P1      | 27                    | 0                 | 12              | \( 27 - 0 - 12 = 15 \) |
+   | P2      | 6                     | 2                 | 4               | \( 6 - 2 - 4 = 0 \)  |
+   | P3      | 12                    | 3                 | 6               | \( 12 - 3 - 6 = 3 \) |
+   | P4      | 17                    | 8                 | 5               | \( 17 - 8 - 5 = 4 \) |
+
+3. **Calculate Average Waiting Time**:
+   - Total Waiting Time: `15 + 0 + 3 + 4 = 22`
+   - Average Waiting Time:  `{Total Waiting Time} / {Number of Processes} = 22 / 4 = 5.5 ms`
+
+---
+
+### Example Output
+**Gantt Chart Representation**:  
+`0(P1)2(P2)6(P3)12(P4)17(P1)27`
+
+**Average Waiting Time**: `5.5 ms`
+![Screenshot 2024-11-25 182800](https://github.com/user-attachments/assets/78eb35af-4188-47f2-af74-b26527d98cc0)
+
+---
+
+### Key Notes:
+- SJF minimizes **average waiting time**, making it optimal for batch processing.
+- In **preemptive SJF**, processes can be interrupted, leading to dynamic changes in CPU allocation based on new arrivals.
+---
 
 
