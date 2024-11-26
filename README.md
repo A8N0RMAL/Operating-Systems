@@ -1938,3 +1938,72 @@ We are solving a problem where **preemptive SJF scheduling** (Shortest Remaining
 ---
 
 
+### Shortest Job First (SJF) Scheduling: Preemptive (Shortest Remaining Time First)
+
+#### Problem Overview
+- **Processes**: Each process has an **arrival time** and a **burst time** (execution duration).
+- **Goal**: Minimize the average turnaround time by selecting the process with the shortest remaining burst time at every scheduling step.
+
+#### Example Problem:
+| **Process ID** | **Arrival Time** | **Burst Time** |
+|-----------------|------------------|----------------|
+| P1              | 0                | 10             |
+| P2              | 3                | 6              |
+| P3              | 7                | 1              |
+| P4              | 8                | 3              |
+
+- **Scheduling Type**: Preemptive SJF (Shortest Remaining Time First).
+![Screenshot 2024-11-26 160324](https://github.com/user-attachments/assets/6cc97a8d-31ab-4214-8d77-338b96c90b16)
+
+---
+
+### Solution Steps:
+#### 1. **Gantt Chart Construction**:
+   - A Gantt chart represents the timeline and which process is executed at each moment.
+
+   | Time Intervals | Process Executed |
+   |----------------|------------------|
+   | 0 to 3         | P1               |
+   | 3 to 7         | P2               |
+   | 7 to 8         | P3               |
+   | 8 to 10        | P2               |
+   | 10 to 13       | P4               |
+   | 13 to 20       | P1               |
+
+   **Final Gantt Chart**:  
+   ```
+   | P1 | P2 | P3 | P2 | P4 | P1 |
+   0    3    7    8    10   13   20
+   ```
+
+---
+
+#### 2. **Turnaround Time Calculation**:
+   - **Turnaround Time (TAT)**:  
+     TAT = Completion Time - Arrival Time
+
+   **Completion Times**:  
+   - P1: 20, P2: 10, P3: 8, P4: 13  
+
+   **Turnaround Times**:
+   - **P1**: `20 - 0 = 20`
+   - **P2**: `10 - 3 = 7`
+   - **P3**: `8 - 7 = 1`
+   - **P4**: `13 - 8 = 5`
+
+---
+
+#### 3. **Average Turnaround Time**:
+   - **Formula**:  
+     `Average TAT = Sum of TATs / Number of Processes`
+   - `Average TAT = (20 + 7 + 1 + 5) / 4 = 33 / 4 = 8.25 ms`
+![Screenshot 2024-11-26 160334](https://github.com/user-attachments/assets/01556bb4-a481-4f63-ac8f-c5933ea3492f)
+
+---
+
+### Key Takeaways:
+1. **Preemptive SJF Scheduling** ensures the shortest burst time process gets priority, even if a new process arrives mid-execution.
+2. The **average turnaround time** is minimized, making this approach efficient for real-time systems.
+---
+
+
