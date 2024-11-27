@@ -2007,3 +2007,60 @@ We are solving a problem where **preemptive SJF scheduling** (Shortest Remaining
 ---
 
 
+### Priority Scheduling
+
+#### 1. **Introduction**
+- **Definition:** In Priority Scheduling, a priority is associated with each process, and the CPU is allocated to the process with the highest priority.
+  - **Higher priority → Executed first.**
+  - Equal-priority processes are scheduled in **First-Come-First-Served (FCFS)** order.
+- **Special Case:** Shortest Job First (SJF) is a type of Priority Scheduling where the priority is determined by the next CPU burst (smaller bursts = higher priority).
+
+#### 2. **Types of Priority Scheduling**
+- **Preemptive Priority Scheduling:**  
+  - A higher-priority process can interrupt the currently running process.
+- **Non-Preemptive Priority Scheduling:**  
+  - A higher-priority process is added to the ready queue and executed after the current process finishes.
+![Screenshot 2024-11-27 183355](https://github.com/user-attachments/assets/e60042fc-636a-4bc7-94e8-f9ccf71fb2a4)
+
+---
+
+#### 3. **Example Problem**
+
+**Processes:**
+| Process ID | Burst Time | Priority |
+|------------|------------|----------|
+| P1         | 10 ms      | 3        |
+| P2         | 1 ms       | 1        |
+| P3         | 2 ms       | 4        |
+| P4         | 1 ms       | 5        |
+| P5         | 5 ms       | 2        |
+
+**Scheduling Order (Higher priority = Lower number):**  
+**P2 → P5 → P1 → P3 → P4**
+
+**Waiting Times:**  
+- P1: 6 ms  
+- P2: 0 ms  
+- P3: 16 ms  
+- P4: 18 ms  
+- P5: 1 ms  
+
+**Average Waiting Time:**  
+`Average Waiting Time = (6 + 0 + 16 + 18 + 1)/ 5 = 8.2 ms`
+![Screenshot 2024-11-27 183405](https://github.com/user-attachments/assets/b5375b2c-ee80-4562-a5bc-b1fe984fe0dd)
+
+---
+
+#### 4. **Problems with Priority Scheduling**
+- **Starvation (Indefinite Blocking):**  
+  - Low-priority processes might never execute if higher-priority processes keep arriving.
+
+---
+
+#### 5. **Solution to Starvation: Aging**
+- Gradually increase the priority of a process as it waits in the ready queue.
+  - Example: Increment priority by 1 every 15 minutes.
+  - This ensures that even initially low-priority processes eventually execute.
+![Screenshot 2024-11-27 183413](https://github.com/user-attachments/assets/f5269dff-4ebb-4689-b717-d6066824ceb4)
+
+---
