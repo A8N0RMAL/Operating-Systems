@@ -2064,3 +2064,68 @@ We are solving a problem where **preemptive SJF scheduling** (Shortest Remaining
 ![Screenshot 2024-11-27 183413](https://github.com/user-attachments/assets/f5269dff-4ebb-4689-b717-d6066824ceb4)
 
 ---
+
+### **Priority Scheduling (Preemptive)**
+
+#### Problem:
+We are given a set of processes with their **arrival time**, **burst time**, and **priority**. In this example, **priority 0 is the highest**. The task is to calculate the **average waiting time** using the preemptive priority scheduling algorithm.
+![Screenshot 2024-11-28 145849](https://github.com/user-attachments/assets/7b3a83cd-1378-4e7e-9369-03bc056e0ee7)
+
+---
+
+#### **Processes Information**:
+
+| Process ID | Arrival Time (ms) | Burst Time (ms) | Priority |
+|------------|--------------------|-----------------|----------|
+| P1         | 0                 | 11              | 2        |
+| P2         | 5                 | 28              | 0        |
+| P3         | 12                | 2               | 3        |
+| P4         | 2                 | 10              | 1        |
+| P5         | 9                 | 16              | 4        |
+
+---
+
+#### **Steps to Solve**:
+
+1. **Gantt Chart Construction**:
+   The scheduling is done by selecting the process with the **highest priority** (lowest priority number) among the processes that have arrived.
+
+   **Gantt Chart**:
+
+   - From **0 to 2 ms**: P1 executes (priority = 2).
+   - At **2 ms**, P4 (priority = 1) preempts P1.
+   - At **5 ms**, P2 (priority = 0) arrives and preempts P4.
+   - Once P2 finishes at **33 ms**, P1 resumes and completes at **40 ms**.
+   - At **40 ms**, P3 executes (priority = 3) and completes at **49 ms**.
+   - Finally, P5 (priority = 4) executes from **49 ms** to **67 ms**.
+![Screenshot 2024-11-28 145900](https://github.com/user-attachments/assets/eec5ed69-7a7d-4e33-b9e1-01d0f19c953c)
+
+---
+
+#### **Calculating Waiting Time**:
+
+- **Waiting Time Formula**:
+  `Waiting Time = Start Time - Arrival Time`
+
+| Process | Completion Time | Arrival Time | Burst Time | Waiting Time |
+|---------|-----------------|--------------|------------|--------------|
+| P1      | 40              | 0            | 11         | `( 40 - 11 - 0 = 38 ) ms` |
+| P2      | 33              | 5            | 28         | `( 33 - 28 - 5 = 0 ) ms` |
+| P3      | 49              | 12           | 2          | `( 49 - 12 - 2 = 37 ) ms` |
+| P4      | 33              | 2            | 10         | `( 33 - 10 - 2 = 28 ) ms` |
+| P5      | 67              | 9            | 16         | `( 67 - 16 - 9 = 42 ) ms` |
+
+---
+
+#### **Average Waiting Time**:
+`Average Waiting Time = Sum of Waiting Times / Number of Processes`
+ `(38 + 0 + 37 + 28 + 42) / 5 = 145 / 5 = 29 ms`
+
+---
+
+### **Key Points**:
+- **Preemptive Priority Scheduling** allows higher-priority processes to interrupt lower-priority ones.
+- The **waiting time** is calculated by factoring in when the process starts and its arrival.
+- This scheduling favors **high-priority processes** but may lead to **starvation** for lower-priority ones.
+
+---
