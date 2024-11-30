@@ -2129,9 +2129,6 @@ We are given a set of processes with their **arrival time**, **burst time**, and
 - This scheduling favors **high-priority processes** but may lead to **starvation** for lower-priority ones.
 
 ---
-Thanks for the images! Here's a summarized explanation of the **Priority Scheduling (Non-Preemptive)** problem shown in the images:
-
----
 
 ### **Priority Scheduling (Non-Preemptive) Example**
 
