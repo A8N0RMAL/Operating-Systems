@@ -2129,3 +2129,74 @@ We are given a set of processes with their **arrival time**, **burst time**, and
 - This scheduling favors **high-priority processes** but may lead to **starvation** for lower-priority ones.
 
 ---
+Thanks for the images! Here's a summarized explanation of the **Priority Scheduling (Non-Preemptive)** problem shown in the images:
+
+---
+
+### **Priority Scheduling (Non-Preemptive) Example**
+
+#### Problem:
+Given a set of processes with their **Arrival Time**, **Burst Time**, and **Priority**, determine:
+1. **Average Waiting Time**
+2. **Average Turnaround Time**
+
+The **Higher number represents higher priority**, and the scheduling policy is **non-preemptive**, meaning a process in execution cannot be interrupted by another.
+![Screenshot 2024-11-30 172123](https://github.com/user-attachments/assets/dafae3c3-46a0-4a89-9902-61fff279a525)
+
+#### Input Data:
+| Process ID | Arrival Time | Burst Time | Priority |
+|------------|--------------|------------|----------|
+| P1         | 0            | 4          | 2        |
+| P2         | 1            | 3          | 3        |
+| P3         | 2            | 1          | 4        |
+| P4         | 3            | 5          | 5        |
+| P5         | 4            | 2          | 5        |
+
+---
+
+### **Solution**
+
+1. **Determine Execution Order (Gantt Chart)**:
+   - At time `0`, P1 starts as it is the only available process.
+   - After P1 finishes, prioritize higher-priority processes that have arrived by then.
+   - The execution order (Gantt chart):
+
+2. **Completion Time**:
+   Completion Time is the time a process finishes execution. From the Gantt chart:
+   - P1 = 4 ms
+   - P4 = 9 ms
+   - P5 = 11 ms
+   - P3 = 12 ms
+   - P2 = 15 ms
+
+3. **Turnaround Time (TAT)**:
+   TAT = Completion Time - Arrival Time
+   - P1 = 4 - 0 = 4 ms
+   - P2 = 15 - 1 = 14 ms
+   - P3 = 12 - 2 = 10 ms
+   - P4 = 9 - 3 = 6 ms
+   - P5 = 11 - 4 = 7 ms
+
+4. **Waiting Time (WT)**:
+   WT = Turnaround Time - Burst Time
+   - P1 = 4 - 4 = 0 ms
+   - P2 = 14 - 3 = 11 ms
+   - P3 = 10 - 1 = 9 ms
+   - P4 = 6 - 5 = 1 ms
+   - P5 = 7 - 2 = 5 ms
+
+---
+
+### **Final Results**
+- **Average Turnaround Time (TAT)**:
+  \[
+  \text{Average TAT} = \frac{4 + 14 + 10 + 6 + 7}{5} = \frac{41}{5} = 8.2 \, \text{ms}
+  \]
+
+- **Average Waiting Time (WT)**:
+  \[
+  \text{Average WT} = \frac{0 + 11 + 9 + 1 + 5}{5} = \frac{26}{5} = 5.2 \, \text{ms}
+  \]
+![Screenshot 2024-11-30 172026](https://github.com/user-attachments/assets/23b27794-4429-4327-92a8-6ede640879b6)
+
+---
