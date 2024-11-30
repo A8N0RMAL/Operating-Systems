@@ -2189,14 +2189,10 @@ The **Higher number represents higher priority**, and the scheduling policy is *
 
 ### **Final Results**
 - **Average Turnaround Time (TAT)**:
-  \[
-  \text{Average TAT} = \frac{4 + 14 + 10 + 6 + 7}{5} = \frac{41}{5} = 8.2 \, \text{ms}
-  \]
+  `Average TAT = (4 + 14 + 10 + 6 + 7) / 5 = 41 / 5 = 8.2 ms`
 
 - **Average Waiting Time (WT)**:
-  \[
-  \text{Average WT} = \frac{0 + 11 + 9 + 1 + 5}{5} = \frac{26}{5} = 5.2 \, \text{ms}
-  \]
+  `Average WT = (0 + 11 + 9 + 1 + 5) / 5 = 26/ 5 = 5.2 ms`
 ![Screenshot 2024-11-30 172026](https://github.com/user-attachments/assets/23b27794-4429-4327-92a8-6ede640879b6)
 
 ---
