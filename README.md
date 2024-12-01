@@ -2193,3 +2193,49 @@ The **Higher number represents higher priority**, and the scheduling policy is *
 ![Screenshot 2024-11-30 172026](https://github.com/user-attachments/assets/23b27794-4429-4327-92a8-6ede640879b6)
 
 ---
+
+
+### **Round Robin Scheduling**
+- **Overview**: 
+  - This algorithm is designed for time-sharing systems.
+  - It is similar to First-Come, First-Served (FCFS) scheduling but introduces **preemption** using a fixed time slice or quantum.
+  - The ready queue is treated as a **circular queue**.
+  
+- **Key Features**:
+  - Each process is given a specific amount of time (time quantum) to execute.
+  - If the process doesn’t finish in its time quantum, it is preempted and added back to the end of the queue.
+  - The CPU scheduler continues to allocate CPU to processes in a **round-robin manner**.
+![Screenshot 2024-12-01 162755](https://github.com/user-attachments/assets/07f691df-c1b2-4c69-9974-e5043f2ba400)
+
+---
+
+### **Implementation of Round Robin**
+1. **Ready Queue as FIFO**:
+   - The queue operates on a **First In, First Out** principle.
+   - New processes are added to the tail of the queue.
+   - The CPU scheduler picks the first process from the queue.
+
+2. **Process Execution**:
+   - The CPU sets a timer for 1 time quantum and begins executing the process.
+   - After the time quantum expires, **one of two scenarios** occurs:
+     1. **Scenario 1**: If the process completes within the time quantum:
+        - The process releases the CPU voluntarily.
+        - The scheduler moves to the next process in the queue.
+     2. **Scenario 2**: If the process's burst time exceeds the time quantum:
+        - A **context switch** occurs.
+        - The process is preempted and moved to the **tail of the ready queue**.
+        - The scheduler moves to the next process.
+![Screenshot 2024-12-01 163441](https://github.com/user-attachments/assets/382075e0-618a-4ab7-8395-f77d4db4dcda)
+
+---
+
+### **Benefits of Round Robin**:
+- **Fair Allocation**: Ensures that every process gets a chance to execute within the time quantum.
+- **Responsive for Interactive Systems**: Well-suited for systems with many users or interactive tasks.
+  
+### **Challenges**:
+- **Time Quantum Selection**:
+  - Too small → Increased context switching overhead.
+  - Too large → Behaves like FCFS.
+
+---
