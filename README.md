@@ -2239,3 +2239,82 @@ The **Higher number represents higher priority**, and the scheduling policy is *
   - Too large → Behaves like FCFS.
 
 ---
+
+**Round Robin Scheduling (Turnaround Time and Waiting Time)**
+- Round Robin (RR) Scheduling is a preemptive CPU scheduling algorithm. It allocates the CPU to each process in a cyclic order, with a fixed "time quantum" or "time slice."
+![Screenshot 2024-12-02 145833](https://github.com/user-attachments/assets/69fd7dea-71b6-409e-a9e6-a29eb28c2ad0)
+
+---
+
+**Given Problem Details:**
+- **Processes**: P1, P2, P3
+- **Burst Times**: 
+  - P1: 24 ms
+  - P2: 3 ms
+  - P3: 3 ms
+- **Time Quantum**: 4 ms
+
+---
+
+### **Execution Process:**
+1. **Gantt Chart**: 
+   The CPU executes each process for a maximum of 4 ms (time quantum) or until its burst time is fully completed. 
+
+   - P1 executes for 4 ms and is preempted as it still has 20 ms remaining.
+   - P2 and P3 each execute for their full burst times (3 ms each) as their burst times are less than the time quantum.
+   - P1 continues executing in chunks of 4 ms until its burst time is completed at time 30 ms.
+![Screenshot 2024-12-02 150359](https://github.com/user-attachments/assets/e0db0cd3-ca68-40ae-b53c-3a65beb0b28a)
+
+---
+
+### **Key Metrics:**
+
+#### **Turnaround Time (TAT)**:
+   Formula:  
+   `TAT = Completion Time - Arrival Time`
+   - P1: ( 30 - 0 ) = 30  ms
+   - P2: ( 7 - 0 ) = 7  ms
+   - P3: ( 10 - 0 ) = 10  ms
+
+   **Average TAT**:
+   30 + 7 + 10 / 3 = 15.66 ms
+
+---
+
+#### **Waiting Time (WT)**:
+   **Method 1**:  
+   `WT = TAT - Burst Time`
+   
+   - P1: ( 30 - 24 ) = 6 ms
+   - P2: ( 7 - 3 ) = 4  ms
+   - P3: ( 10 - 3 ) = 7  ms
+
+   **Method 2**:  
+   Using the formula:  
+   `WT = Last Start Time - Arrival Time - (Preemptions * Time Quantum)`
+   
+   - P1: ( 26 - 0 - (5 * 4)) = 6  ms
+   - P2: ( 4 - 0 - (0 * 4)) = 4  ms
+   - P3: ( 7 - 0 - (0 * 4)) = 7  ms
+
+   **Average WT**:
+   6 + 4 + 7 / 3 = 5.66 ms
+![Screenshot 2024-12-02 150529](https://github.com/user-attachments/assets/38990138-8df2-4027-9262-8a820bdacdf7)
+
+---
+
+### **Summary Table:**
+
+| Process ID | Completion Time | Turnaround Time (TAT) | Waiting Time (WT) |
+|------------|-----------------|-----------------------|-------------------|
+| P1         | 30              | 30                    | 6                 |
+| P2         | 7               | 7                     | 4                 |
+| P3         | 10              | 10                    | 7                 |
+
+---
+
+### **Conclusion**:
+Round Robin ensures fairness by giving each process an equal time slice. However, the performance depends on the chosen time quantum:
+- A small time quantum increases context switching overhead.
+- A large time quantum may cause longer waiting times for shorter processes. 
+---
