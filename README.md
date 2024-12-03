@@ -2318,3 +2318,79 @@ Round Robin ensures fairness by giving each process an equal time slice. However
 - A small time quantum increases context switching overhead.
 - A large time quantum may cause longer waiting times for shorter processes. 
 ---
+
+
+### Round Robin Scheduling with Solved Problem
+
+#### Problem Setup
+- **Processes**: A set of 5 processes with their arrival times and burst times:
+  | Process ID | Arrival Time | Burst Time |
+  |------------|--------------|------------|
+  | P1         | 0            | 5          |
+  | P2         | 1            | 3          |
+  | P3         | 2            | 1          |
+  | P4         | 3            | 2          |
+  | P5         | 4            | 3          |
+
+- **Time Quantum**: 2 units.
+- **Objective**: Calculate the average waiting time and average turnaround time.
+![Screenshot 2024-12-03 164821](https://github.com/user-attachments/assets/78e4b5cb-3416-4715-97ab-e2f14b78bf17)
+
+---
+
+#### Gantt Chart
+The processes are executed in a cyclic order, following the time quantum of 2 units. The execution proceeds as follows:
+
+| Time | Process Executed |
+|------|-------------------|
+| 0-2  | P1               |
+| 2-4  | P2               |
+| 4-5  | P3               |
+| 5-7  | P1               |
+| 7-9  | P4               |
+| 9-11 | P5               |
+| 11-12| P2               |
+| 12-13| P1               |
+| 13-14| P5               |
+![Screenshot 2024-12-03 170011](https://github.com/user-attachments/assets/83a9bdd0-d900-4aa3-931d-4c3f17a6915e)
+
+---
+
+#### Calculations
+
+1. **Completion Time (CT)**:
+   The time at which a process finishes execution.
+   - P1: 13, P2: 12, P3: 5, P4: 9, P5: 14.
+
+2. **Turnaround Time (TAT)**:
+   `TAT = Completion Time - Arrival Time`
+   - P1: ( 13 - 0 = 13 )
+   - P2: ( 12 - 1 = 11 )
+   - P3: ( 5 - 2 = 3 )
+   - P4: ( 9 - 3 = 6 )
+   - P5: ( 14 - 4 = 10 )
+
+   **Average TAT**:
+   `Avg TAT = (13 + 11 + 3 + 6 + 10) / 5 = 8.6 units`
+
+3. **Waiting Time (WT)**:
+   `WT = TAT - Burst Time`
+   - P1: ( 13 - 5 = 8 )
+   - P2: ( 11 - 3 = 8 )
+   - P3: ( 3 - 1 = 2 )
+   - P4: ( 6 - 2 = 4 )
+   - P5: ( 10 - 3 = 7 )
+
+   **Average WT**:
+   `Avg WT = (8 + 8 + 2 + 4 + 7) / 5 = 5.8 units`
+![Screenshot 2024-12-03 170705](https://github.com/user-attachments/assets/7cffd8da-0d87-46e2-9a4d-205617c7da12)
+
+---
+
+### Key Notes:
+- **Round Robin Scheduling** ensures fairness by allotting each process a fixed time quantum in cyclic order.
+- It minimizes response time but may increase waiting and turnaround times compared to other algorithms.
+
+---
+
+
