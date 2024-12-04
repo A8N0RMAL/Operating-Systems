@@ -2394,3 +2394,53 @@ The processes are executed in a cyclic order, following the time quantum of 2 un
 ---
 
 
+### **Multilevel Queue Scheduling**
+This scheduling algorithm is designed for situations where processes can be grouped into categories based on specific characteristics (e.g., type or priority). Each group is assigned its own queue, and processes are permanently assigned to one queue based on attributes like:
+- Memory size
+- Process priority
+- Process type (e.g., interactive or batch)
+![Screenshot 2024-12-04 193649](https://github.com/user-attachments/assets/c3ada249-4833-4041-a7e5-024aa8c27250)
+
+---
+
+### **Key Concepts**
+1. **Separate Queues**:
+   - Processes are classified into **foreground (interactive)** and **background (batch)** processes.
+   - Each queue may have different scheduling requirements and uses a unique scheduling algorithm.
+
+2. **Examples of Queue Scheduling**:
+   - **Foreground Queue**: Uses **Round Robin (RR)** for quick response.
+   - **Background Queue**: Uses **First-Come, First-Served (FCFS)** for simplicity.
+   - **Inter-Queue Scheduling**: Often uses **Fixed-Priority Preemptive Scheduling**, where the foreground queue has absolute priority over the background queue.
+
+3. **Practical Application**:
+   - System processes get the highest priority.
+   - Student processes or other low-priority jobs are placed at the lowest level.
+![Screenshot 2024-12-04 194046](https://github.com/user-attachments/assets/f2d3a599-1dc3-4622-b416-86fc4bb0cf50)
+
+---
+
+### **Example of Queues in Order of Priority**
+(From highest to lowest):
+1. **System Processes**  
+2. **Interactive Processes**  
+3. **Interactive Editing Processes**  
+4. **Batch Processes**  
+5. **Student Processes**
+
+This prioritization ensures that critical tasks are completed before less important ones.
+
+---
+
+### **Advantages**
+- Better resource allocation based on process type.
+- Customizable scheduling for each queue based on requirements.
+
+### **Disadvantages**
+- Starvation can occur for low-priority processes if high-priority queues dominate CPU time.
+![Screenshot 2024-12-04 200220](https://github.com/user-attachments/assets/3212bfcd-af19-4cce-9648-80c8bf16427e)
+---
+
+
+
+
