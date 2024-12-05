@@ -1,4 +1,4 @@
-![Screenshot 2024-12-05 161932](https://github.com/user-attachments/assets/b61699b1-83eb-4385-89c7-de3e2fdd9883)# Operating-Systems
+# Operating-Systems
 In this repo, I'll try to talk about OS
 
 ![image](https://github.com/user-attachments/assets/0abb0ce4-5ba6-4dd0-b9b5-465e96979e8f)
