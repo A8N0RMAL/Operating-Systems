@@ -1,4 +1,4 @@
-# Operating-Systems
+![Screenshot 2024-12-05 161932](https://github.com/user-attachments/assets/b61699b1-83eb-4385-89c7-de3e2fdd9883)# Operating-Systems
 In this repo, I'll try to talk about OS
 
 ![image](https://github.com/user-attachments/assets/0abb0ce4-5ba6-4dd0-b9b5-465e96979e8f)
@@ -2439,6 +2439,65 @@ This prioritization ensures that critical tasks are completed before less import
 ### **Disadvantages**
 - Starvation can occur for low-priority processes if high-priority queues dominate CPU time.
 ![Screenshot 2024-12-04 200220](https://github.com/user-attachments/assets/3212bfcd-af19-4cce-9648-80c8bf16427e)
+---
+
+
+### **Multilevel Feedback-Queue Scheduling**
+This algorithm allows processes to move between queues based on their behavior and CPU burst characteristics. It provides flexibility to optimize CPU utilization and prevents issues like starvation.
+
+#### **Key Points:**
+1. **Dynamic Priority Adjustment:**
+   - Processes are separated into queues based on their CPU burst characteristics.
+   - If a process uses excessive CPU time, it is moved to a lower-priority queue.
+   - **Example:** A CPU-bound process initially in a higher-priority queue might get downgraded if it frequently exceeds its time quantum.
+
+2. **Favoring I/O-Bound Processes:**
+   - Interactive and I/O-bound processes are kept in higher-priority queues since they often require minimal CPU time and interact frequently with the user.
+   - **Example:** A text editor's process would stay in a higher-priority queue to ensure responsiveness.
+
+3. **Aging to Prevent Starvation:**
+   - A process waiting too long in a lower-priority queue can be promoted to a higher-priority queue.
+   - This mechanism ensures no process is indefinitely delayed.
+   - **Example:** A background task in a lower-priority queue might be promoted after a specified waiting time to avoid neglect.
+![Screenshot 2024-12-05 161932](https://github.com/user-attachments/assets/5f2a46b1-5e1b-45d3-a633-eefddf5fcac7)
+
+---
+
+### **Structure of Queues**
+The structure typically involves multiple queues, each with a different scheduling strategy or time quantum.
+
+- **Queue 0:** Highest priority, smallest time quantum (e.g., 8 ms).
+- **Queue 1:** Medium priority, larger time quantum (e.g., 16 ms).
+- **Queue 2:** Lowest priority, typically managed using First-Come, First-Served (FCFS) scheduling.
+
+#### **Process Movement Between Queues:**
+- A new process starts in the highest-priority queue.
+- If it exhausts its time quantum without completion, it is demoted to a lower-priority queue.
+- **Example:** A process begins in Queue 0 (time quantum = 8 ms). If it doesn’t finish within 8 ms, it moves to Queue 1 (time quantum = 16 ms).
+![Screenshot 2024-12-05 162321](https://github.com/user-attachments/assets/3c9f0caa-269e-4bd2-8b59-3686b60070b6)
+
+---
+
+### **Parameters of Multilevel Feedback-Queue Scheduling**
+The algorithm is defined by several parameters that determine its behavior:
+
+1. **Number of Queues:**
+   - Defines how processes are grouped.
+   - **Example:** Three queues as shown in the figure.
+
+2. **Scheduling Algorithm for Each Queue:**
+   - Determines how processes within a queue are scheduled.
+   - **Example:** Queue 0 uses Round Robin with a time quantum of 8 ms, while Queue 2 uses FCFS.
+
+3. **Upgrade/Demote Methods:**
+   - Rules for promoting or demoting processes between queues based on their execution behavior.
+   - **Example:** Promote a process if it has waited longer than a predefined threshold.
+
+4. **Queue Entry Method:**
+   - Defines which queue a process enters when it needs service.
+   - **Example:** A newly created process enters the highest-priority queue.
+![Screenshot 2024-12-05 162831](https://github.com/user-attachments/assets/506182d6-55ef-477b-81f1-2672f5141ba4)
+
 ---
 
 
