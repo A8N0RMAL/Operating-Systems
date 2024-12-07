@@ -2504,7 +2504,7 @@ The algorithm is defined by several parameters that determine its behavior:
 ## Question 1: Maximum Throughput in Scheduling Algorithms (GATE 2001)
 
 ### Problem:
-Consider a set of n tasks with known runtimes \( r_1, r_2, \dots, r_n \) to be run on a uniprocessor machine. Which of the following processor scheduling algorithms will result in the maximum throughput?
+Consider a set of n tasks with known runtimes ( r1, r2, ..., rn ) to be run on a uniprocessor machine. Which of the following processor scheduling algorithms will result in the maximum throughput?
 
 1. (a) Round-Robin
 2. (b) Highest-Response-Ratio-Next
@@ -2593,7 +2593,7 @@ The completion order of the processes under the policies FCFS and RR2 (Round Rob
 ## Question 5: Algorithm Equivalence (GATE 2013)
 
 ### Problem:
-A scheduling algorithm assigns priority proportional to the waiting time of a process. The scheduler re-evaluates priorities every \( T \) time units and decides the next process to schedule. Which one of the following is true if the processes have no I/O operations and all arrive at time zero?
+A scheduling algorithm assigns priority proportional to the waiting time of a process. The scheduler re-evaluates priorities every ( T ) time units and decides the next process to schedule. Which one of the following is true if the processes have no I/O operations and all arrive at time zero?
 
 1. (a) Equivalent to First-Come-First-Serve
 2. (b) Equivalent to Round-Robin
@@ -2603,7 +2603,7 @@ A scheduling algorithm assigns priority proportional to the waiting time of a pr
 ### Solution: **(b) Equivalent to Round-Robin**
 
 #### Explanation:
-Re-evaluating priorities at fixed intervals \( T \) is characteristic of Round-Robin scheduling. Processes are given equal opportunity to execute, and waiting times increase uniformly, causing priority to rotate cyclically.
+Re-evaluating priorities at fixed intervals ( T ) is characteristic of Round-Robin scheduling. Processes are given equal opportunity to execute, and waiting times increase uniformly, causing priority to rotate cyclically.
 ![Screenshot 2024-12-07 172248](https://github.com/user-attachments/assets/f40cfddb-a3d0-44ae-8019-203371fcdbc1)
 
 ---
