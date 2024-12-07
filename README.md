@@ -2500,6 +2500,119 @@ The algorithm is defined by several parameters that determine its behavior:
 
 ---
 
+## Scheduling Algorithms (Solved Problems)
+## Question 1: Maximum Throughput in Scheduling Algorithms (GATE 2001)
+
+### Problem:
+Consider a set of n tasks with known runtimes \( r_1, r_2, \dots, r_n \) to be run on a uniprocessor machine. Which of the following processor scheduling algorithms will result in the maximum throughput?
+
+1. (a) Round-Robin
+2. (b) Highest-Response-Ratio-Next
+3. (c) Shortest-Job-First
+4. (d) First-Come-First-Served
+
+### Solution: **(c) Shortest-Job-First**
+
+#### Explanation:
+Shortest-Job-First (SJF) prioritizes tasks with the shortest execution time first. By minimizing the average waiting and turnaround time, the algorithm maximizes the number of processes completed within a given time (throughput). Other algorithms like Round-Robin or First-Come-First-Served may not be as efficient for throughput because they do not account for the length of tasks.
+![Screenshot 2024-12-07 172133](https://github.com/user-attachments/assets/9e53da7a-4fc0-4c0e-811c-fd2430e9b063)
+
+---
+
+## Question 2: Non-Preemptive Scheduling Algorithm (GATE 2002)
+
+### Problem:
+Which of the following scheduling algorithms is non-preemptive?
+
+1. (a) Round-Robin
+2. (b) First-In-First-Out
+3. (c) Multilevel Queue Scheduling
+4. (d) Multilevel Queue Scheduling with Feedback
+
+### Solution: **(b) First-In-First-Out**
+
+#### Explanation:
+First-In-First-Out (FIFO), also known as First-Come-First-Served (FCFS), is inherently non-preemptive. Once a process starts execution, it runs to completion without interruption. In contrast, algorithms like Round-Robin and Multilevel Queue Scheduling involve preemption to ensure fairness or priority adjustments.
+![Screenshot 2024-12-07 172145](https://github.com/user-attachments/assets/e96e6650-13d5-49ab-83b2-60b71a4c910d)
+
+---
+
+## Question 3: True Statements About Scheduling (GATE 2010)
+
+### Problem:
+Which of the following statements are true?
+
+1. **I**: Shortest remaining time first scheduling may cause starvation.
+2. **II**: Preemptive scheduling may cause starvation.
+3. **III**: Round-Robin is better than FCFS in terms of response time.
+
+1. (a) I only
+2. (b) I and III only
+3. (c) II and III only
+4. (d) I, II, and III
+
+### Solution: **(d) I, II, and III**
+
+#### Explanation:
+- **Statement I**: Shortest Remaining Time First (SRTF), a preemptive version of SJF, prioritizes processes with the least time remaining. Long processes can be indefinitely delayed if shorter processes keep arriving, leading to starvation.
+- **Statement II**: Preemptive scheduling, such as Priority Scheduling, can also cause starvation if lower-priority processes are repeatedly preempted by higher-priority ones.
+- **Statement III**: Round-Robin scheduling improves response time because it ensures that each process gets a time slice regularly, unlike FCFS where a long-running process can delay others.
+![Screenshot 2024-12-07 172212](https://github.com/user-attachments/assets/cdfa7d35-31c6-48e2-9c6f-c59cb4ba613b)
+
+---
+
+## Question 4: Process Completion Order in FCFS and RR2 (GATE 2012)
+
+### Problem:
+Consider the following processes:
+
+| Process ID | Arrival Time | Time Units Required |
+|------------|--------------|---------------------|
+| P1         | 0            | 5                  |
+| P2         | 1            | 7                  |
+| P3         | 3            | 4                  |
+
+The completion order of the processes under the policies FCFS and RR2 (Round Robin with CPU quantum of 2) are:
+
+1. (a) FCFS: P1, P2, P3; RR2: P1, P3, P2
+2. (b) FCFS: P1, P3, P2; RR2: P1, P3, P2
+3. (c) FCFS: P1, P2, P3; RR2: P1, P2, P3
+4. (d) FCFS: P1, P3, P2; RR2: P1, P2, P3
+
+### Solution: **(a) FCFS: P1, P2, P3; RR2: P1, P3, P2**
+
+#### Explanation:
+- **FCFS**: Processes are scheduled in the order of their arrival. Hence, P1 runs first, followed by P2, and finally P3.
+- **RR2**: With a quantum of 2 time units:
+  - P1 executes for 2 units, then P2 for 2 units, followed by P3 for 2 units.
+  - P1 resumes for 3 remaining units, then P3 finishes its 2 remaining units, and finally, P2 completes its 3 remaining units.
+![Screenshot 2024-12-07 172234](https://github.com/user-attachments/assets/8fb313d9-9a4f-400d-bdf7-bfad99b23844)
+
+---
+
+## Question 5: Algorithm Equivalence (GATE 2013)
+
+### Problem:
+A scheduling algorithm assigns priority proportional to the waiting time of a process. The scheduler re-evaluates priorities every \( T \) time units and decides the next process to schedule. Which one of the following is true if the processes have no I/O operations and all arrive at time zero?
+
+1. (a) Equivalent to First-Come-First-Serve
+2. (b) Equivalent to Round-Robin
+3. (c) Equivalent to Shortest-Job-First
+4. (d) Equivalent to Shortest-Remaining-Time-First
+
+### Solution: **(b) Equivalent to Round-Robin**
+
+#### Explanation:
+Re-evaluating priorities at fixed intervals \( T \) is characteristic of Round-Robin scheduling. Processes are given equal opportunity to execute, and waiting times increase uniformly, causing priority to rotate cyclically.
+![Screenshot 2024-12-07 172248](https://github.com/user-attachments/assets/f40cfddb-a3d0-44ae-8019-203371fcdbc1)
+
+---
+
+### Additional Notes:
+- **SJF vs FCFS**: SJF minimizes average waiting time but can cause starvation. FCFS is simple but can lead to poor response time.
+- **Round-Robin**: Balances fairness and responsiveness but can have higher average turnaround time.
+- **Starvation**: Occurs in priority-based algorithms if low-priority tasks are perpetually delayed by high-priority tasks.
+---
 
 
 
