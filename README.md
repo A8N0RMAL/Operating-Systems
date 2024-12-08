@@ -2698,7 +2698,7 @@ We need mechanisms to prevent race conditions and ensure consistent results:
 
 ---
 
-### **Summary*
+### **Summary**
 - **Process Synchronization** is essential for consistent data in systems with cooperating processes.
 - **Producer-Consumer Problem** demonstrates the importance of shared memory synchronization.
 - **Race Conditions** occur due to unsynchronized access to shared data.
