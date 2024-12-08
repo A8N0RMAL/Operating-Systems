@@ -2615,4 +2615,92 @@ Re-evaluating priorities at fixed intervals ( T ) is characteristic of Round-Rob
 ---
 
 
+## Process Synchronization
+### **What is Process Synchronization?**
+- **Definition**: Ensures the orderly execution of cooperating processes that share resources or data, preventing issues like *data inconsistency*.
+- **Cooperating Processes**: Processes that can share:
+  1. Logical address space (code and data).
+  2. Files or messages.
 
+Without synchronization, concurrent access to shared data can lead to **race conditions**.
+![Screenshot 2024-12-08 200338](https://github.com/user-attachments/assets/8d4d8057-535d-434c-a028-878c169e9cef)
+
+---
+
+### **Key Problem: Producer-Consumer Problem**
+The producer-consumer problem is a classic example of process synchronization where:
+- **Producer**: Produces data (e.g., items) into a buffer.
+- **Consumer**: Consumes the data from the buffer.
+
+#### **Goals of Synchronization**:
+1. Ensure the producer and consumer access shared data (buffer) in a synchronized way.
+2. Prevent the consumer from consuming items that have not yet been produced.
+![Screenshot 2024-12-08 200605](https://github.com/user-attachments/assets/c31aac2a-a4f8-4ae7-9b1b-0ed726e77bcb)
+![Screenshot 2024-12-08 200629](https://github.com/user-attachments/assets/166d5851-759b-4056-a55d-990b43a750bd)
+
+#### **Types of Buffers**:
+1. **Unbounded Buffer**:
+   - No size limit.
+   - The producer can always add new items, but the consumer may have to wait for new data.
+2. **Bounded Buffer**:
+   - Fixed size.
+   - The producer must wait if the buffer is full; the consumer must wait if it’s empty.
+![Screenshot 2024-12-08 200648](https://github.com/user-attachments/assets/b20dbf52-16a2-49eb-b3d7-aa83eff59bd6)
+
+---
+
+### **Example: Counter Variable Problem**
+- The producer increments the counter (`counter++`).
+- The consumer decrements the counter (`counter--`).
+- Concurrent execution of these operations can lead to inconsistent results (e.g., race conditions).
+
+#### **Race Condition**:
+A scenario where:
+1. Multiple processes manipulate the same shared variable concurrently.
+2. The outcome depends on the order of execution.
+
+**Example**:
+- Suppose `counter = 5`.
+- Two processes execute concurrently:
+  - Producer executes `counter++`.
+  - Consumer executes `counter--`.
+
+Possible results: 4, 5, or 6. The only correct result is `5`.
+
+#### **Why?**
+- Both operations (`counter++` and `counter--`) involve multiple machine-level instructions.
+- If these instructions interleave improperly, the counter value becomes inconsistent.
+
+---
+
+### **Race Condition Example with Machine Instructions**:
+1. **`counter++`**:
+   - Load `counter` into a register.
+   - Increment the register.
+   - Write back to `counter`.
+
+2. **`counter--`**:
+   - Load `counter` into a register.
+   - Decrement the register.
+   - Write back to `counter`.
+
+Without synchronization:
+- Producer and consumer operations may overlap, causing an incorrect final value.
+![Screenshot 2024-12-08 201253](https://github.com/user-attachments/assets/44a9432e-ba88-4bfa-9d4b-8c28c5be856f)
+![Screenshot 2024-12-08 201530](https://github.com/user-attachments/assets/43ac6e49-93f6-4bb1-b3f7-d641e0bca49c)
+![Screenshot 2024-12-08 201922](https://github.com/user-attachments/assets/144c5380-1e40-4987-8666-ed3dfe20280a)
+
+---
+
+### **Solution: Process Synchronization**
+We need mechanisms to prevent race conditions and ensure consistent results:
+- Synchronization ensures that critical sections (where shared data is accessed) are executed by one process at a time.
+
+---
+
+### **Summary*
+- **Process Synchronization** is essential for consistent data in systems with cooperating processes.
+- **Producer-Consumer Problem** demonstrates the importance of shared memory synchronization.
+- **Race Conditions** occur due to unsynchronized access to shared data.
+- Proper synchronization (using locks, semaphores, or monitors) resolves these issues.
+---
