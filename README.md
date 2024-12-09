@@ -2704,3 +2704,53 @@ We need mechanisms to prevent race conditions and ensure consistent results:
 - **Race Conditions** occur due to unsynchronized access to shared data.
 - Proper synchronization (using locks, semaphores, or monitors) resolves these issues.
 ---
+
+
+### **The Critical-Section Problem**
+- **Definition**: 
+  A system consists of `n` processes ( P_0, P_1, ..., P_n ), each having a segment of code called the **critical section**. In this section, processes may modify shared resources like variables, files, or tables.
+  
+- **Problem Statement**:
+  Only one process can execute in its critical section at any time. Allowing multiple processes simultaneously in their critical sections leads to inconsistency and errors.
+
+- **Goal**:
+  Design a protocol that ensures correct coordination among processes to safely access the critical section.
+
+#### **Example**:
+Imagine two processes ( P_1 ) and ( P_2 ) trying to update a shared bank account balance simultaneously:
+- **Without coordination**: Both processes read the balance as $100. If ( P_1 ) adds $50 and ( P_2 ) subtracts $20, the final balance could incorrectly be $120 or $80.
+- **With proper coordination**: Processes execute one after another in the critical section, ensuring the final balance is $130.
+![Screenshot 2024-12-09 185628](https://github.com/user-attachments/assets/136b62a7-ac27-467d-8766-feaf0ec4b5bf)
+
+---
+
+### **Structure of a Typical Process**
+A process typically consists of:
+1. **Entry Section**: Code to request permission to enter the critical section.
+2. **Critical Section**: Code that accesses and modifies shared resources.
+3. **Exit Section**: Code to signal that the critical section has been exited.
+4. **Remainder Section**: Any other part of the process.
+
+#### **Structure (Code Representation)**:
+![Screenshot 2024-12-09 185851](https://github.com/user-attachments/assets/01c6c96c-7531-4805-aa0b-536e5406a817)
+
+---
+
+### **Requirements for a Solution**
+Any solution to the Critical-Section Problem must satisfy the following criteria:
+
+1. **Mutual Exclusion**:
+   - At most one process can be in its critical section at a time.
+   - **Example**: If ( P_1 ) is updating a table, ( P_2 ) must wait to avoid inconsistencies.
+
+2. **Progress**:
+   - If no process is in the critical section, processes desiring entry must decide among themselves in a finite time.
+   - **Example**: If ( P_1 ) and ( P_2 ) both want access but ( P_1 ) finishes first, ( P_2 ) should not be indefinitely delayed.
+
+3. **Bounded Waiting**:
+   - A bound must exist on the number of times other processes can enter their critical sections before a waiting process gets its turn.
+   - **Example**: If (P_1) is waiting and ( P_2, P_3) and ( P_4 ) take turns repeatedly, ( P_1 ) must eventually get access.
+![Uploading Screenshot 2024-12-09 191249.png…]()
+
+---
+
