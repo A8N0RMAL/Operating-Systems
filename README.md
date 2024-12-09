@@ -2750,7 +2750,7 @@ Any solution to the Critical-Section Problem must satisfy the following criteria
 3. **Bounded Waiting**:
    - A bound must exist on the number of times other processes can enter their critical sections before a waiting process gets its turn.
    - **Example**: If (P_1) is waiting and ( P_2, P_3) and ( P_4 ) take turns repeatedly, ( P_1 ) must eventually get access.
-![Uploading Screenshot 2024-12-09 191249.png…]()
+![Screenshot 2024-12-09 191249](https://github.com/user-attachments/assets/10d7358e-bebf-4f1b-a4ef-3a71448f66ff)
 
 ---
 
