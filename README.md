@@ -2754,3 +2754,94 @@ Any solution to the Critical-Section Problem must satisfy the following criteria
 
 ---
 
+
+### Peterson’s Solution: Overview
+Peterson's Solution is a classic **software-based approach** to solve the **Critical Section Problem** for two processes. It ensures **mutual exclusion**, **progress**, and **bounded waiting**.
+
+However, it has some limitations:
+- **Not suitable for modern architectures**: Relies on assumptions like strict sequential execution, which might not hold in modern systems with optimizations like instruction reordering.
+![Screenshot 2024-12-10 171344](https://github.com/user-attachments/assets/032295ee-b01d-4fc1-8ef1-f7dfafb4b444)
+
+---
+
+### Key Features:
+1. **Two Processes**: 
+   - Peterson’s solution applies to only **two processes** at a time, denoted as ( P_i ) and ( P_j ).
+
+2. **Shared Variables**:
+   - `int turn`: Indicates whose turn it is to enter the critical section.
+   - `boolean flag[2]`: 
+     - `flag[i]`: True if process ( P_i ) is ready to enter the critical section.
+     - `flag[j]`: True if process ( P_j ) is ready to enter the critical section.
+![Screenshot 2024-12-10 170414](https://github.com/user-attachments/assets/9ca5544d-ce80-4d41-801a-9958bb20765b)
+
+---
+
+### Algorithm:
+1. **Entry Protocol**:  
+   Each process ( P_i ) sets its flag to `true` (indicating its intention to enter the critical section) and assigns the turn to the other process ( P_j ).  
+   - Process ( P_i ) waits while:
+     - ( P_j )'s flag is `true`, **and** 
+     - ( turn ) is assigned to ( P_j ).  
+
+2. **Critical Section**:  
+   The process executes its critical section when the entry condition is satisfied.  
+
+3. **Exit Protocol**:  
+   After completing the critical section, the process sets its flag to `false`.
+
+4. **Remainder Section**:  
+   The process executes non-critical operations.
+
+---
+
+### Code Implementation:
+#### For Process (Pi):
+![image](https://github.com/user-attachments/assets/251698cb-a227-43fe-a31c-4fc05b278bfc)
+
+
+#### For Process (Pj):
+![image](https://github.com/user-attachments/assets/67eb04b9-8be9-49b8-a357-ae5a46d1f7db)
+
+
+---
+
+### Example Walkthrough:
+**Scenario**: Two processes ( P_0 ) and ( P_1 ) want to access a **shared printer**.
+
+1. **Initial State**:
+   - `flag[0] = false`, `flag[1] = false`
+   - `turn = 0` (indicating ( P_0 )'s turn)
+
+2. **Process ( P_0 ) Requests Access**:
+   - Sets `flag[0] = true`, assigns `turn = 1` (giving the other process priority).
+   - Checks: `while (flag[1] && turn == 1)`  
+     - Since ( P_1 ) has not set `flag[1]`, ( P_0 ) enters its **critical section**.
+
+3. **Process ( P_1 ) Requests Access**:
+   - Sets `flag[1] = true`, assigns `turn = 0`.
+   - Checks: `while (flag[0] && turn == 0)`  
+     - Since ( P_0 ) is in the **critical section**, ( P_1 ) waits.
+
+4. **Process ( P_0 ) Exits**:
+   - Sets `flag[0] = false`.
+   - ( P_1 ) now sees `flag[0] = false` and enters its **critical section**.
+
+This ensures **mutual exclusion**: Only one process accesses the shared printer at a time.
+
+---
+
+### Key Properties:
+1. **Mutual Exclusion**:  
+   At most one process is in the critical section at a time.
+
+2. **Progress**:  
+   A process not in the critical or waiting state does not block others.
+
+3. **Bounded Waiting**:  
+   A process cannot be indefinitely delayed.
+
+---
+
+
+
