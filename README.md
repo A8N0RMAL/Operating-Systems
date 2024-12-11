@@ -2845,3 +2845,68 @@ This ensures **mutual exclusion**: Only one process accesses the shared printer 
 
 
 
+### **Test-and-Set Lock**
+The **Test-and-Set Lock (TSL)** is a hardware-level synchronization mechanism used to solve the **critical section problem** in concurrent programming. It ensures mutual exclusion when multiple processes try to access a shared resource.
+
+#### **Key Concepts**
+1. **Shared Lock Variable**:  
+   - A shared variable (commonly named `lock`) is used to indicate whether the critical section is **locked** or **unlocked**.  
+   - It can have two values:  
+     - `0` (unlocked)  
+     - `1` (locked)
+
+2. **Atomic Operation**:  
+   - The **Test-and-Set** operation is atomic, meaning it is indivisible and guarantees that no other process can interrupt or access the lock while it is being set.
+
+3. **Working**:  
+   - A process checks (`tests`) the lock variable.  
+   - If it’s unlocked (`0`), the process sets it to locked (`1`) and enters the **critical section**.  
+   - If it’s locked, the process keeps waiting (busy waiting) until it becomes free.
+![Screenshot 2024-12-11 211818](https://github.com/user-attachments/assets/9e3a3db6-33fc-4770-ac34-36f0483a07ed)
+
+---
+
+#### **Algorithm: Test-and-Set Instruction**
+- If `TestAndSet(&lock)` returns `FALSE` (previously unlocked), the process can enter the critical section.  
+- If `TRUE`, the process will wait in a **busy-waiting loop** until the lock becomes `FALSE`.
+
+---
+
+#### **Example Usage**
+![Screenshot 2024-12-11 212903](https://github.com/user-attachments/assets/e669e834-781e-473b-8eb0-f49ff18921d0)
+
+---
+
+#### **Diagram Explanation**
+1. **Process P1 and P2**:
+   - Both processes check the lock. If `P1` sets the lock to `TRUE` first, it enters the critical section.
+   - `P2` will be stuck in the busy-wait loop (`while (TestAndSet(&lock))`), waiting for `P1` to release the lock.
+
+2. Once `P1` finishes, it sets the lock back to `FALSE`, allowing `P2` to proceed.
+
+---
+
+#### **Advantages**
+- **Simplicity**: Easy to implement with hardware support.  
+- **Efficiency**: Ensures atomicity of the lock operation.  
+
+#### **Disadvantages**
+- **Busy Waiting**: Processes waiting for the lock consume CPU cycles, reducing efficiency in multi-process environments.
+
+---
+
+### **Example**
+**Scenario**: Two threads (`T1`, `T2`) trying to update a shared counter.
+
+- Initial state: `lock = 0`.  
+- Thread `T1`:  
+  - Calls `TestAndSet(&lock)` → `lock` becomes `1`.  
+  - Enters the critical section.  
+- Thread `T2`:  
+  - Calls `TestAndSet(&lock)` → Stuck in a busy-wait loop as `lock = 1`.
+- Once `T1` finishes, it sets `lock = 0`.  
+- `T2` now acquires the lock and enters the critical section.
+
+---
+
+
