@@ -2910,3 +2910,67 @@ The **Test-and-Set Lock (TSL)** is a hardware-level synchronization mechanism us
 ---
 
 
+
+### **Semaphores in Operating Systems**
+
+Semaphores, proposed by Edsger Dijkstra, are tools used for managing concurrent processes in a multiprocessing environment. They help solve critical section problems and achieve process synchronization. A semaphore is essentially a non-negative integer variable that is shared between threads and accessed using two atomic operations: **wait** and **signal**.
+![Screenshot 2024-12-12 174859](https://github.com/user-attachments/assets/a7212ec5-65f8-405f-9292-51215dde58ba)
+
+---
+
+### **Key Operations on Semaphores**
+
+1. **`wait()` Operation** (denoted as `P`):
+   - The term "P" originates from the Dutch word *proberen*, meaning "to test."
+   - It decreases the semaphore's value if it's greater than zero. If the semaphore value is zero or less, the operation blocks the process (no operation is performed until it becomes positive).
+   - **Definition**:
+     ![image](https://github.com/user-attachments/assets/c88691d3-c00e-41cc-8c38-8d1fbbea66b9)
+
+
+2. **`signal()` Operation** (denoted as `V`):
+   - The term "V" comes from the Dutch word *verhogen*, meaning "to increment."
+   - It increases the semaphore's value, potentially waking up a blocked process.
+   - **Definition**:
+     ![image](https://github.com/user-attachments/assets/2848f9ea-cb94-4110-ae36-339cdc6c3676)
+
+
+> **Atomicity**: Both `wait()` and `signal()` are atomic operations, meaning they are executed indivisibly. No other process can modify the semaphore value while one of these operations is executing.
+
+---
+
+### **Types of Semaphores**
+
+1. **Binary Semaphore**:
+   - The value of a binary semaphore ranges between 0 and 1.
+   - It is often used as a mutex (mutual exclusion) lock to protect critical sections.
+   - **Example**:
+     - A shared resource (e.g., a printer) needs to be accessed by one process at a time.
+     - Semaphore initialized to 1:
+       - Process A calls `wait()` to access the resource (`S = 0`).
+       - Process B tries to access but is blocked because `S <= 0`.
+       - When Process A finishes, it calls `signal()` (`S = 1`), allowing Process B to proceed.
+
+2. **Counting Semaphore**:
+   - The value of a counting semaphore can range over an unrestricted domain.
+   - It is used to control access to resources with multiple instances.
+   - **Example**:
+     - A system with 3 identical printers.
+     - Semaphore initialized to 3:
+       - Each `wait()` decreases the count by 1 when a printer is allocated.
+       - Each `signal()` increases the count by 1 when a printer is released.
+     - If all printers are in use (`S = 0`), processes requesting a printer are blocked until one becomes free.
+![Screenshot 2024-12-12 180733](https://github.com/user-attachments/assets/03eda6a3-e2a6-49fd-a28a-a49df316f067)
+
+---
+
+### **Summary**
+
+Semaphores are a fundamental tool for synchronization in operating systems. Binary semaphores ensure mutual exclusion, while counting semaphores manage access to resources with multiple instances. These operations are critical in avoiding race conditions and ensuring efficient resource utilization.
+
+**Additional Example for Mutual Exclusion**:
+![image](https://github.com/user-attachments/assets/b764c1bd-375d-440f-adb3-3dc176faae81)
+
+In this example, `mutex` ensures that only one process can execute the critical section at a time.
+
+---
+
