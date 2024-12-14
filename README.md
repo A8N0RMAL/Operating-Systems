@@ -2974,3 +2974,38 @@ In this example, `mutex` ensures that only one process can execute the critical 
 
 ---
 
+
+### **Disadvantages of Semaphores**
+
+1. **Busy Waiting**:
+   - **Issue**: When a process is in its critical section, any other process attempting to enter its critical section must continuously check the entry condition (looping).
+   - **Impact**: This wastes valuable CPU cycles that could otherwise be used by other processes productively.
+   - **Spinlock**: This behavior is often referred to as a "spinlock" because the process "spins" while waiting for the lock to be released.
+   - **Solution**:
+     - Modify the `wait()` and `signal()` operations such that instead of busy waiting, the process **blocks itself** when it finds the semaphore value is not positive.
+     - **How it works**: The blocking operation places the process in a waiting queue, and the **CPU scheduler** switches to another process, avoiding wastage of CPU cycles.
+
+   **Example**:  
+   Imagine two processes, `P1` and `P2`, trying to access a shared printer. If `P1` is using the printer, `P2` will keep checking in a loop until `P1` finishes, wasting CPU resources.
+![image](https://github.com/user-attachments/assets/e2b7773c-96f1-4a95-96b2-f0ccc2c8396a)
+
+---
+
+2. **Deadlocks and Starvation**:
+   - **Deadlocks**:
+     - If semaphores are not implemented carefully, two or more processes might end up waiting indefinitely for each other to release resources.
+     - **Scenario**:
+       - Process `P0` locks semaphore `S` and then waits for semaphore `Q`.
+       - Process `P1` locks semaphore `Q` and then waits for semaphore `S`.
+       - Both processes are now stuck waiting for each other, leading to a **deadlock**.
+   - **Starvation**:
+     - A lower-priority process may remain indefinitely in the waiting queue if higher-priority processes keep acquiring and releasing the semaphore before it gets a chance.
+
+   **Example of Deadlock**:
+   ![Screenshot 2024-12-14 195920](https://github.com/user-attachments/assets/cde0d097-ddec-41e4-8efe-8e808e79bfa7)
+
+   - Here, `P0` and `P1` create a circular wait condition because they acquire semaphores in different orders, leading to deadlock.
+   
+- These issues highlight the challenges of using semaphores effectively. They require careful design to avoid inefficiencies like busy waiting or critical failures such as deadlocks and starvation.
+
+---
