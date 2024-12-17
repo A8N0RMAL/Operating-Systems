@@ -3007,5 +3007,74 @@ In this example, `mutex` ensures that only one process can execute the critical 
    - Here, `P0` and `P1` create a circular wait condition because they acquire semaphores in different orders, leading to deadlock.
    
 - These issues highlight the challenges of using semaphores effectively. They require careful design to avoid inefficiencies like busy waiting or critical failures such as deadlocks and starvation.
+---
+
+
+
+### The Bounded Buffer Problem (Producer-Consumer Problem)
+The **Bounded Buffer Problem** is a classic **synchronization problem** in Operating Systems. It describes two processes:  
+- **Producer**: Adds data into a shared buffer.  
+- **Consumer**: Removes data from the shared buffer.
+
+The buffer has **n slots** (fixed size) to hold units of data. The challenge is to ensure proper synchronization between the Producer and Consumer to avoid data corruption or inconsistency.
+
+---
+
+### Key Conditions:
+1. **The Producer** must not add data when the buffer is full.  
+2. **The Consumer** must not remove data when the buffer is empty.  
+3. **Mutual Exclusion**: Both processes cannot access the buffer simultaneously.
+![Screenshot 2024-12-17 164818](https://github.com/user-attachments/assets/df6e93bf-0167-44b8-91ca-367708acdc04)
+![Screenshot 2024-12-17 164835](https://github.com/user-attachments/assets/05d001eb-dee1-42b9-8bb4-056f7a9d0df5)
+
+---
+
+### Solution Using Semaphores
+To solve this, **three semaphores** are used:  
+1. **`mutex`**: A binary semaphore to ensure mutual exclusion (lock for buffer).  
+2. **`empty`**: A counting semaphore that tracks empty slots in the buffer (initialized to `n` slots).  
+3. **`full`**: A counting semaphore that tracks filled slots (initialized to `0`).
+![Screenshot 2024-12-17 164847](https://github.com/user-attachments/assets/4533c500-5537-49f4-bb23-30d6a722c200)
+---
+
+### Code Explanation:
+#### **Producer Process**
+The producer performs the following steps:
+![image](https://github.com/user-attachments/assets/877ca33d-5dd4-4c01-a3f4-79419d6e94a1)
+
+- **wait(empty)**: Ensures the producer does not overwrite when the buffer is full.  
+- **wait(mutex)**: Ensures only one process modifies the buffer at a time.  
+- **signal(full)**: Signals that a new slot in the buffer is filled.
+
+---
+
+#### **Consumer Process**
+The consumer performs the following steps:
+![image](https://github.com/user-attachments/assets/9de6d437-322f-49b7-bbce-6e7b701509aa)
+
+- **wait(full)**: Ensures the consumer does not consume from an empty buffer.  
+- **signal(empty)**: Signals that a new slot in the buffer is now empty.
+
+---
+
+### Example:
+1. **Initial State**:  
+   - Buffer size `n = 5`, all slots are empty.  
+   - `empty = 5`, `full = 0`.  
+
+2. **Producer** adds data:  
+   - `empty` is decremented (e.g., `empty = 4`), `full` is incremented (e.g., `full = 1`).
+
+3. **Consumer** removes data:  
+   - `full` is decremented (e.g., `full = 0`), `empty` is incremented (e.g., `empty = 5`).
+
+This ensures **no race condition** occurs, and both Producer and Consumer coordinate without conflicts.
+
+---
+
+This code guarantees proper synchronization and avoids the following issues:
+- **Buffer Overflow** (Producer adds when buffer is full).  
+- **Buffer Underflow** (Consumer removes when buffer is empty).  
+![Screenshot 2024-12-17 164859](https://github.com/user-attachments/assets/5f61acdb-1fac-4879-b5d1-85b5177b08fc)
 
 ---
