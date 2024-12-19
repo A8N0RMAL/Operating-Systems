@@ -3078,3 +3078,74 @@ This code guarantees proper synchronization and avoids the following issues:
 ![Screenshot 2024-12-17 164859](https://github.com/user-attachments/assets/5f61acdb-1fac-4879-b5d1-85b5177b08fc)
 
 ---
+
+### **Readers-Writers Problem**
+
+The **Readers-Writers Problem** is a classic synchronization problem in Operating Systems that deals with coordinating access to a shared resource (e.g., a database) between multiple concurrent processes. It distinguishes two types of processes:
+- **Readers**: Only read the database.
+- **Writers**: Both read and modify the database.
+
+### **Key Challenges**
+1. **Multiple Readers**: Can access the resource simultaneously without conflict.
+2. **Readers and Writers**: If a writer is accessing the resource, no reader or writer should access it simultaneously (to avoid data inconsistency).
+3. **Mutual Exclusion**: Writers need exclusive access to the shared resource.
+![Screenshot 2024-12-19 155856](https://github.com/user-attachments/assets/7453ca15-8d72-4493-8c52-a6f4bb77aedf)
+
+---
+
+### **Solution Using Semaphores**
+
+#### **Components**
+1. **`mutex` (binary semaphore)**:
+   - Ensures mutual exclusion when updating the number of readers (`readcount`).
+2. **`wrt` (binary semaphore)**:
+   - Controls access to the shared resource.
+3. **`readcount` (integer variable)**:
+   - Tracks the number of active readers.
+![Screenshot 2024-12-19 155911](https://github.com/user-attachments/assets/daeb07da-f2a4-4293-a842-2b118628ebf7)
+
+#### **Process Logic**
+
+**1. Reader Process**
+- Multiple readers can read the resource simultaneously.
+- If it is the first reader, it waits for the `wrt` semaphore to ensure no writer is writing.
+![image](https://github.com/user-attachments/assets/9773b0e4-372a-455d-9f98-c2f20e60f1d6)
+
+
+---
+
+**2. Writer Process**
+- Writers need exclusive access to the resource. They must wait for both readers and other writers to finish.
+![image](https://github.com/user-attachments/assets/d6502722-851c-4418-a75a-6fb5b7522c79)
+
+
+---
+
+### **Key Points**
+1. **Readers**: Can access the resource simultaneously as long as no writer is active.
+2. **Writers**: Must have exclusive access, meaning no other writer or reader is allowed during writing.
+3. **Fairness**: Priority can be given to either readers or writers (e.g., by modifying the semaphore logic) to prevent starvation.
+![Screenshot 2024-12-19 155923](https://github.com/user-attachments/assets/f20e953c-dee9-4eef-bb49-ecb06b64c8b4)
+
+---
+
+### **Example**
+Let’s assume:
+- **Shared resource**: A file.
+- **Readers**: Students accessing a shared lecture file.
+- **Writer**: A professor updating the lecture file.
+
+1. When a **reader** wants to access the file:
+   - The `readcount` is incremented.
+   - If it is the first reader, the writer is blocked.
+
+2. When a **writer** wants to access the file:
+   - It waits for all readers to finish (`readcount = 0`) and blocks further readers.
+
+3. If multiple students (readers) access the file:
+   - They can do so simultaneously without any conflict.
+
+4. When the professor (writer) edits the file:
+   - All students must wait until the editing is complete.
+
+---
