@@ -3203,3 +3203,62 @@ This example and remedies make the problem more intuitive for operating systems 
 
 ---
 
+
+### **Monitors**
+- A **monitor** is a high-level synchronization construct that simplifies process synchronization and ensures mutual exclusion.
+- It provides a set of programmer-defined operations to manipulate shared variables safely.
+- Only one process can be active inside a monitor at a time, ensuring safety in concurrent environments.
+
+#### **Key Characteristics:**
+1. **Encapsulation:** Monitors encapsulate:
+   - **Shared Variables**: Used by multiple processes.
+   - **Procedures**: Defined within the monitor to access or modify shared data.
+   - **Initialization Code**: Used to initialize monitor variables.
+2. **Mutual Exclusion:** Only one process can execute any procedure within the monitor at any given time.
+3. **Local Access:** Shared variables can only be accessed via monitor procedures, not directly.
+![Screenshot 2024-12-21 171446](https://github.com/user-attachments/assets/87156c80-e619-4e2d-b3b0-c1dd72e7c564)
+
+---
+
+### **Syntax of a Monitor:**
+![Screenshot 2024-12-21 172044](https://github.com/user-attachments/assets/07cc6db6-9a6f-4bc9-89f7-83291bf2d65c)
+
+---
+
+### **Condition Constructs in Monitors:**
+- **Condition Variables**: Special variables (e.g., `x`, `y`) used for process synchronization.
+- Two main operations:
+  1. **`x.wait()`**: Suspends the process until another process signals.
+  2. **`x.signal()`**: Resumes exactly one suspended process waiting on the condition variable.
+
+#### Example:
+- **`x.wait()`** suspends a process P1, moving it to a queue associated with `x`.
+- **`x.signal()`** wakes up a process from `x`'s queue (if any).
+
+---
+
+### **Schematic View of a Monitor:**
+- Contains:
+  1. **Shared Data**: Variables shared between processes.
+  2. **Operations**: Procedures defined within the monitor.
+  3. **Initialization Code**: To set up the shared data.
+- **Queues**: Maintains processes waiting for conditions or entry.
+![Screenshot 2024-12-21 172345](https://github.com/user-attachments/assets/6355d9b8-824b-4d79-ae7f-94eaae40c18e)
+
+---
+
+### **Example Problem: Producer-Consumer with Monitor**
+![image](https://github.com/user-attachments/assets/db5a419d-8391-40fb-a033-91683a8954b0)
+
+
+#### Explanation:
+1. **Producer** calls `insert(item)`:
+   - Waits if the buffer is full.
+   - Signals `not_empty` to wake up a waiting consumer.
+2. **Consumer** calls `remove()`:
+   - Waits if the buffer is empty.
+   - Signals `not_full` to wake up a waiting producer.
+
+This ensures mutual exclusion and proper synchronization between the producer and consumer.
+
+---
