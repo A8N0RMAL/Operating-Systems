@@ -3262,3 +3262,71 @@ This example and remedies make the problem more intuitive for operating systems 
 This ensures mutual exclusion and proper synchronization between the producer and consumer.
 
 ---
+
+
+
+### **Dining Philosophers Problem:**
+The Dining Philosophers Problem is a classic synchronization problem that demonstrates deadlock, starvation, and concurrency issues. The solution using **monitors** provides a deadlock-free mechanism to manage philosopher states and ensure proper resource allocation.
+![Uploading Screenshot 2024-12-22 160727.png…]()
+
+---
+
+### **Concepts Used in the Monitor Solution:**
+1. **State of Philosophers**:
+   - Each philosopher can be in one of the three states:
+     - **Thinking**: Not hungry and not using chopsticks.
+     - **Hungry**: Wants to eat but waiting for chopsticks.
+     - **Eating**: Actively eating using both chopsticks.
+![image](https://github.com/user-attachments/assets/2f4e03fc-30e1-48b9-93a1-db33020cb53b)
+
+
+2. **Rules for Eating**:
+   A philosopher can **eat** only if:
+   - Their **left neighbor** is not eating.
+   - Their **right neighbor** is not eating.
+
+   Conditions:
+ ![image](https://github.com/user-attachments/assets/d505b6d1-3909-40d1-9712-259ce7e8abf7)
+
+4. **Condition Variables**:
+   - Each philosopher has a condition variable `self[i]` to wait if they cannot eat immediately.
+   - When chopsticks are available, a philosopher signals themselves to start eating.
+
+---
+
+### **Monitor Implementation for Dining Philosophers:**
+![image](https://github.com/user-attachments/assets/31e57867-887e-401b-8869-3c1ddc012353)
+
+
+---
+
+### **Explanation:**
+1. **Initialization**:
+   - All philosophers start in the **THINKING** state.
+2. **Pickup (Request to Eat)**:
+   - A philosopher transitions to the **HUNGRY** state and checks if they can eat.
+   - If neighbors are eating, they wait on their condition variable (`self[i].wait()`).
+3. **Putdown (Release Chopsticks)**:
+   - After eating, a philosopher transitions back to **THINKING**.
+   - Tests are performed to see if adjacent philosophers can now eat.
+4. **Test**:
+   - Checks if a philosopher can eat based on their state and neighbors.
+   - If conditions are met, the philosopher transitions to the **EATING** state.
+
+---
+
+### **Advantages of Monitor Solution:**
+1. **Deadlock-Free**: Ensures no philosopher waits indefinitely.
+2. **Mutual Exclusion**: Only one philosopher accesses shared data at a time.
+3. **Fairness**: Condition variables allow efficient signaling and prevent starvation.
+
+---
+
+### **Example Walkthrough**:
+1. Philosopher 2 becomes **HUNGRY** and calls `pickup(2)`.
+2. If neighbors (Philosophers 1 and 3) are **not eating**, `test(2)` transitions Philosopher 2 to **EATING**.
+3. Philosopher 2 eats and then calls `putdown(2)`:
+   - Resets their state to **THINKING**.
+   - Signals neighbors (Philosophers 1 and 3) to check if they can now eat.
+
+---
