@@ -3330,3 +3330,84 @@ The Dining Philosophers Problem is a classic synchronization problem that demons
    - Signals neighbors (Philosophers 1 and 3) to check if they can now eat.
 
 ---
+
+### Process Synchronization Problem (GATE 2010)
+
+The problem presented involves **two processes (P1 and P2)** that need to access their **critical sections** using shared boolean variables `S1` and `S2`. The challenge is to analyze the synchronization mechanism and determine the properties achieved.
+![Screenshot 2024-12-23 163229](https://github.com/user-attachments/assets/01749f1e-5341-4a60-a9ee-61713a3d4e15)
+
+---
+
+#### **Mechanism Used by P1:**
+```c
+while (S1 == S2);
+Critical Section
+S1 = S2;
+```
+
+- P1 waits until `S1 != S2` before entering the **critical section**.
+- After completing the critical section, P1 updates `S1` to match `S2`.
+
+---
+
+#### **Mechanism Used by P2:**
+```c
+while (S1 != S2);
+Critical Section
+S2 = not(S1);
+```
+
+- P2 waits until `S1 == S2` before entering the **critical section**.
+- After completing the critical section, P2 flips the value of `S2` (sets `S2 = !S1`).
+
+---
+
+### **Analysis of Properties:**
+1. **Mutual Exclusion:**
+   - **Achieved.**
+   - At any given time, only one process (P1 or P2) can enter its critical section.
+   - The conditions (`S1 == S2` or `S1 != S2`) ensure no simultaneous access to the critical section.
+
+2. **Progress:**
+   - **Not Achieved.**
+   - If both processes are waiting, progress cannot be guaranteed. For example:
+     - If `S1 == S2` and both processes attempt to enter their critical sections, a deadlock-like situation can occur where neither process proceeds.
+
+---
+
+### **Correct Answer:**
+**(a) Mutual exclusion but not progress.**
+
+---
+
+### **Example to Understand:**
+
+#### **Initial State:**
+- `S1 = 0`, `S2 = 0`
+
+#### **Scenario 1:**
+- P1 executes:
+  - `while (S1 == S2);` → This condition fails (`S1 = 0, S2 = 0`), so P1 enters the **critical section**.
+  - After exiting the critical section, P1 sets `S1 = S2`.
+
+- State after P1: `S1 = 0`, `S2 = 0`
+
+#### **Scenario 2:**
+- P2 executes:
+  - `while (S1 != S2);` → This condition fails (`S1 = 0, S2 = 0`), so P2 enters the **critical section**.
+  - After exiting the critical section, P2 flips `S2` (`S2 = !S1` → `S2 = 1`).
+
+- State after P2: `S1 = 0`, `S2 = 1`
+
+#### **Deadlock Possibility:**
+- If both processes start simultaneously with `S1 = S2`, they may both be stuck in their respective `while` loops, unable to proceed.
+
+---
+
+### **Key Takeaways:**
+- The synchronization mechanism ensures **mutual exclusion** but fails to guarantee **progress** in all scenarios.
+- This illustrates the importance of carefully designing synchronization algorithms to balance both properties.
+---
+
+
+
