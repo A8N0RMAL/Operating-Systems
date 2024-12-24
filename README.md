@@ -3411,3 +3411,105 @@ S2 = not(S1);
 
 
 
+### Process Synchronization with Semaphores (GATE 2010)
+This problem involves **three concurrent processes** (P0, P1, P2) and **three binary semaphores** (`S0`, `S1`, `S2`) initialized as follows:
+![Screenshot 2024-12-24 182259](https://github.com/user-attachments/assets/2895c63a-1045-426e-9a52-30c120efc253)
+
+- `S0 = 1`
+- `S1 = 0`
+- `S2 = 0`
+
+Each process utilizes `wait()` and `release()` (signal) operations to synchronize access to critical sections. The objective is to determine how many times **P0 prints `0`** based on the semaphore logic.
+
+---
+
+### **Processes**
+
+#### **Process P0:**
+```c
+while (true) {
+    wait(S0);         // Wait for S0 to be free
+    print(0);         // Print "0"
+    release(S1);      // Signal S1
+    release(S2);      // Signal S2
+}
+```
+
+#### **Process P1:**
+```c
+wait(S1);             // Wait for S1 to be free
+release(S0);          // Signal S0
+```
+
+#### **Process P2:**
+```c
+wait(S2);             // Wait for S2 to be free
+release(S0);          // Signal S0
+```
+
+---
+
+### **Key Points:**
+1. **Semaphore Behavior:**
+   - `wait(Sx)`: Blocks the process until the semaphore value is positive, then decrements the value.
+   - `release(Sx)`: Increments the semaphore value, signaling another process.
+
+2. **Execution Flow:**
+   - Initially, `S0 = 1`, allowing P0 to execute its **critical section**.
+   - Once P0 completes:
+     - `S1` and `S2` are released (`S1 = 1`, `S2 = 1`), allowing P1 and P2 to proceed.
+
+3. **Cyclic Execution:**
+   - After P1 or P2 executes, `S0` is released (`S0 = 1`), allowing P0 to execute again.
+
+---
+
+### **Execution Analysis:**
+- **First Iteration:**
+  - `P0` executes because `S0 = 1`. It prints `0` and signals both `S1` and `S2`.
+  - Now, `S1 = 1` and `S2 = 1`.
+
+- **Subsequent Iterations:**
+  - P1 or P2 executes (`S1` or `S2`), releasing `S0`.
+  - P0 executes again, printing another `0`.
+
+- **P0's Execution:**
+  - P0 prints `0` every time `S0` is available.
+  - This cyclic process continues, ensuring P0 prints at least twice.
+
+---
+
+### **Answer:**
+**(a) At least twice**
+
+---
+
+### **Example to Understand:**
+
+#### **Initial State:**
+- `S0 = 1`, `S1 = 0`, `S2 = 0`.
+
+#### **Execution Steps:**
+1. **Step 1: P0 Executes**
+   - `wait(S0)`: P0 enters its critical section (decrements `S0` to 0).
+   - Prints `0`.
+   - `release(S1)`: Sets `S1 = 1`.
+   - `release(S2)`: Sets `S2 = 1`.
+
+2. **Step 2: P1 Executes**
+   - `wait(S1)`: P1 executes (decrements `S1` to 0).
+   - `release(S0)`: Sets `S0 = 1`.
+
+3. **Step 3: P0 Executes Again**
+   - `wait(S0)`: P0 enters its critical section (decrements `S0` to 0).
+   - Prints `0`.
+   - Signals `S1` and `S2`.
+
+---
+
+### **Key Takeaways:**
+- **Mutual Exclusion:** Each semaphore ensures only one process accesses the shared resource at a time.
+- **Cyclic Coordination:** Processes depend on each other's `release` operations to continue execution.
+
+---
+
