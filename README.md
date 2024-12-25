@@ -3511,5 +3511,101 @@ release(S0);          // Signal S0
 - **Mutual Exclusion:** Each semaphore ensures only one process accesses the shared resource at a time.
 - **Cyclic Coordination:** Processes depend on each other's `release` operations to continue execution.
 
+
+
 ---
 
+### Process Synchronization Problem
+
+#### Problem Description:
+Two processes, P1 and P2, need to access a **critical section** of code. The synchronization construct is designed as follows:
+![image](https://github.com/user-attachments/assets/8c297918-2894-4e98-b5be-6d9bde88121a)
+
+##### Code for P1:
+```c
+while (true) {
+    wants1 = true;
+    while (wants2 == true);
+    /* Critical Section */
+    wants1 = false;
+    /* Remainder Section */
+}
+```
+
+##### Code for P2:
+```c
+while (true) {
+    wants2 = true;
+    while (wants1 == true);
+    /* Critical Section */
+    wants2 = false;
+    /* Remainder Section */
+}
+```
+
+#### Shared Variables:
+- `wants1` and `wants2` are shared variables, both initialized to `false`.
+- These variables indicate whether a process wants to enter its critical section.
+
+#### Key Question:
+Which of the following statements about this synchronization construct is **true**?
+1. It does not ensure mutual exclusion.
+2. It does not ensure bounded waiting.
+3. It requires that processes enter the critical section in strict alternation.
+4. It does not prevent deadlocks but ensures mutual exclusion.
+
+---
+
+### Analysis
+
+1. **Mutual Exclusion**:  
+   The construct **does** ensure that only one process enters the critical section at a time. This is because:
+   - When `P1` sets `wants1 = true`, it checks `wants2`. If `P2` is already in the critical section (`wants2 == true`), `P1` will wait.
+   - Similarly, `P2` waits if `P1` is in the critical section.
+
+   **Example**:  
+   If both `P1` and `P2` want to enter the critical section:
+   - `P1` sets `wants1 = true` and sees `wants2 = false` → `P1` enters.
+   - During this time, `P2` sets `wants2 = true` but waits because `wants1 == true`.
+
+2. **Deadlock**:  
+   The construct **can lead to deadlock** if both processes set their `wants` variables to `true` simultaneously and enter an infinite wait state. For example:
+   - `P1` sets `wants1 = true` and checks `wants2 == true` (true).
+   - Simultaneously, `P2` sets `wants2 = true` and checks `wants1 == true` (true).
+   - Both processes keep waiting indefinitely.
+
+3. **Bounded Waiting**:  
+   The construct **does not ensure bounded waiting**. A process may repeatedly get delayed while the other process enters the critical section multiple times.
+
+4. **Strict Alternation**:  
+   The construct **does not enforce strict alternation**, as it depends on the value of the `wants` variables.
+
+---
+
+### Correct Answer:
+(d) **It does not prevent deadlocks but ensures mutual exclusion.**
+
+---
+
+### Example Scenario for Better Understanding
+
+#### Initialization:
+- `wants1 = false`
+- `wants2 = false`
+
+#### Execution Steps:
+1. **P1 wants to enter critical section**:
+   - Sets `wants1 = true`.
+   - Checks `wants2 == true` → `false`.
+   - Enters the critical section.
+2. **P2 wants to enter critical section while P1 is inside**:
+   - Sets `wants2 = true`.
+   - Checks `wants1 == true` → `true`.
+   - Waits until `P1` finishes.
+3. **P1 exits critical section**:
+   - Sets `wants1 = false`.
+   - `P2` detects `wants1 == false` and enters the critical section.
+
+This demonstrates **mutual exclusion** but also highlights the possibility of **deadlock** and lack of **bounded waiting**.
+
+---
