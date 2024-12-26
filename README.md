@@ -3609,3 +3609,66 @@ Which of the following statements about this synchronization construct is **true
 This demonstrates **mutual exclusion** but also highlights the possibility of **deadlock** and lack of **bounded waiting**.
 
 ---
+
+### Process Synchronization Problem
+### Concurrent Processes and Shared Variable Problem
+
+#### Problem Description:
+Three concurrent processes, **P1**, **P2**, and **P3**, access a shared variable **D**, which is initialized to `100`. Each process modifies `D` as follows:
+![image](https://github.com/user-attachments/assets/a21f0044-5f7e-43eb-a331-7799d949466e)
+
+- **P1**: `D = D + 20`
+- **P2**: `D = D - 50`
+- **P3**: `D = D + 10`
+
+The processes are executed on a uniprocessor system that supports **time-sharing** (one process executes at a time). The problem asks to determine the difference (`Y - X`) between:
+- **X**: The minimum possible value of `D` after all processes complete.
+- **Y**: The maximum possible value of `D` after all processes complete.
+
+---
+
+### Key Concepts:
+In a time-shared system, the execution of processes can be interleaved in any order. The result depends on the sequence in which the processes are executed.
+
+#### Possible Execution Sequences:
+1. **Maximum Value of `D` (Y)**:  
+   To maximize `D`, we apply all increments first and then subtract:
+   - **Execution Order**: `P1 → P3 → P2`
+   - Calculation:
+     1. Initial `D = 100`
+     2. After `P1`: `D = 100 + 20 = 120`
+     3. After `P3`: `D = 120 + 10 = 130`
+     4. After `P2`: `D = 130 - 50 = 80`  
+   - **Result**: `Y = 130`
+
+2. **Minimum Value of `D` (X)**:  
+   To minimize `D`, we apply the subtraction first and then add increments:
+   - **Execution Order**: `P2 → P1 → P3`
+   - Calculation:
+     1. Initial `D = 100`
+     2. After `P2`: `D = 100 - 50 = 50`
+     3. After `P1`: `D = 50 + 20 = 70`
+     4. After `P3`: `D = 70 + 10 = 80`  
+   - **Result**: `X = 50`
+
+---
+
+### Final Answer:
+The value of `Y - X` is:
+Y - X = 130 - 50 = 80
+
+Correct Option: **(a) 80**
+
+---
+
+### Example for Better Understanding:
+#### Execution Order Example:
+1. **Order 1: P1 → P2 → P3**
+   - `D = 100 → 120 → 70 → 80`
+2. **Order 2: P3 → P2 → P1**
+   - `D = 100 → 110 → 60 → 80`
+
+This shows how different execution orders lead to varying results but always fall within the range of `X` and `Y`.
+
+---
+
