@@ -3672,3 +3672,43 @@ This shows how different execution orders lead to varying results but always fal
 
 ---
 
+
+
+### Process Synchronization: Counting Semaphore Example
+
+#### Problem:
+A counting semaphore is initialized to `10`. Then, **6 P (wait)** operations and **4 V (signal)** operations are performed on this semaphore. The goal is to find the resulting value of the semaphore.
+![Screenshot 2024-12-26 203051](https://github.com/user-attachments/assets/53a4b79b-6426-4c1b-b120-43888ea72a83)
+
+#### Solution:
+1. **Initial Value of the Semaphore**: `S = 10`
+2. Each **P (wait)** operation decreases the semaphore by `1`.
+3. Each **V (signal)** operation increases the semaphore by `1`.
+
+   - Performing 6 **P (wait)** operations:
+     `S = 10 - 6 = 4`
+   - Performing 4 **V (signal)** operations:
+     `S = 4 + 4 = 8`
+
+#### Final Value:
+The resulting value of the semaphore is **8**.
+
+---
+
+### Example:
+**Semaphores in Action**
+
+- Imagine a parking lot with 10 available spots (initial semaphore value = 10).
+- Each car that parks performs a **P (wait)** operation, reducing the available spots.
+- Each car that leaves performs a **V (signal)** operation, increasing the available spots.
+
+If:
+- 6 cars park (`P` operations: ( -6 )),
+- 4 cars leave (`V` operations: ( +4 )),
+
+The final count of available parking spots (semaphore value) will be:
+`10 - 6 + 4 = 8`
+
+---
+
+
