@@ -1,4 +1,4 @@
-# Operating-Systems
+# 🚀Operating-Systems
 In this repo, I'll try to talk about OS
 
 ![image](https://github.com/user-attachments/assets/0abb0ce4-5ba6-4dd0-b9b5-465e96979e8f)
@@ -40,7 +40,7 @@ Every important aspects of an Operating System will be taught in this course so 
 
 ---
 
-###  Introduction to OS
+###  📌Introduction to OS
 - An Operating System (OS) is a program that manages the computer hardware.
 - It also provides a basis for Application Programs and acts as an intermediary between computer User and compter Hardware.
 - Examples of widely used OS include Windows, Linux, Ubuntu, macOS, iOS, and Android. Let's take an overview of what an OS is, its functions, and its various types.
@@ -67,7 +67,7 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/75db71ad-a7a2-479c-95e5-a8a89bb40001)
 ---
 
-#### Basics of OS (Computer System Operation)
+#### 📌Basics of OS (Computer System Operation)
 ##### Some basic knowledge of the structure of Computer System is required to understand how Operating Systems work.
 - A modern general-purpose computer system consists of one or more CPUs and a number of device controllers connected through a common bus that provides access to shared memory.
 ![image](https://github.com/user-attachments/assets/6ae4eb11-5743-4dec-b600-f3d45b7f6cec)
@@ -113,7 +113,7 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/9124766b-8870-4f87-a303-766302c3e1f8)
 ---
 
-#### Basics of OS (Storage Structure)
+#### 📌Basics of OS (Storage Structure)
 ##### Understanding the Hierarchical Structure of Computer Storage Devices
 - The hierarchy of computer storage devices is critical for understanding their roles and functions.
 - At the top of this hierarchy are Registers, which are the smallest and fastest storage units, storing data in bits.
@@ -155,7 +155,7 @@ Every important aspects of an Operating System will be taught in this course so 
 
 ---
 
-#### Basics of OS (I/O Structure)
+#### 📌Basics of OS (I/O Structure)
 - Let's make the obscure concepts clear.
 - An I/O device is connected to the machine by I/O port. And the devices have their dedicated device controller.
 - Device controller is nothing but intermediate hardware between the machine, I/O device and OS. The OS sends instructions to the CPU to manipulate I/O devices.Then CPU sends signals to these devices via device controller (of course, not only CPU,  device controllers have registers inside too). 
@@ -179,7 +179,7 @@ Every important aspects of an Operating System will be taught in this course so 
 
 ---
 
-#### Computer System Architecture
+#### 📌Computer System Architecture
 ##### Understanding the Categories of Computer System Architectures
 - Computer systems can be categorized based on the number of general-purpose processors they utilize.
 - The main types include single processor systems, which rely on one CPU to execute tasks, and multiprocessor systems, which incorporate two or more CPUs to enhance performance. Additionally, clustered systems link multiple systems to work collaboratively on tasks, thus improving efficiency and processing power.
@@ -221,7 +221,7 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/f52b3527-1c57-486a-84ab-daaeb0e35f51)
 ---
 
-##### Clustered Systems
+##### 📌Clustered Systems
 - Clustered systems are designed by coupling two or more individual computer systems to work together on computational tasks, providing distinct advantages over traditional multiprocessor systems. Unlike multiprocessor systems, which consist solely of multiple processors within a single machine, clustered systems integrate entire systems, allowing for greater fault tolerance.
 - This design enhances high availability, as the failure of one system does not result in complete operational failure; the remaining systems can continue to handle the workload.
 - Additionally, clustered systems can be organized in either symmetric or asymmetric configurations, offering flexibility in architecture and resource management.
@@ -233,7 +233,7 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/23d9d312-e157-43f2-b652-e618dda31a3e)
 ---
 
-### Operating System Structure
+### 📌Operating System Structure
 #### Multiprogramming & Multitasking
 ##### Understanding the Structure of Operating Systems in Detail
 - This lecture focuses on the internal structure of operating systems, emphasizing the differences and commonalities among various types such as Windows and Ubuntu.
@@ -257,7 +257,7 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/8d72a93f-6c49-46a1-9342-ef6ad25f037f)
 ---
 
-#### Multitasking (Time-shared OS)
+#### 📌Multitasking (Time-shared OS)
 ##### Key Differences Between Multiprogramming and Time Sharing Systems
 - Time sharing, or multitasking, differs from multiprogramming by enabling user interaction with multiple jobs concurrently. While both systems execute multiple jobs, time sharing allows the CPU to switch rapidly among them, providing a seamless experience where users can engage with programs while they are running. This quick context switching facilitates direct communication between the user and the computer system, enhancing interactivity. In contrast, multiprogramming primarily focuses on resource utilization without offering real-time user engagement, making time sharing essential for interactive computing environments.
 ##### Understanding Time Sharing Systems and User Interaction
@@ -316,7 +316,7 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/fe037494-719d-4cf2-aae1-e749a2439d00)
 ---
 
-#### User Operating System Interface
+#### 📌User Operating System Interface
 ##### Understanding the User Operating System Interface Approaches
 - This key point explores the two fundamental approaches for user interaction with operating systems: the Command Line Interface (CLI) and the Graphical User Interface (GUI).
 - The CLI allows users to input commands directly, requiring them to remember specific syntax for tasks, while the GUI provides a more visual and intuitive way to interact with the system through graphical elements. Each approach has its own advantages and use cases, influencing user experience and efficiency.
@@ -329,7 +329,7 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/234b634b-3093-4005-86b1-1f7bb3cef973)
 ---
 
-#### System Calls
+#### 📌System Calls
 ##### Understanding the Role of System Calls in Operating Systems
 - System calls are essential interfaces that connect user applications to the services provided by the operating system.
 - They enable programs to request services such as file operations, process management, and communication.
@@ -383,7 +383,7 @@ Every important aspects of an Operating System will be taught in this course so 
 - Memory Management: These system calls are used to allocate and manage memory resources, including functions such as mmap(), malloc(), and brk().
 ---
 
-#### System Programs
+#### 📌System Programs
 ##### Understanding the Role and Importance of System Programs in Computing
 - System programs serve as a critical layer in the computing hierarchy, positioned directly above the operating system and below application programs.
 - They facilitate interaction between the user and the hardware, providing essential functionalities like file management, process control, and hardware access. Examples include command interpreters and system utilities, which enhance system efficiency and usability. By comprehending the structure and purpose of system programs, one can better appreciate their significance in modern computing environments.
@@ -417,7 +417,7 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/db8e0f6a-f358-49d4-87b5-a54bebaaaf17)
 ---
 
-#### Operating System Design & Implementation
+#### 📌Operating System Design & Implementation
 ##### Challenges in Defining Goals for Operating System Design
 - Designing an operating system involves overcoming the challenge of defining clear goals and specifications.
 - This complexity arises from the varied user needs and system requirements, which may not align with a single set of goals. Consequently, it becomes difficult to satisfy all requirements simultaneously.
@@ -455,7 +455,7 @@ Every important aspects of an Operating System will be taught in this course so 
 - The Linux operating system, in contrast, is written mostly in C and is available on a number of different CPUs, including Intel 80X86, Motorola 680X0, SPARC, and MIPS RXO00.
 ---
 
-#### Structures of Operating System
+#### 📌Structures of Operating System
 - There are 5 types of structures for operating system:
 
 ##### 1. Simple structure
@@ -510,7 +510,7 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/659568cc-c44c-46ce-8086-3e643f2d0bcd)
 ---
 
-#### Virtual Machines
+#### 📌Virtual Machines
 ##### Understanding the Concept and Functionality of Virtual Machines
 - The fundamental idea behind virtual machines is to abstract the hardware of a single computer, including components like the CPU, memory, and network interfaces, into multiple distinct execution environments.
 - This abstraction creates the illusion that each environment operates as its own private computer, enabling efficient resource utilization and isolation among various applications running simultaneously on the same physical hardware.
@@ -550,7 +550,7 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/4866bf93-fcd8-4658-a74a-0413ea7fbfd3)
 ---
 
-#### Operating System Generation & System Boot
+#### 📌Operating System Generation & System Boot
 ##### Operating System Generation
 ##### Two Approaches to Designing Operating Systems for Machines
 - There are two main approaches to designing operating systems:
@@ -649,7 +649,7 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/27e86e0b-201f-48bd-b085-e67045c5b8e6)
 ---
 
-#### Process Control Block
+#### 📌Process Control Block
 ##### Understanding the Essential Components of a Process Control Block
 - Process Control Block(PCB) is used to represent a process in the OS, also called a task control block.
 - Each process is represented in the OS by PCB.
@@ -675,7 +675,7 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/b88a8d82-e8f7-4003-ad21-72c8099c9eff)
 ---
 
-#### Process Scheduling
+#### 📌Process Scheduling
 - Objective of multiprogramming: To have multiple processes running simultaneously to maximize CPU utilization. This is important to ensure the CPU is always doing useful work.
 - Objective of time-sharing: Time-sharing systems switch the CPU between processes frequently, allowing users to interact with multiple programs efficiently while each is running.
 - How process scheduling works: The process scheduler selects an available process for execution from several available processes.
@@ -701,7 +701,7 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/3f1b1a8a-de62-432d-b3c0-1dea2646d030)
 ---
 
-#### Context Switch
+#### 📌Context Switch
 - Definition: Context switching occurs when an interrupt causes the operating system (OS) to stop the CPU's current task and switch to running a kernel routine. This is common in general-purpose systems.
 - When one process is suspended and another process is executed due to an interrupt, at that time the context is switched.
 ##### Process:
@@ -739,7 +739,7 @@ Every important aspects of an Operating System will be taught in this course so 
 
 ---
 
-##### Process Execution Scenarios:
+##### 📌Process Execution Scenarios:
 ###### Concurrency between Parent and Child:
 - The parent process can continue executing while the child process runs concurrently.
 - Example: If you run a background job in Unix/Linux (by appending &), the parent shell will continue to run while the child process (background job) executes.
@@ -781,7 +781,7 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/1acd5744-00d2-49c6-9e1c-79cdb443572c)
 ---
 
-#### Interprocess Communication
+#### 📌Interprocess Communication
 ##### Independent vs. Cooperating Processes:
 - Independent processes: These processes operate without affecting or being affected by other processes in the system. Each runs in isolation, meaning they don't share data with or depend on other processes.
 - Cooperating processes: These processes can be influenced by or can influence other processes. They work together by sharing data and resources, allowing for coordinated execution.
@@ -856,7 +856,7 @@ Every important aspects of an Operating System will be taught in this course so 
 ![image](https://github.com/user-attachments/assets/da9f3bc8-309a-4c19-8c35-159153ff2bba)
 ---
 
-##### Producer-Consumer Problem:
+##### 📌Producer-Consumer Problem:
 - Definition: A producer process generates data that is consumed by a consumer process. A common problem in concurrent programming is ensuring that the producer does not produce too much data for the consumer to handle and vice versa.
 
 ##### Shared Memory Solution: Shared memory allows the producer and consumer to access a common buffer, where:
@@ -2911,7 +2911,7 @@ The **Test-and-Set Lock (TSL)** is a hardware-level synchronization mechanism us
 
 
 
-### **Semaphores in Operating Systems**
+### 📌**Semaphores in Operating Systems**
 
 Semaphores, proposed by Edsger Dijkstra, are tools used for managing concurrent processes in a multiprocessing environment. They help solve critical section problems and achieve process synchronization. A semaphore is essentially a non-negative integer variable that is shared between threads and accessed using two atomic operations: **wait** and **signal**.
 ![Screenshot 2024-12-12 174859](https://github.com/user-attachments/assets/a7212ec5-65f8-405f-9292-51215dde58ba)
@@ -3011,7 +3011,7 @@ In this example, `mutex` ensures that only one process can execute the critical 
 
 
 
-### The Bounded Buffer Problem (Producer-Consumer Problem)
+### 📌The Bounded Buffer Problem (Producer-Consumer Problem)
 The **Bounded Buffer Problem** is a classic **synchronization problem** in Operating Systems. It describes two processes:  
 - **Producer**: Adds data into a shared buffer.  
 - **Consumer**: Removes data from the shared buffer.
@@ -3151,7 +3151,7 @@ Let’s assume:
 ---
 
 
-### **The Dining Philosophers Problem**
+### 📌**The Dining Philosophers Problem**
 The **Dining Philosophers Problem** is a classic synchronization issue in operating systems that illustrates the challenges of resource allocation among concurrent processes. Here's the breakdown:
 ![Screenshot 2024-12-19 211550](https://github.com/user-attachments/assets/e6b4544e-2edb-4e64-9dfb-98f0861dffdc)
 
@@ -3204,7 +3204,7 @@ This example and remedies make the problem more intuitive for operating systems 
 ---
 
 
-### **Monitors**
+### 📌**Monitors**
 - A **monitor** is a high-level synchronization construct that simplifies process synchronization and ensures mutual exclusion.
 - It provides a set of programmer-defined operations to manipulate shared variables safely.
 - Only one process can be active inside a monitor at a time, ensuring safety in concurrent environments.
@@ -3265,7 +3265,7 @@ This ensures mutual exclusion and proper synchronization between the producer an
 
 
 
-### **Dining Philosophers Problem:**
+### 📌**Dining Philosophers Problem:**
 The Dining Philosophers Problem is a classic synchronization problem that demonstrates deadlock, starvation, and concurrency issues. The solution using **monitors** provides a deadlock-free mechanism to manage philosopher states and ensure proper resource allocation.
 ![Uploading Screenshot 2024-12-22 160727.png…]()
 
@@ -3331,7 +3331,7 @@ The Dining Philosophers Problem is a classic synchronization problem that demons
 
 ---
 
-### Process Synchronization Problem (GATE 2010)
+### 📌Process Synchronization Problem (GATE 2010)
 
 The problem presented involves **two processes (P1 and P2)** that need to access their **critical sections** using shared boolean variables `S1` and `S2`. The challenge is to analyze the synchronization mechanism and determine the properties achieved.
 ![Screenshot 2024-12-23 163229](https://github.com/user-attachments/assets/01749f1e-5341-4a60-a9ee-61713a3d4e15)
@@ -3515,7 +3515,7 @@ release(S0);          // Signal S0
 
 ---
 
-### Process Synchronization Problem
+### 📌Process Synchronization Problem
 
 #### Problem Description:
 Two processes, P1 and P2, need to access a **critical section** of code. The synchronization construct is designed as follows:
@@ -3611,7 +3611,7 @@ This demonstrates **mutual exclusion** but also highlights the possibility of **
 ---
 
 ### Process Synchronization Problem
-### Concurrent Processes and Shared Variable Problem
+### 📌Concurrent Processes and Shared Variable Problem
 
 #### Problem Description:
 Three concurrent processes, **P1**, **P2**, and **P3**, access a shared variable **D**, which is initialized to `100`. Each process modifies `D` as follows:
@@ -3674,7 +3674,7 @@ This shows how different execution orders lead to varying results but always fal
 
 
 
-### Process Synchronization: Counting Semaphore Example
+### 📌Process Synchronization: Counting Semaphore Example
 
 #### Problem:
 A counting semaphore is initialized to `10`. Then, **6 P (wait)** operations and **4 V (signal)** operations are performed on this semaphore. The goal is to find the resulting value of the semaphore.
